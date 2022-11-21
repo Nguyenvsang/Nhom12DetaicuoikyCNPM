@@ -67,8 +67,11 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" data-widget="pushmenu"
                                             href="#" role="button"><i class="fas fa-bars"></i></a></li>
-                    <li class="nav-item d-none d-sm-inline-block"><a href="${pageContext.request.contextPath}/UserManual"
-                                                                     class="nav-link">Hướng dẫn sử dụng</a></li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="${pageContext.request.contextPath}/UserManual"
+                                                                     class="nav-link" style="font-weight: bold">WEB SITE ĐĂNG KÝ ĐỀ TÀI KHOA CÔNG NGHỆ THÔNG TIN</a></li>
+                    <a href="${pageContext.request.contextPath}/info"
+                       class="nav-link" style="display: flex;justify-content: flex-end">XIN CHÀO A</a>
                 </ul>
 
             </nav>
@@ -138,18 +141,18 @@
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Danh sách đề tài</p>
                                             </a></li>
-<!--                                        <li class="nav-item"><a
-                                                href="${pageContext.request.contextPath}/AddBook"
-                                            class="nav-link <c:if test="${sessionScope.Check.toString().equals('AddBook')}">active</c:if>">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Thông tin giảng viên</p>
-                                            </a></li>
-                                        <li class="nav-item"><a
-                                                href="${pageContext.request.contextPath}/ManageCategory"
-                                            class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageCategory')}">active</c:if>">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Thể loại</p>
-                                            </a></li>-->
+                                        <!--                                        <li class="nav-item"><a
+                                                                                        href="${pageContext.request.contextPath}/AddBook"
+                                                                                    class="nav-link <c:if test="${sessionScope.Check.toString().equals('AddBook')}">active</c:if>">
+                                                                                        <i class="far fa-circle nav-icon"></i>
+                                                                                        <p>Thông tin giảng viên</p>
+                                                                                    </a></li>
+                                                                                <li class="nav-item"><a
+                                                                                        href="${pageContext.request.contextPath}/ManageCategory"
+                                                                                    class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageCategory')}">active</c:if>">
+                                                                                        <i class="far fa-circle nav-icon"></i>
+                                                                                        <p>Thể loại</p>
+                                                                                    </a></li>-->
                                     </ul></li>
                                 <li
                                     class="nav-item has-treeview  <c:if test="${sessionScope.Check.toString().equals('ManageReader_0') || sessionScope.Check.toString().equals('AddReader') || sessionScope.Check.toString().equals('ManageReader_1')}">menu-open</c:if>"><a
@@ -174,12 +177,12 @@
                                                 <p>Thông tin sinh viên</p>
                                             </a></li>
 
-<!--                                        <li class="nav-item"><a
-                                                href="${pageContext.request.contextPath}/ManageReader?status=1"
-                                            class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageReader_1')}">active</c:if>">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Lịch sử mượn sách</p>
-                                            </a></li>-->
+                                        <!--                                        <li class="nav-item"><a
+                                                                                        href="${pageContext.request.contextPath}/ManageReader?status=1"
+                                                                                    class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageReader_1')}">active</c:if>">
+                                                                                        <i class="far fa-circle nav-icon"></i>
+                                                                                        <p>Lịch sử mượn sách</p>
+                                                                                    </a></li>-->
                                     </ul></li>
                                 <%
                                     if (request.getSession().getAttribute("User") != null) {
