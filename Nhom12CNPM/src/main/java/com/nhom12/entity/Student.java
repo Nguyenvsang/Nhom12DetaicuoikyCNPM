@@ -4,10 +4,18 @@
  */
 package com.nhom12.entity;
 
+import java.util.Date;
+
 /**
  *
  * @author nguye
  */
 public class Student {
-    
+    private String studentId;
+    private String citizenId;
+    private String name;
+    private String gender;
+    private Date dateOfbirth;
+    private String email;
+    private String phoneNumber;
 }
