@@ -37,10 +37,18 @@
                         <div class="row justify-content-center">
                             <div style="margin-top: 20px; color: red;">${errorString}</div>
                         </div>
+                        <label style="margin-left: 20px">Bộ môn</label>
+                        <select name="catid" style="margin-bottom: 20px;margin-left: 20px;width: 20%">
+                            <c:forEach items="${categorylist}" var="c">
+                                <option value="${c.id}">${c.name}</option>
+                            </c:forEach>
+                        </select>
                         <!-- /.card-header -->
                         <div class="card-body" >
+
+
                             <div class="card-header" style="margin-left: -20px; margin-top: -40px;">
-                                <input type="button" value="Thêm sách"
+                                <input type="button" value="Đăng ký đề tài"
                                        class="btn btn-primary"
                                        onclick="location.href = '${pageContext.request.contextPath}/AddBook'">
                             </div>
@@ -48,8 +56,9 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">STT</th>
-                                        <th style="width: 70%;">Tên đề tài</th>
-                                        <th>Giảng viên hướng dẫn</th>
+                                        <th style="width: 55%;">Tên đề tài</th>
+                                        <th style="width: 25%;">Giảng viên hướng dẫn</th>
+                                        <th>Xem</th>
                                     </tr>
                                 </thead>
                                 <tbody>

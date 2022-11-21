@@ -48,20 +48,21 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 10%">STT</th>
-                                        <th style="width: 90%;">Loại đề tài</th>
+                                        <th style="width: 70%;">Loại đề tài</th>
+                                        <th style="width: 20%;">Xem</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${bookList}" var="book" varStatus="loop">
                                         <tr>
-                                            <td>${loop.index+1}</td>
+                                            <td style="text-align: center;">${book.getAmount()}</td>
                                             <td>${book.getName()}</td>
                                             <td>${book.getCategory().getName()}</td>
-                                            <td style="text-align: center;">${book.getAmount()}</td>
-                                            <td>${book.getDay()}</td>
-                                            <td style="text-align: center;"><img
-                                                    src="Resources/img/products/${book.getImage()}" width="35"
-                                                    height="50">
+                                            <td>                                                            
+                                                <a href="<c:url value='/product/detail?id=${cat.id}'/>"
+                                                   class="center">Danh sách</a>
+                                            </td>
+
                                     <figcaption>
                                         <a href="Resources/img/products/${book.getImage()}"
                                            style="font-size: 14px;" target="_blank">Xem chi tiết</a>
