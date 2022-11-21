@@ -8,9 +8,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 import Model.BO.CategoryBO;
 import Model.BO.ReaderBO;
@@ -26,7 +26,7 @@ public class BookDAO {
 
 	public Book findBook(String id) throws SQLException, ClassNotFoundException {
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		String sql = "Select * from Book where id=?";
 
 		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
@@ -63,7 +63,7 @@ public class BookDAO {
 
 	public int insertBook(Book book) throws SQLException, ClassNotFoundException {
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		try {
 			st = (Statement) conn.createStatement();
 		} catch (Exception e) {
@@ -83,7 +83,7 @@ public class BookDAO {
 
 	public ArrayList<Book> getAllBook() throws ClassNotFoundException, SQLException {
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		ArrayList<Book> list = new ArrayList<Book>();
 		String sql = "Select * from Book ORDER BY create_day DESC";
 		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
@@ -118,7 +118,7 @@ public class BookDAO {
 	}
 	public ArrayList<Book> getSearchBook(String name_search) throws ClassNotFoundException, SQLException {
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		System.out.println("Day"+name_search);
 		ArrayList<Book> list = new ArrayList<Book>();
 		String sql = "Select * from Book where name like '%"+name_search+"%';";
@@ -159,7 +159,7 @@ public class BookDAO {
 		
 		int result = 0;
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		String sql = "Update Book set name =?,category_id =?,amount =?,image =?  where id=? ";
 		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
 		
@@ -174,7 +174,7 @@ public class BookDAO {
 	public int deleteAllBook() throws ClassNotFoundException, SQLException {
 		int result = 0;
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		readerBO.deleteAllReader();
 		String sql = "Delete From Book";
 		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
@@ -184,7 +184,7 @@ public class BookDAO {
 	public int deleteBook(String id) throws ClassNotFoundException, SQLException {
 		int result = 0;
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 
 		readerBO.deleteBookReader(id);
 		String sql = "Delete From Book where id= ?";
@@ -196,7 +196,7 @@ public class BookDAO {
 	public int deleteBookCategory(String category_id) throws ClassNotFoundException, SQLException {
 		int result = 0;
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		readerBO.deleteBookReaderCategory(category_id);
 //		String sql = "DELETE  Reader, Book FROM Reader INNER JOIN Book ON Reader.book_id = Book.id WHERE Book.category_id=?;";
 		String sql = "Delete From Book where category_id= ?";

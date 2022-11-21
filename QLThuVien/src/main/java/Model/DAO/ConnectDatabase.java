@@ -3,7 +3,7 @@ package Model.DAO;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 
 public class ConnectDatabase {
 	
@@ -18,7 +18,7 @@ public class ConnectDatabase {
 		Connection conn = (Connection) DriverManager.getConnection(dbURL, username, password);
 		if (conn != null) {
 			System.out.println("Kết nối thành công");
-			conn.setCharacterEncoding("utf-8");
+			//conn.setCharacterEncoding("utf-8"); chua biet sua
 			return conn;
 		}
 		return null;

@@ -5,9 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 import Model.BO.BookBO;
 import Model.Bean.Category;
@@ -19,7 +19,7 @@ public class CategoryDAO {
 
 	public Category findCategory(String id) throws SQLException, ClassNotFoundException {
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		String sql = "Select * from Category where id=?";
 
 		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
@@ -38,7 +38,7 @@ public class CategoryDAO {
 
 	public int insertCategory(Category category) throws SQLException, ClassNotFoundException {
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		try {
 			st = (Statement) conn.createStatement();
 		} catch (Exception e) {
@@ -54,7 +54,7 @@ public class CategoryDAO {
 
 	public ArrayList<Category> getAllCategory() throws ClassNotFoundException, SQLException {
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		ArrayList<Category> list = new ArrayList<Category>();
 		String sql = "Select * from Category";
 		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
@@ -73,7 +73,7 @@ public class CategoryDAO {
 	public int updateCategory(Category category) throws SQLException, ClassNotFoundException {
 		int result = 0;
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		String sql = "Update Category set Name =? where id=? ";
 		PreparedStatement pstm = (PreparedStatement) conn.prepareStatement(sql);
 
@@ -86,7 +86,7 @@ public class CategoryDAO {
 	public int deleteCategory(String id) throws ClassNotFoundException, SQLException {
 		int result = 0;
 		if (conn == null)
-			conn = ConnectDatabase.getMySQLConnection();
+			conn = (Connection) ConnectDatabase.getMySQLConnection();
 		BookBO bookBO = new BookBO();
 		bookBO.deleteBookCategory(id);
 		String sql = "Delete From Category where id= ?";
