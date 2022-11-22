@@ -36,92 +36,79 @@
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form role="form" method="post"
-                              action="${pageContext.request.contextPath}/AddBook"
-                              enctype="multipart/form-data">
-
+                              action="${pageContext.request.contextPath}/registertopic">
                             <div class="card-body">
                                 <div class="form-group">
+                                    <label>ID</label> <input type="text"
+                                                             class="form-control" id="topicID" name="topicID"
+                                                             placeholder="Nhập tên đề tài">
+                                </div>
+                                <div class="form-group">
                                     <label>Tên đề tài</label> <input type="text"
-                                                                     class="form-control" id="name" name="name"
+                                                                     class="form-control" id="topicName" name="topicName"
                                                                      placeholder="Nhập tên đề tài">
                                 </div>
                                 <div class="form-group">
                                     <label>Mục tiêu</label> <input type="text"
-                                                                   class="form-control" id="name" name="name"
+                                                                   class="form-control" id="topicRequire" name="topicRequire"
                                                                    placeholder="Nhập mục tiêu">
                                 </div>
                                 <div class="form-group">
                                     <label>Yêu cầu</label> <input type="text"
-                                                                  class="form-control" id="name" name="name"
+                                                                  class="form-control" id="topicGoal" name="topicGoal"
                                                                   placeholder="Nhập yêu cầu">
                                 </div>
                                 <div class="form-group">
-                                    <label>Sản phẩm</label> <input type="text"
-                                                                   class="form-control" id="name" name="name"
-                                                                   placeholder="Nhập sản phẩm">
+                                    <label>Năm học</label> <input type="text"
+                                                                  class="form-control" id="schoolYear" name="schoolYear"
+                                                                  placeholder="Nhập năm học">
                                 </div>
                                 <div class="form-group">
-                                    <label>Loại đề tài</label> <select name="category" id="category"
-                                                                       class="form-control" required>
+                                    <label>Loại đề tài</label> 
+                                    <select name="typeID" id="typeID"
+                                            class="form-control" required>
                                         <!-- <option value="">Chọn 1 thể loại</option> -->
-                                        <c:forEach items="${categoryList}" var="category">
-                                            <option value="${Integer.toString(category.getId())}">${category.getName()}</option>
+                                        <c:forEach items="${topictype}" var="tt">
+                                            <option value="${tt.typeID}">${tt.typeName}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Bộ môn</label> <select name="category" id="category"
-                                                                  class="form-control" required>
+                                    <label>Bộ môn</label> 
+                                    <select name="subjectID" id="subjectID"
+                                            class="form-control" required>
                                         <!-- <option value="">Chọn 1 thể loại</option> -->
-                                        <c:forEach items="${categoryList}" var="category">
-                                            <option value="${Integer.toString(category.getId())}">${category.getName()}</option>
+                                        <c:forEach items="${subject}" var="sub">
+                                            <option value="${sub.subjectID}">${sub.subjectName}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
-                                <!--								<div class="form-group">
-                                                                                                        <label>Số lượng</label> <input type="number"
-                                                                                                                class="form-control" id="count" name="count" min="1" value="1">
-                                                                                                </div>-->
-                                <!--                                <div class="form-group">
-                                                                    <label for="exampleInputFile">Thêm ảnh bìa</label>
-                                                                    <div class="input-group">
-                                                                        <div class="custom-file">
-                                                                            <input type="file" accept="image/png, image/jpeg"
-                                                                                   class="custom-file-input" id="customFile" name="fileImage"
-                                                                                   required> <label class="custom-file-label"
-                                                                                   for="customFile" style="color: #a6b0ba;">Nhấn đây để chọn file</label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>-->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary ">Lưu</button>
                                     <input type="button" value="Trở lại" class="btn btn-primary"
-                                           onclick="location.href = '${pageContext.request.contextPath}/ManageBook'">
+                                           onclick="location.href = '${pageContext.request.contextPath}/topicregister'">
                                 </div>
+                            </div>
                         </form>
                     </div>
-
-
+                    <!-- /.row -->
                 </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-    <%@ include file="footer.jsp"%>
-    <!-- jQuery -->
-    <script src="./Resources/plugins/jquery/jquery.min.js"></script>
+                <!-- /.container-fluid -->
+                </section>
+                <!-- /.content -->
+                <%@ include file="footer.jsp"%>
+                <!-- jQuery -->
+                <script src="./Resources/plugins/jquery/jquery.min.js"></script>
 
-    <script
-    src="./Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="./Resources/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="./Resources/js/demo.js"></script>
-    <script type="text/javascript">
-                                           $(document).ready(function () {
-                                               bsCustomFileInput.init();
-                                           });
-    </script>
-    <!-- /.card -->
+                <script
+                src="./Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+                <!-- AdminLTE App -->
+                <script src="./Resources/js/adminlte.min.js"></script>
+                <!-- AdminLTE for demo purposes -->
+                <script src="./Resources/js/demo.js"></script>
+                <script type="text/javascript">
+                                               $(document).ready(function () {
+                                                   bsCustomFileInput.init();
+                                               });
+                </script>
+                <!-- /.card -->
