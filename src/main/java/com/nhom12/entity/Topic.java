@@ -14,20 +14,20 @@ public class Topic {
     private String topicRequire;
     private String topicGoal;
     private int year;
-    private TypeOfTopic type;
-    private Subject subject;
+    private String typeID;
+    private String subjectID;
 
     public Topic() {
     }
 
-    public Topic(String topicID, String topicName, String topicRequire, String topicGoal, int year, TypeOfTopic type, Subject subject) {
+    public Topic(String topicID, String topicName, String topicRequire, String topicGoal, int year, String typeID, String subjectID) {
         this.topicID = topicID;
         this.topicName = topicName;
         this.topicRequire = topicRequire;
         this.topicGoal = topicGoal;
         this.year = year;
-        this.type = type;
-        this.subject = subject;
+        this.typeID = typeID;
+        this.subjectID = subjectID;
     }
 
     public String getTopicID() {
@@ -70,23 +70,21 @@ public class Topic {
         this.year = year;
     }
 
-    public TypeOfTopic getType() {
-        return type;
+    public String getTypeID() {
+        return typeID;
     }
 
-    public void setType(TypeOfTopic type) {
-        this.type = type;
+    public void setTypeID(String typeID) {
+        this.typeID = typeID;
     }
 
-    public Subject getSubject() {
-        return subject;
+    public String getSubjectID() {
+        return subjectID;
     }
 
-    public void setSubject(Subject subject) {
-        this.subject = subject;
+    public void setSubjectID(String subjectID) {
+        this.subjectID = subjectID;
     }
 
-    
-    
     
 }
