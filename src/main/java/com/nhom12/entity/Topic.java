@@ -13,7 +13,7 @@ public class Topic {
     private String topicName;
     private String topicRequire;
     private String topicGoal;
-    private int year;
+    private int schoolYear;
     private String typeID;
     private String subjectID;
 
@@ -25,7 +25,7 @@ public class Topic {
         this.topicName = topicName;
         this.topicRequire = topicRequire;
         this.topicGoal = topicGoal;
-        this.year = year;
+        this.schoolYear = year;
         this.typeID = typeID;
         this.subjectID = subjectID;
     }
@@ -62,12 +62,12 @@ public class Topic {
         this.topicGoal = topicGoal;
     }
 
-    public int getYear() {
-        return year;
+    public int getSchoolYear() {
+        return schoolYear;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setSchoolYear(int schoolYear) {
+        this.schoolYear = schoolYear;
     }
 
     public String getTypeID() {
