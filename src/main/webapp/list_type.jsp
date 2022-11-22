@@ -16,7 +16,7 @@
                         <form role="form" method="post"
                               action="${pageContext.request.contextPath}/SearchBook">
                             <div class="card-header">
-                                <h3 class="card-title">Danh sách đề tài</h3>
+                                <h3 class="card-title">Danh sách loại đề tài</h3>
 
                                 <div class="card-tools" style="margin-right: 1px;">
                                     <div class="input-group input-group-sm" style="width: 200px;">
@@ -40,7 +40,7 @@
                         <!-- /.card-header -->
                         <div class="card-body" >
                             <div class="card-header" style="margin-left: -20px; margin-top: -40px;">
-                                <input type="button" value="Thêm sách"
+                                <input type="button" value="Thêm loại đề tài"
                                        class="btn btn-primary"
                                        onclick="location.href = '${pageContext.request.contextPath}/AddBook'">
                             </div>
