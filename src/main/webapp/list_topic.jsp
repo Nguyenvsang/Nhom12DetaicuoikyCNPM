@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
+<jsp:useBean id="t" class="com.nhom12.dao.TopicDAOImpl" scope="request"/>
 <!-- Main content -->
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -56,22 +57,31 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">STT</th>
-                                        <th style="width: 55%;">Tên đề tài</th>
-                                        <th style="width: 25%;">Giảng viên hướng dẫn</th>
-                                        <th>Xem</th>
+                                        <th style="width: 30%;">Tên đề tài</th>                                                                                                                         
+                                        <th style="width: 10%;">Giảng viên hướng dẫn</th>
+                                        <th style="width: 25%;">Yêu cầu</th>
+                                        <th style="width: 25%;">Mục tiêu</th>
+                                        <th style="width: 10px;">Năm học</th>
+                                        <th style="width: 10px;">Mã loại đề tài</th>
+                                        <th style="width: 10px;">Mã môn học</th>
+                                        <th>Xem</th>                                      
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${bookList}" var="book" varStatus="loop">
+                                    <c:forEach items="${t.allTopics}" var="i" >
                                         <tr>
-                                            <td>${loop.index+1}</td>
-                                            <td>${book.getName()}</td>
-                                            <td>${book.getCategory().getName()}</td>
-                                            <td style="text-align: center;">${book.getAmount()}</td>
-                                            <td>${book.getDay()}</td>
-                                            <td style="text-align: center;"><img
-                                                    src="Resources/img/products/${book.getImage()}" width="35"
-                                                    height="50">
+                                            <td>${i.topicID}</td>>
+                                            <td>${i.topicName}</td>>
+                                            <td> </td>>                                            
+                                            <td>${i.topicRequire}</td>>
+                                            <td>${i.topicGoal}</td>>
+                                            <td>${i.schoolYear}</td>>
+                                            <td>${i.typeID}</td>>
+                                            <td>${i.subjectID}</td>>
+                                            <td> </td>>                                            
+                                            
+                                                                                                                                 
+                                            
                                     <figcaption>
                                         <a href="Resources/img/products/${book.getImage()}"
                                            style="font-size: 14px;" target="_blank">Xem chi tiết</a>
