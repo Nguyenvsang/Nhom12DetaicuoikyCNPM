@@ -9,22 +9,22 @@ package com.nhom12.entity;
  * @author nguye
  */
 public class TypeOfTopic {
-    private String typeID;
+    private int typeID;
     private String typeName;
 
     public TypeOfTopic() {
     }
 
-    public TypeOfTopic(String typeID, String typeName) {
+    public TypeOfTopic(int typeID, String typeName) {
         this.typeID = typeID;
         this.typeName = typeName;
     }
 
-    public String getTypeID() {
+    public int getTypeID() {
         return typeID;
     }
 
-    public void setTypeID(String typeID) {
+    public void setTypeID(int typeID) {
         this.typeID = typeID;
     }
 

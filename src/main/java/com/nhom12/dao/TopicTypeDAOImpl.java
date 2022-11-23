@@ -34,7 +34,7 @@ public class TopicTypeDAOImpl implements TopicTypeDAO{
             rs = ps.executeQuery();
             while (rs.next()) {
                 topictype.add(new TypeOfTopic(
-                        rs.getString(1),
+                        rs.getInt(1),
                         rs.getString(2)));
             }
         } catch (Exception e) {

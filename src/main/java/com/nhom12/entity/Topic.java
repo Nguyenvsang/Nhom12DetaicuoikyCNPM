@@ -9,18 +9,18 @@ package com.nhom12.entity;
  * @author nguye
  */
 public class Topic {
-    private String topicID;
+    private int topicID;
     private String topicName;
     private String topicRequire;
     private String topicGoal;
     private int schoolYear;
-    private String typeID;
-    private String subjectID;
+    private int typeID;
+    private int subjectID;
 
     public Topic() {
     }
 
-    public Topic(String topicID, String topicName, String topicRequire, String topicGoal, int year, String typeID, String subjectID) {
+    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int year, int typeID, int subjectID) {
         this.topicID = topicID;
         this.topicName = topicName;
         this.topicRequire = topicRequire;
@@ -30,11 +30,11 @@ public class Topic {
         this.subjectID = subjectID;
     }
 
-    public String getTopicID() {
+    public int getTopicID() {
         return topicID;
     }
 
-    public void setTopicID(String topicID) {
+    public void setTopicID(int topicID) {
         this.topicID = topicID;
     }
 
@@ -70,19 +70,19 @@ public class Topic {
         this.schoolYear = schoolYear;
     }
 
-    public String getTypeID() {
+    public int getTypeID() {
         return typeID;
     }
 
-    public void setTypeID(String typeID) {
+    public void setTypeID(int typeID) {
         this.typeID = typeID;
     }
 
-    public String getSubjectID() {
+    public int getSubjectID() {
         return subjectID;
     }
 
-    public void setSubjectID(String subjectID) {
+    public void setSubjectID(int subjectID) {
         this.subjectID = subjectID;
     }
 
