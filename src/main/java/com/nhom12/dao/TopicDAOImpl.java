@@ -56,8 +56,8 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getInt(5),
-                        rs.getString(6),
-                        rs.getString(7));
+                        rs.getInt(6),
+                        rs.getInt(7));
             }
         } catch (Exception e) {
         }
