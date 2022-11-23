@@ -42,8 +42,8 @@ public class TopicRegisterServlet extends HttpServlet {
         String topicRequire = request.getParameter("topicRequire");
         String topicGoal = request.getParameter("topicGoal");
         int schoolYear = Integer.parseInt(request.getParameter("schoolYear"));
-        String typeID = request.getParameter("typeID");
-        String subjectID = request.getParameter("subjectID");
+        int typeID = Integer.parseInt(request.getParameter("typeID"));
+        int subjectID = Integer.parseInt(request.getParameter("subjectID"));
         
         dao.addTopic(topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID);
         

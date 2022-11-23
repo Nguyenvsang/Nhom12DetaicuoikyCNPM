@@ -65,7 +65,7 @@ public class TopicDAOImpl implements TopicDAO {
     }
 
     @Override
-    public void addTopic(String topicName, String topicRequire, String topicGoal, int schoolYear, String typeID, String subjectID) {
+    public void addTopic(String topicName, String topicRequire, String topicGoal, int schoolYear, int typeID, int subjectID) {
         String query = "INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
@@ -74,8 +74,8 @@ public class TopicDAOImpl implements TopicDAO {
             ps.setString(2, topicRequire);
             ps.setString(3, topicGoal);
             ps.setInt(4, schoolYear);
-            ps.setString(5, typeID);
-            ps.setString(6, subjectID);
+            ps.setInt(5, typeID);
+            ps.setInt(6, subjectID);
             ps.executeUpdate();
         } catch (Exception e) {
             {
@@ -84,7 +84,7 @@ public class TopicDAOImpl implements TopicDAO {
     }
 
     @Override
-    public void editTopic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, String typeID, String subjectID) {
+    public void editTopic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, int typeID, int subjectID) {
         String query = "UPDATE Topic "
                 + "SET topicName = ?, topicRequire = ?, topicGoal = ?, schoolYear = ?, typeID = ?, subjectID = ?"
                 + "WHERE topicID = ?";
@@ -95,8 +95,8 @@ public class TopicDAOImpl implements TopicDAO {
             ps.setString(2, topicRequire);
             ps.setString(3, topicGoal);
             ps.setInt(4, schoolYear);
-            ps.setString(5, typeID);
-            ps.setString(6, subjectID);
+            ps.setInt(5, typeID);
+            ps.setInt(6, subjectID);
             ps.setInt(7, topicID);
             ps.executeUpdate();
         } catch (Exception e) {
@@ -107,6 +107,6 @@ public class TopicDAOImpl implements TopicDAO {
 
     public static void main(String[] args) {
         TopicDAOImpl dao = new TopicDAOImpl();
-        dao.addTopic("Điện thông minh", "2 sinh viên", "Công tắc", 2019, "TO001", "SU001");
+        dao.addTopic("Điện thông minh", "2 sinh viên", "Công tắc", 2019, 1, 1);
     }
 }
