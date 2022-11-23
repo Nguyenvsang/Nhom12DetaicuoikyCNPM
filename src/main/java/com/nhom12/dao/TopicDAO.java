@@ -13,8 +13,12 @@ import java.util.List;
  */
 public interface TopicDAO {
 
-    void addTopic(String topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, String typeID, String subjectID);
-
     List<Topic> getAllTopics();
+
+    void addTopic(String topicName, String topicRequire, String topicGoal, int schoolYear, String typeID, String subjectID);
+
+    void editTopic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, String typeID, String subjectID);
+
+    Topic findTopicByID(int topicID);
     
 }

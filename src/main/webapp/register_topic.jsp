@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
 <!-- Main content -->
 <!-- Content Wrapper. Contains page content -->
@@ -31,18 +30,12 @@
                         </div>
                         <div class="row justify-content-center"
                              style="margin-top: 15px; margin-bottom: -15px;">
-                            <div style="color: red;">${errorString}</div>
+                            <!--<div style="color: red;">${errorString}</div>-->
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" method="post"
-                              action="${pageContext.request.contextPath}/registertopic">
+                        <form role="form" method="post" action="${pageContext.request.contextPath}/topicregister">
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label>ID</label> <input type="text"
-                                                             class="form-control" id="topicID" name="topicID"
-                                                             placeholder="Nhập tên đề tài">
-                                </div>
                                 <div class="form-group">
                                     <label>Tên đề tài</label> <input type="text"
                                                                      class="form-control" id="topicName" name="topicName"
@@ -67,7 +60,7 @@
                                     <label>Loại đề tài</label> 
                                     <select name="typeID" id="typeID"
                                             class="form-control" required>
-                                        <!-- <option value="">Chọn 1 thể loại</option> -->
+                                         <option value="">Chọn 1 thể loại</option> 
                                         <c:forEach items="${topictype}" var="tt">
                                             <option value="${tt.typeID}">${tt.typeName}</option>
                                         </c:forEach>
@@ -77,7 +70,7 @@
                                     <label>Bộ môn</label> 
                                     <select name="subjectID" id="subjectID"
                                             class="form-control" required>
-                                        <!-- <option value="">Chọn 1 thể loại</option> -->
+                                         <option value="">Chọn 1 thể loại</option> 
                                         <c:forEach items="${subject}" var="sub">
                                             <option value="${sub.subjectID}">${sub.subjectName}</option>
                                         </c:forEach>
@@ -86,7 +79,7 @@
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary ">Lưu</button>
                                     <input type="button" value="Trở lại" class="btn btn-primary"
-                                           onclick="location.href = '${pageContext.request.contextPath}/topicregister'">
+                                           onclick="location.href = 'topicregister'">
                                 </div>
                             </div>
                         </form>

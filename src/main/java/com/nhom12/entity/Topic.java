@@ -9,7 +9,7 @@ package com.nhom12.entity;
  * @author nguye
  */
 public class Topic {
-    private String topicID;
+    private int topicID;
     private String topicName;
     private String topicRequire;
     private String topicGoal;
@@ -20,7 +20,7 @@ public class Topic {
     public Topic() {
     }
 
-    public Topic(String topicID, String topicName, String topicRequire, String topicGoal, int year, String typeID, String subjectID) {
+    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int year, String typeID, String subjectID) {
         this.topicID = topicID;
         this.topicName = topicName;
         this.topicRequire = topicRequire;
@@ -30,11 +30,11 @@ public class Topic {
         this.subjectID = subjectID;
     }
 
-    public String getTopicID() {
+    public int getTopicID() {
         return topicID;
     }
 
-    public void setTopicID(String topicID) {
+    public void setTopicID(int topicID) {
         this.topicID = topicID;
     }
 
