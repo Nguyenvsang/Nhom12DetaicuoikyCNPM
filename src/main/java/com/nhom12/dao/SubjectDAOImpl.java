@@ -27,7 +27,7 @@ public class SubjectDAOImpl implements SubjectDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 subject.add(new Subject(
-                        rs.getString(1),
+                        rs.getInt(1),
                         rs.getString(2)));
             }
         } catch (Exception e) {

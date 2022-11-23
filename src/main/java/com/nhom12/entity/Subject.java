@@ -9,22 +9,22 @@ package com.nhom12.entity;
  * @author nguye
  */
 public class Subject {
-    private String subjectID;
+    private int subjectID;
     private String subjectName;
 
     public Subject() {
     }
 
-    public Subject(String subjectID, String subjectName) {
+    public Subject(int subjectID, String subjectName) {
         this.subjectID = subjectID;
         this.subjectName = subjectName;
     }
 
-    public String getSubjectID() {
+    public int getSubjectID() {
         return subjectID;
     }
 
-    public void setSubjectID(String subjectID) {
+    public void setSubjectID(int subjectID) {
         this.subjectID = subjectID;
     }
 

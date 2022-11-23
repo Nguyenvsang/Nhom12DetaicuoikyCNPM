@@ -11,7 +11,7 @@ import java.util.Date;
  * @author nguye
  */
 public class Lecturers extends User {
-    private String lecturerID;
+    private int lecturerID;
     private String lecturerName;
     private String citizenID;
     private String gender;
@@ -23,7 +23,7 @@ public class Lecturers extends User {
     public Lecturers() {
     }
 
-    public Lecturers(String lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification) {
+    public Lecturers(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification) {
         this.lecturerID = lecturerID;
         this.lecturerName = lecturername;
         this.citizenID = citizenID;
@@ -34,7 +34,7 @@ public class Lecturers extends User {
         this.professionalQualification = professionalQualification;
     }
 
-    public Lecturers(String lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, String username, String password) {
+    public Lecturers(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, String username, String password) {
         super(username, password);
         this.lecturerID = lecturerID;
         this.lecturerName = lecturername;
@@ -46,11 +46,11 @@ public class Lecturers extends User {
         this.professionalQualification = professionalQualification;
     }
 
-    public String getLecturerID() {
+    public int getLecturerID() {
         return lecturerID;
     }
 
-    public void setLecturerID(String lecturerID) {
+    public void setLecturerID(int lecturerID) {
         this.lecturerID = lecturerID;
     }
 
