@@ -4,6 +4,7 @@
 <%@ include file="header.jsp"%>
 <!-- Main content -->
 <!-- Content Wrapper. Contains page content -->
+<jsp:useBean id="t" class="com.nhom12.dao.TopicTypeDAOImpl" scope="request"/>
 <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
@@ -53,10 +54,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${bookList}" var="book" varStatus="loop">
+                                    <c:forEach items="${t.allTypeOfTopics}" var="i" varStatus="loop">
                                         <tr>
-                                            <td style="text-align: center;">${book.getAmount()}</td>
-                                            <td>${book.getName()}</td>
+                                            <td style="text-align: center;">${i.typeID}</td>
+                                            <td>${i.typeName}</td>
                                             <td>${book.getCategory().getName()}</td>
                                             <td>                                                            
                                                 <a href="<c:url value='/product/detail?id=${cat.id}'/>"

@@ -2,9 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
-<jsp:useBean id="t" class="com.nhom12.dao.TopicDAOImpl" scope="request"/>
 <!-- Main content -->
 <!-- Content Wrapper. Contains page content -->
+<jsp:useBean id="t" class="com.nhom12.dao.TopicDAOImpl" scope="request"/>
+
 <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
@@ -33,7 +34,7 @@
                                     </div>
                                 </div>
 
-                            </div>
+                           </div>
                         </form>
                         <div class="row justify-content-center">
                             <div style="margin-top: 20px; color: red;">${errorString}</div>
@@ -64,7 +65,7 @@
                                         <th style="width: 10px;">Năm học</th>
                                         <th style="width: 10px;">Mã loại đề tài</th>
                                         <th style="width: 10px;">Mã môn học</th>
-                                        <th>Xem</th>                                      
+                                        <th style="width: 20%;">Xem</th>
                                     </tr>
                                 </thead>
                                 <tbody>
