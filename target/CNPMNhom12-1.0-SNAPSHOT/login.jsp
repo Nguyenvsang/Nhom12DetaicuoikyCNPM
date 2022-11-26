@@ -31,7 +31,7 @@
 						<!-- /.card-header -->
 						<!-- form start -->
 						<form role="form"
-							action="${pageContext.request.contextPath}/Login" method="post">
+							action="lecturerLoginServlet" method="post">
 							<div class="row justify-content-center card-body"
 								style="margin-bottom: -34px;">
 								<div style="color: red;">${errorString}</div>
