@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author nguye
  */
-public class Lecturers extends User {
+public class Lecturer extends User {
     private int lecturerID;
     private String lecturerName;
     private String citizenID;
@@ -20,10 +20,10 @@ public class Lecturers extends User {
     private String phoneNumber;
     private String professionalQualification;
 
-    public Lecturers() {
+    public Lecturer() {
     }
 
-    public Lecturers(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification) {
+    public Lecturer(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification) {
         this.lecturerID = lecturerID;
         this.lecturerName = lecturername;
         this.citizenID = citizenID;
@@ -34,7 +34,7 @@ public class Lecturers extends User {
         this.professionalQualification = professionalQualification;
     }
 
-    public Lecturers(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, String username, String password) {
+    public Lecturer(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, String username, String password) {
         super(username, password);
         this.lecturerID = lecturerID;
         this.lecturerName = lecturername;
