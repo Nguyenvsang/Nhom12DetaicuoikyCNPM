@@ -24,7 +24,7 @@ public class LecturerDAOImpl implements LecturerDAO {
     ResultSet rs = null;
     
     @Override
-    public Lecturer LecturerDangNhap(String username, String password) {
+    public Lecturer LecturerLogin(String username, String password) {
         String query = "SELECT * FROM Lecturer WHERE username = ? and password = ?";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
@@ -51,7 +51,7 @@ public class LecturerDAOImpl implements LecturerDAO {
     }
     public static void main(String[] args) {
         LecturerDAOImpl dao = new LecturerDAOImpl();
-        Lecturer l = dao.LecturerDangNhap("nguyenthihong", "hong@111");
+        Lecturer l = dao.LecturerLogin("nguyenthihong", "hong@111");
         System.out.println(l.getLecturerName());
     }    
 }

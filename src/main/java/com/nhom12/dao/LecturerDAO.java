@@ -11,5 +11,5 @@ import com.nhom12.entity.Lecturer;
  * @author ASUS
  */
 public interface LecturerDAO {
-    Lecturer LecturerDangNhap(String username, String password);
+    Lecturer LecturerLogin(String username, String password);
 }
