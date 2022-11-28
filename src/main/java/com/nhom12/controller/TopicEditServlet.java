@@ -49,8 +49,9 @@ public class TopicEditServlet extends HttpServlet {
         int schoolYear = Integer.parseInt(request.getParameter("schoolYear"));
         int typeID = Integer.parseInt(request.getParameter("typeID"));
         int subjectID = Integer.parseInt(request.getParameter("subjectID"));
+        int lecturerID = Integer.parseInt(request.getParameter("lecturerID"));
         
-        dao.editTopic(topicID, topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID);
+        dao.editTopic(topicID, topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID);
         
         response.sendRedirect(request.getContextPath() + "/topicregister");
     }

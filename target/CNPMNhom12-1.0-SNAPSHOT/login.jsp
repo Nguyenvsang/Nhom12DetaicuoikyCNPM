@@ -30,13 +30,15 @@
 						</div>
 						<!-- /.card-header -->
 						<!-- form start -->
-						<form role="form"
-							action="lecturerLoginServlet" method="post">
+						<form role="form" if test.
+							action="loginServlet" method="post">
 							<div class="row justify-content-center card-body"
 								style="margin-bottom: -34px;">
 								<div style="color: red;">${errorString}</div>
 							</div>
 							<div class="card-body">
+                                                                <label><input type="radio" name="typelogin" value="lecturer">Giảng viên</label>
+                                                                <label><input type="radio" name="typelogin" value="student" checked>Sinh viên</label>
 								<div class="form-group text-center">
                                                                                 <input
 										type="text" class="form-control" name="username"

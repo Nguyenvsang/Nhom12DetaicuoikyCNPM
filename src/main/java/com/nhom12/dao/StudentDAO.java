@@ -4,12 +4,12 @@
  */
 package com.nhom12.dao;
 
-import com.nhom12.entity.Lecturer;
+import com.nhom12.entity.Student;
 
 /**
  *
- * @author ASUS
+ * @author nguye
  */
-public interface LecturerDAO {
-    boolean LecturerLogin(String username, String password);
+public interface StudentDAO {
+    boolean StudentLogin(String username, String password);
 }

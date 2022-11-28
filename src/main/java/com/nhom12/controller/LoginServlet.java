@@ -6,6 +6,7 @@ package com.nhom12.controller;
 
 import com.nhom12.dao.LecturerDAO;
 import com.nhom12.dao.LecturerDAOImpl;
+import com.nhom12.dao.StudentDAOImpl;
 import com.nhom12.entity.Lecturer;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,10 +22,11 @@ import javax.servlet.http.HttpSession;
  *
  * @author nguye
  */
-@WebServlet(name = "lecturerLoginServlet", urlPatterns = {"/lecturerLoginServlet"})
-public class LecturerLoginServlet extends HttpServlet {
+@WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
+public class LoginServlet extends HttpServlet {
     
-    LecturerDAOImpl dao = new LecturerDAOImpl();
+    LecturerDAOImpl lecturerDAOImpl = new LecturerDAOImpl();
+    StudentDAOImpl studentDAOImpl = new StudentDAOImpl();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -32,12 +34,24 @@ public class LecturerLoginServlet extends HttpServlet {
         try {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            String typechecked = request.getParameter("typelogin");
             
-            // Gọi DAO để xác thực đăng nhập
-            Lecturer lecturer = dao.LecturerLogin(username, password);
+            // Khởi tạo biến xác thực
+            boolean verification = false;
+            // Khởi tạo biến lưu đường dẫn chuyển đến trang phù hợp 
+            String pathrequestDispatcher = "";
+            
+            // Gọi DAO để xác thực đăng nhập và đặt đường dẫn chuyển đến trang danh sách đề tài
+            if("lecturer".equals(typechecked)){
+                verification = lecturerDAOImpl.LecturerLogin(username, password);
+                pathrequestDispatcher = "/list_topic.jsp";
+            } else if ("student".equals(typechecked)) {
+                verification = studentDAOImpl.StudentLogin(username, password);
+                pathrequestDispatcher = "/list_topic.jsp";
+            }
             
             // Nếu login hợp lệ sẽ chuyển đến trang phù hợp
-            if(lecturer != null) {
+            if(verification == true) {
                 // Khởi tạo session
                 HttpSession session = request.getSession();
                 
@@ -46,7 +60,7 @@ public class LecturerLoginServlet extends HttpServlet {
                 
                 // Chuyển đến trang danh sách đề tài
                 RequestDispatcher dispatch = getServletContext().
-                        getRequestDispatcher("/list_topic.jsp");
+                        getRequestDispatcher(pathrequestDispatcher);
                 dispatch.forward(request, response);
             } else {
                 // Đăng nhập không hợp lệ sẽ quay lại trang login

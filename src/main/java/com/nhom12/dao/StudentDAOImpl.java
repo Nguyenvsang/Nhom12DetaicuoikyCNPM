@@ -5,27 +5,25 @@
 package com.nhom12.dao;
 
 import com.nhom12.context.DBContext;
-import com.nhom12.entity.Lecturer;
+import com.nhom12.entity.Student;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 /**
  *
- * @author ASUS
+ * @author nguye
  */
-public class LecturerDAOImpl implements LecturerDAO {
+public class StudentDAOImpl implements StudentDAO {
     // Kết nối
-
     Connection conn = null;
     // Ném câu lệnh query qua dbms
     PreparedStatement ps = null;
     // Nhận kết quả trả về
     ResultSet rs = null;
-    
     @Override
-    public boolean LecturerLogin(String username, String password) {
-        String query = "SELECT * FROM Lecturer WHERE username = ? and password = ?";
+    public boolean StudentLogin(String username, String password) {
+        String query = "SELECT * FROM Student WHERE username = ? and password = ?";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
@@ -40,8 +38,8 @@ public class LecturerDAOImpl implements LecturerDAO {
         return false;
     }
     public static void main(String[] args) {
-        LecturerDAOImpl dao = new LecturerDAOImpl();
-        boolean l = dao.LecturerLogin("nguyenthihong", "hong@111");
-        System.out.println(l);
-    }    
+        StudentDAOImpl dao = new StudentDAOImpl();
+        boolean s = dao.StudentLogin("nguyengiacat", "cat@123");
+        System.out.println(s);
+    } 
 }

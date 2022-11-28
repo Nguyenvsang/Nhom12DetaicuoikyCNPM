@@ -11,7 +11,7 @@ import java.util.Date;
  * @author nguye
  */
 public class Student extends User {
-    private String studentID;
+    private int studentID;
     private String studentName;
     private String citizenID;
     private String gender;
@@ -23,7 +23,7 @@ public class Student extends User {
     public Student() {
     }
 
-    public Student(String studentID, String studentname, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String department) {
+    public Student(int studentID, String studentname, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String department) {
         this.studentID = studentID;
         this.studentName = studentname;
         this.citizenID = citizenID;
@@ -34,7 +34,7 @@ public class Student extends User {
         this.department = department;
     }
 
-    public Student(String studentID, String studentname, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String department, String username, String password) {
+    public Student(int studentID, String studentname, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String department, String username, String password) {
         super(username, password);
         this.studentID = studentID;
         this.studentName = studentname;
@@ -46,11 +46,11 @@ public class Student extends User {
         this.department = department;
     }
 
-    public String getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(String studentID) {
+    public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
@@ -108,6 +108,11 @@ public class Student extends User {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" + "studentID=" + studentID + ", studentName=" + studentName + ", citizenID=" + citizenID + ", gender=" + gender + ", dateOfBirth=" + dateOfBirth + ", email=" + email + ", phoneNumber=" + phoneNumber + ", department=" + department + '}';
     }
 
     

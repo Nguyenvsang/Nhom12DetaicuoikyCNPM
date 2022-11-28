@@ -16,11 +16,12 @@ public class Topic {
     private int schoolYear;
     private int typeID;
     private int subjectID;
+    private int lecturerID;
 
     public Topic() {
     }
 
-    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int year, int typeID, int subjectID) {
+    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int year, int typeID, int subjectID, int lecturerID) {
         this.topicID = topicID;
         this.topicName = topicName;
         this.topicRequire = topicRequire;
@@ -28,6 +29,7 @@ public class Topic {
         this.schoolYear = year;
         this.typeID = typeID;
         this.subjectID = subjectID;
+        this.lecturerID = lecturerID;
     }
 
     public int getTopicID() {
@@ -84,6 +86,14 @@ public class Topic {
 
     public void setSubjectID(int subjectID) {
         this.subjectID = subjectID;
+    }
+
+    public int getLecturerID() {
+        return lecturerID;
+    }
+
+    public void setLecturerID(int lecturerID) {
+        this.lecturerID = lecturerID;
     }
 
     
