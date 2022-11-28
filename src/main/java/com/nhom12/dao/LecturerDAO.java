@@ -5,6 +5,8 @@
 package com.nhom12.dao;
 
 import com.nhom12.entity.Lecturer;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -12,4 +14,11 @@ import com.nhom12.entity.Lecturer;
  */
 public interface LecturerDAO {
     boolean LecturerLogin(String username, String password);
+    List<Lecturer> getAlllecturer();
+
+    void addLecturer(String lecturerName, String citizenID, String gender, Date dateOfBirth, String mail, String phoneNumber, String professionalQualification);
+
+    void editLecturer(int lecturerID, String lecturerName, String citizenID, String gender, Date dateOfBirth, String mail, String phoneNumber, String professionalQualification);
+
+    Lecturer findLecturerByID(int lecturerID);
 }
