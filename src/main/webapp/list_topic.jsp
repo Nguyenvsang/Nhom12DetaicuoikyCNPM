@@ -58,35 +58,24 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">STT</th>
-                                        <th style="width: 30%;">Tên đề tài</th>                                                                                                                         
-                                        <th style="width: 10%;">Giảng viên hướng dẫn</th>
-                                        <th style="width: 25%;">Yêu cầu</th>
-                                        <th style="width: 25%;">Mục tiêu</th>
-                                        <th style="width: 10px;">Năm học</th>
-                                        <th style="width: 10px;">Mã loại đề tài</th>
-                                        <th style="width: 10px;">Mã môn học</th>
-                                        <th style="width: 20%;">Xem</th>
+                                        <th style="width: 55%;">Tên đề tài</th>                                                                                                                         
+                                        <th style="width: 20%;">Giảng viên hướng dẫn</th>                                       
+                                        <th style="width: 10%;">Xem</th>
+                                        <th style="width: 10%;">Chỉnh sửa</th>
+                                        <th style="width: 5%;">Xóa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${t.allTopics}" var="i" >
                                         <tr>
-                                            <td>${i.topicID}</td>>
-                                            <td>${i.topicName}</td>>
-                                            <td> </td>>                                            
-                                            <td>${i.topicRequire}</td>>
-                                            <td>${i.topicGoal}</td>>
-                                            <td>${i.schoolYear}</td>>
-                                            <td>${i.typeID}</td>>
-                                            <td>${i.subjectID}</td>>
-                                            <td> </td>>                                            
+                                            <td>${i.topicID}</td>
+                                            <td>${i.topicName}</td>
+                                            <td> </td>                                                                                                                                                                                                                                                                                                     
                                             
-                                                                                                                                 
-                                            
-                                    <figcaption>
+                                    <td><figcaption>
                                         <a href="Resources/img/products/${book.getImage()}"
                                            style="font-size: 14px;" target="_blank">Xem chi tiết</a>
-                                    </figcaption>
+                                    </figcaption></td>
                                     <td><a
                                             href="${pageContext.request.contextPath}/EditBook?id=${book.getId()}"
                                             class="btn btn-sm btn-info">Chỉnh sửa</a></td>
