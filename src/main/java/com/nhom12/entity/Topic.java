@@ -1,19 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.nhom12.entity;
 
-/**
- *
- * @author nguye
- */
 public class Topic {
+
     private int topicID;
     private String topicName;
     private String topicRequire;
     private String topicGoal;
     private int schoolYear;
+    private int quantity;
     private int typeID;
     private int subjectID;
     private int lecturerID;
@@ -21,7 +15,7 @@ public class Topic {
     public Topic() {
     }
 
-    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int year, int typeID, int subjectID, int lecturerID) {
+    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int year, int quantity, int typeID, int subjectID, int lecturerID) {
         this.topicID = topicID;
         this.topicName = topicName;
         this.topicRequire = topicRequire;
@@ -30,6 +24,7 @@ public class Topic {
         this.typeID = typeID;
         this.subjectID = subjectID;
         this.lecturerID = lecturerID;
+        this.quantity = quantity;
     }
 
     public int getTopicID() {
@@ -72,6 +67,14 @@ public class Topic {
         this.schoolYear = schoolYear;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public int getTypeID() {
         return typeID;
     }
@@ -96,5 +99,4 @@ public class Topic {
         this.lecturerID = lecturerID;
     }
 
-    
 }

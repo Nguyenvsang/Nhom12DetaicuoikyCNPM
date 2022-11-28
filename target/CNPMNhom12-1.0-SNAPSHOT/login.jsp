@@ -30,8 +30,7 @@
 						</div>
 						<!-- /.card-header -->
 						<!-- form start -->
-						<form role="form" if test.
-							action="loginServlet" method="post">
+						<form role="form" action="loginServlet" method="post">
 							<div class="row justify-content-center card-body"
 								style="margin-bottom: -34px;">
 								<div style="color: red;">${errorString}</div>

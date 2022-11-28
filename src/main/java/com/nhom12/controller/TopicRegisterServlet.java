@@ -42,11 +42,12 @@ public class TopicRegisterServlet extends HttpServlet {
         String topicRequire = request.getParameter("topicRequire");
         String topicGoal = request.getParameter("topicGoal");
         int schoolYear = Integer.parseInt(request.getParameter("schoolYear"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
         int typeID = Integer.parseInt(request.getParameter("typeID"));
         int subjectID = Integer.parseInt(request.getParameter("subjectID"));
         int lecturerID = Integer.parseInt(request.getParameter("lecturerID"));
         
-        dao.addTopic(topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID);
+        dao.addTopic(topicName, topicRequire, topicGoal, schoolYear, quantity, typeID, subjectID, lecturerID);
         
         response.sendRedirect(request.getContextPath() + "/topicregister");
     }

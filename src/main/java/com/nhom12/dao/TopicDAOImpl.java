@@ -34,7 +34,8 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getInt(5),
                         rs.getInt(6),
                         rs.getInt(7),
-                        rs.getInt(8)));
+                        rs.getInt(8),
+                        rs.getInt(9)));
             }
         } catch (Exception e) {
         }
@@ -59,7 +60,8 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getInt(5),
                         rs.getInt(6),
                         rs.getInt(7),
-                        rs.getInt(8));
+                        rs.getInt(8),
+                        rs.getInt(9));
             }
         } catch (Exception e) {
         }
@@ -67,8 +69,8 @@ public class TopicDAOImpl implements TopicDAO {
     }
 
     @Override
-    public void addTopic(String topicName, String topicRequire, String topicGoal, int schoolYear, int typeID, int subjectID, int lecturerID) {
-        String query = "INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public void addTopic(String topicName, String topicRequire, String topicGoal, int schoolYear, int quantity, int typeID, int subjectID, int lecturerID) {
+        String query = "INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, typeID, subjectID, lecturerID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
@@ -76,9 +78,10 @@ public class TopicDAOImpl implements TopicDAO {
             ps.setString(2, topicRequire);
             ps.setString(3, topicGoal);
             ps.setInt(4, schoolYear);
-            ps.setInt(5, typeID);
-            ps.setInt(6, subjectID);
-            ps.setInt(7, lecturerID);
+            ps.setInt(5, 2);
+            ps.setInt(6, typeID);
+            ps.setInt(7, subjectID);
+            ps.setInt(8, lecturerID);
             ps.executeUpdate();
         } catch (Exception e) {
             {
@@ -87,9 +90,9 @@ public class TopicDAOImpl implements TopicDAO {
     }
 
     @Override
-    public void editTopic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, int typeID, int subjectID, int lecturerID) {
+    public void editTopic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, int quantity, int typeID, int subjectID, int lecturerID) {
         String query = "UPDATE Topic "
-                + "SET topicName = ?, topicRequire = ?, topicGoal = ?, schoolYear = ?, typeID = ?, subjectID = ?, lecturerID = ?"
+                + "SET topicName = ?, topicRequire = ?, topicGoal = ?, schoolYear = ?, quantity = ?, typeID = ?, subjectID = ?, lecturerID = ?"
                 + "WHERE topicID = ?";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
@@ -98,9 +101,9 @@ public class TopicDAOImpl implements TopicDAO {
             ps.setString(2, topicRequire);
             ps.setString(3, topicGoal);
             ps.setInt(4, schoolYear);
-            ps.setInt(5, typeID);
-            ps.setInt(6, subjectID);
-            ps.setInt(7, topicID);
+            ps.setInt(5, quantity);
+            ps.setInt(6, typeID);
+            ps.setInt(7, subjectID);
             ps.setInt(8, lecturerID);
             ps.executeUpdate();
         } catch (Exception e) {
@@ -111,6 +114,6 @@ public class TopicDAOImpl implements TopicDAO {
 
     public static void main(String[] args) {
         TopicDAOImpl dao = new TopicDAOImpl();
-        dao.addTopic("Điện thông minh", "2 sinh viên", "Công tắc", 2019, 1, 1, 1);
+        dao.addTopic("Điện thông minh", "2 sinh viên", "Công tắc", 2019, 1, 1, 0, 1);
     }
 }

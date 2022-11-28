@@ -47,8 +47,6 @@
                         </select>
                         <!-- /.card-header -->
                         <div class="card-body" >
-
-
                             <div class="card-header" style="margin-left: -20px; margin-top: -40px;">
                                 <input type="button" value="Đăng ký đề tài"
                                        class="btn btn-primary"
@@ -80,7 +78,7 @@
                                             <td>${i.typeID}</td>>
                                             <td>${i.subjectID}</td>>
                                             <td> </td>>                                            
-                                            
+                                        </tr> 
                                                                                                                                  
                                             
                                     <figcaption>

@@ -15,9 +15,9 @@ public interface TopicDAO {
 
     List<Topic> getAllTopics();
 
-    void addTopic(String topicName, String topicRequire, String topicGoal, int schoolYear, int typeID, int subjectID, int lecturerID);
+    void addTopic(String topicName, String topicRequire, String topicGoal, int schoolYear, int quantity, int typeID, int subjectID, int lecturerID);
 
-    void editTopic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, int typeID, int subjectID, int lecturerID);
+    void editTopic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, int quantity, int typeID, int subjectID, int lecturerID);
 
     Topic findTopicByID(int topicID);
     

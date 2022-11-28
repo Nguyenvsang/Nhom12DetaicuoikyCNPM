@@ -12,4 +12,6 @@ import com.nhom12.entity.Student;
  */
 public interface StudentDAO {
     boolean StudentLogin(String username, String password);
+
+    Student findStudentByUsername(String username);
 }
