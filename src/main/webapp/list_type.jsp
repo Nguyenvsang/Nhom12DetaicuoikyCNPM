@@ -49,8 +49,11 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 10%">STT</th>
-                                        <th style="width: 70%;">Loại đề tài</th>
-                                        <th style="width: 20%;">Xem</th>
+                                        <th style="width: 55%;">Loại đề tài</th>
+                                        <th style="width: 10%;">Danh sách</th>
+                                        <th style="width: 10%;">Xem</th>
+                                        <th style="width: 10%;">Chỉnh sửa</th>
+                                        <th style="width: 5%;">Xóa</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,16 +61,16 @@
                                         <tr>
                                             <td style="text-align: center;">${i.typeID}</td>
                                             <td>${i.typeName}</td>
-                                            <td>${book.getCategory().getName()}</td>
+                                            
                                             <td>                                                            
                                                 <a href="<c:url value='/product/detail?id=${cat.id}'/>"
                                                    class="center">Danh sách</a>
                                             </td>
 
-                                    <figcaption>
+                                    <td><figcaption>
                                         <a href="Resources/img/products/${book.getImage()}"
                                            style="font-size: 14px;" target="_blank">Xem chi tiết</a>
-                                    </figcaption>
+                                    </figcaption></td>
                                     <td><a
                                             href="${pageContext.request.contextPath}/EditBook?id=${book.getId()}"
                                             class="btn btn-sm btn-info">Chỉnh sửa</a></td>
