@@ -16,9 +16,11 @@ public interface LecturerDAO {
     boolean LecturerLogin(String username, String password);
     List<Lecturer> getAlllecturer();
 
-    void addLecturer(String lecturerName, String citizenID, String gender, Date dateOfBirth, String mail, String phoneNumber, String professionalQualification);
+    void addLecturer(String lecturerName, String citizenID, String gender, Date dateOfBirth, String email, String phoneNumber, String professionalQualification, int deanID, String username, String password);
 
-    void editLecturer(int lecturerID, String lecturerName, String citizenID, String gender, Date dateOfBirth, String mail, String phoneNumber, String professionalQualification);
+    void editLecturer(int lecturerID, String lecturerName, String citizenID, String gender, Date dateOfBirth, String email, String phoneNumber, String professionalQualification, int deanID);
 
     Lecturer findLecturerByID(int lecturerID);
+    
+    Lecturer findLecturerByUsername(String username);
 }

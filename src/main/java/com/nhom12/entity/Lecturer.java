@@ -19,11 +19,16 @@ public class Lecturer extends User {
     private String email;
     private String phoneNumber;
     private String professionalQualification;
+    private int deanID;// Trưởng bộ môn 
 
     public Lecturer() {
     }
 
+<<<<<<< Updated upstream
     public Lecturer(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, String string6) {
+=======
+    public Lecturer(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, int deanID) {
+>>>>>>> Stashed changes
         this.lecturerID = lecturerID;
         this.lecturerName = lecturername;
         this.citizenID = citizenID;
@@ -32,9 +37,10 @@ public class Lecturer extends User {
         this.email = email;
         this.phoneNumber = phonenumber;
         this.professionalQualification = professionalQualification;
+        this.deanID = deanID;
     }
 
-    public Lecturer(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, String username, String password) {
+    public Lecturer(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, int deanID, String username, String password) {
         super(username, password);
         this.lecturerID = lecturerID;
         this.lecturerName = lecturername;
@@ -44,6 +50,7 @@ public class Lecturer extends User {
         this.email = email;
         this.phoneNumber = phonenumber;
         this.professionalQualification = professionalQualification;
+        this.deanID = deanID;
     }
 
     public int getLecturerID() {
@@ -108,6 +115,14 @@ public class Lecturer extends User {
 
     public void setProfessionalQualification(String professionalQualification) {
         this.professionalQualification = professionalQualification;
+    }
+
+    public int getDeanID() {
+        return deanID;
+    }
+
+    public void setDeanID(int deanID) {
+        this.deanID = deanID;
     }
 
     @Override

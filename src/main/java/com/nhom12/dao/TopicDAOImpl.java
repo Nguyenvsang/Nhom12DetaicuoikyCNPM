@@ -27,15 +27,15 @@ public class TopicDAOImpl implements TopicDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 topic.add(new Topic(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getInt(8),
-                        rs.getInt(9)));
+                        rs.getInt("topicID"),
+                        rs.getString("topicName"),
+                        rs.getString("topicRequire"),
+                        rs.getString("topicGoal"),
+                        rs.getInt("schoolYear"),
+                        rs.getInt("quantity"),
+                        rs.getInt("typeID"),
+                        rs.getInt("subjectID"),
+                        rs.getInt("lecturerID")));
             }
         } catch (Exception e) {
         }
@@ -53,15 +53,15 @@ public class TopicDAOImpl implements TopicDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new Topic(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getInt(8),
-                        rs.getInt(9));
+                        rs.getInt("topicID"),
+                        rs.getString("topicName"),
+                        rs.getString("topicRequire"),
+                        rs.getString("topicGoal"),
+                        rs.getInt("year"),
+                        rs.getInt("quantity"),
+                        rs.getInt("typeID"),
+                        rs.getInt("subjectID"),
+                        rs.getInt("lecturerID"));
             }
         } catch (Exception e) {
         }
