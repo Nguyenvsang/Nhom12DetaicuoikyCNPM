@@ -64,7 +64,7 @@ quantity int
 
 CREATE TABLE Admin
 (
-username VARCHAR(200),
+username VARCHAR(200) primary key,
 password VARCHAR(20) not null
 );
 
@@ -127,13 +127,6 @@ VALUES("Trần Quốc Bảo", "079384738679", "nam", '1998-5-15', "tqbao@student
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
 VALUES("Nguyễn Bích Thủy", "002384738886", "nữ", '1998-1-12', "nbthuy@student.edu.vn", "0797778678", "Kỹ thuật dữ liệu", "nguyenbichthuy", "thuy@123");
 
-<<<<<<< Updated upstream
 INSERT INTO Admin (username, password) VALUES("trannhatphong", "123456");
 
-
-SELECT * FROM Team
-SELECT * FROM Topic
-SELECT * FROM TopicRegistration
-=======
->>>>>>> Stashed changes
 INSERT INTO Team(leaderID, topicID, quantity) VALUES(1, 1, 0)

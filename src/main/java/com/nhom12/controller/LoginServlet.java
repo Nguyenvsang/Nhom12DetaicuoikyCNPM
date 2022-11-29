@@ -4,11 +4,8 @@
  */
 package com.nhom12.controller;
 
-<<<<<<< Updated upstream
 import com.nhom12.dao.AdminDAOImpl;
-=======
 import com.nhom12.dao.DeanDAOImpl;
->>>>>>> Stashed changes
 import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.dao.StudentDAOImpl;
 import java.io.IOException;
@@ -56,28 +53,18 @@ public class LoginServlet extends HttpServlet {
             // Gọi DAO để xác thực đăng nhập và đặt đường dẫn chuyển đến trang danh sách đề tài
             if ("lecturer".equals(typechecked)) {
                 verification = lecturerDAOImpl.LecturerLogin(username, password);
-<<<<<<< Updated upstream
                 pathrequestDispatcher = "/student/manage";
-=======
-                pathrequestDispatcher = "/topic-to-register";
-                
->>>>>>> Stashed changes
             } else if ("student".equals(typechecked)) {
                 verification = studentDAOImpl.StudentLogin(username, password);
-
                 pathrequestDispatcher = "/student/manage";
             } else if ("admin".equals(typechecked)) {
                 verification = adminDAOImpl.AdminLogin(username, password);
                 pathrequestDispatcher = "/topic-to-register";
-<<<<<<< Updated upstream
-=======
             } else if ("dean".equals(typechecked)) {
                 verification = deanDAOImpl.DeanLogin(username, password);
                 pathrequestDispatcher = "/topicDean";
             }
->>>>>>> Stashed changes
-
-            }
+            
             // Nếu login hợp lệ sẽ chuyển đến trang phù hợp
             if (verification == true) {
                 // Khởi tạo session

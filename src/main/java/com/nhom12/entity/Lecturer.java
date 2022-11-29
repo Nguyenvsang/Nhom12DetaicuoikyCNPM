@@ -24,11 +24,7 @@ public class Lecturer extends User {
     public Lecturer() {
     }
 
-<<<<<<< Updated upstream
-    public Lecturer(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, String string6) {
-=======
     public Lecturer(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, int deanID) {
->>>>>>> Stashed changes
         this.lecturerID = lecturerID;
         this.lecturerName = lecturername;
         this.citizenID = citizenID;

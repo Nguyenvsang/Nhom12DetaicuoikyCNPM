@@ -14,11 +14,7 @@ public class DBContext {
             Class.forName("com.mysql.jdbc.Driver");
             String dbURL = "jdbc:mysql://localhost:3306/topicmana";
             String username = "root";
-<<<<<<< Updated upstream
-            String password = "01669871043";
-=======
             String password = "Sang111#######";
->>>>>>> Stashed changes
             conn = DriverManager.getConnection(dbURL, username, password); 
         }
         catch(SQLException e)

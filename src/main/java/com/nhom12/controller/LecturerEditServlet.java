@@ -62,13 +62,8 @@ public class LecturerEditServlet extends HttpServlet {
         }
         String email = request.getParameter("email");
         String phoneNumber = request.getParameter("phoneNumber");
-<<<<<<< Updated upstream
-        String professionalQualification = request.getParameter("professionalQualification");       
-=======
         String professionalQualification = request.getParameter("professionalQualification");
-        Date dateOfBirth = null;
         int deanID = Integer.parseInt(request.getParameter("deanID"));
->>>>>>> Stashed changes
         
         dao.editLecturer(lecturerID,  lecturerName,  citizenID,  gender,  dateOfBirth, email,  phoneNumber, professionalQualification, deanID);
         
