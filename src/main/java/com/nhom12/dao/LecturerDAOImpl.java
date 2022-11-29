@@ -6,9 +6,11 @@ package com.nhom12.dao;
 
 import com.nhom12.context.DBContext;
 import com.nhom12.entity.Lecturer;
+import com.nhom12.entity.Topic;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -41,11 +43,6 @@ public class LecturerDAOImpl implements LecturerDAO {
         }
         return false;
     }
-    public static void main(String[] args) {
-        LecturerDAOImpl dao = new LecturerDAOImpl();
-        boolean l = dao.LecturerLogin("nguyenthihong", "hong@111");
-        System.out.println(l);
-    }   
     
     @Override
     public void addLecturer(String lecturerName, String citizenID, String gender, Date dateOfBirth, String mail, String phoneNumber, String professionalQualification) {
@@ -107,7 +104,7 @@ public class LecturerDAOImpl implements LecturerDAO {
                         rs.getDate(5),
                         rs.getString(6),
                         rs.getString(7),
-                        rs.getString(8));
+                        rs.getString(8), rs.getString(9));
             }
         } catch (Exception e) {
         }
@@ -116,7 +113,30 @@ public class LecturerDAOImpl implements LecturerDAO {
 
     @Override
     public List<Lecturer> getAlllecturer() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Lecturer> lecturer = new ArrayList<>();
+        String query = "SELECT * FROM Lecturer;";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                lecturer.add(new Lecturer(
+                        rs.getInt("lecturerID"),
+                        rs.getString("lecturerName"),
+                        rs.getString("citizenID"),
+                        rs.getString("gender"),
+                        rs.getDate("dateOfBirth"),
+                        rs.getString("email"),
+                        rs.getString("phoneNumber"),
+                        rs.getString("professionalQualification"),
+                        rs.getString(9)));
+            }
+        } catch (Exception e) {
+        }
+        return lecturer;
     }
-
+    public static void main(String[] args) {
+        LecturerDAOImpl dao = new LecturerDAOImpl();
+        dao.addLecturer("Nguyen Thi Nhung", "089456781256", "Nu",  new Date(622790105000L) , "nhung@111", "0397461236", "Thạc Sỹ");
+    }     
 }

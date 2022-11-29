@@ -36,8 +36,9 @@
 								<div style="color: red;">${errorString}</div>
 							</div>
 							<div class="card-body">
-                                                                <label><input type="radio" name="typelogin" value="lecturer">Giảng viên</label>
-                                                                <label><input type="radio" name="typelogin" value="student" checked>Sinh viên</label>
+                                                                <label><input type="radio" name="typelogin" value="lecturer">Giảng viên &ensp; &ensp; &ensp;</label>
+                                                                <label><input type="radio" name="typelogin" value="student">Sinh viên &ensp; &ensp; &ensp;</label>
+                                                                <label><input type="radio" name="typelogin" value="admin" checked>Admin &ensp; &ensp; &ensp;</label>
 								<div class="form-group text-center">
                                                                                 <input
 										type="text" class="form-control" name="username"

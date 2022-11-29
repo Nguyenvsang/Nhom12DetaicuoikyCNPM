@@ -4,6 +4,7 @@
  */
 package com.nhom12.controller;
 
+import com.nhom12.dao.AdminDAOImpl;
 import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.dao.StudentDAOImpl;
 import java.io.IOException;
@@ -22,10 +23,10 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
 public class LoginServlet extends HttpServlet {
-
+    AdminDAOImpl adminDAOImpl = new AdminDAOImpl();
     LecturerDAOImpl lecturerDAOImpl = new LecturerDAOImpl();
     StudentDAOImpl studentDAOImpl = new StudentDAOImpl();
-
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
@@ -52,8 +53,10 @@ public class LoginServlet extends HttpServlet {
             } else if ("student".equals(typechecked)) {
                 verification = studentDAOImpl.StudentLogin(username, password);
                 pathrequestDispatcher = "/topic-to-register";
+            } else if ("admin".equals(typechecked)) {
+                verification = adminDAOImpl.AdminLogin(username, password);
+                pathrequestDispatcher = "/topic-to-register";
             }
-
             // Nếu login hợp lệ sẽ chuyển đến trang phù hợp
             if (verification == true) {
                 // Khởi tạo session

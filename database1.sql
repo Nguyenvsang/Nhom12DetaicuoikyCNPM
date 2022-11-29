@@ -1,5 +1,4 @@
 CREATE DATABASE TopicMana;
-DROP DATABASE TopicMana;
 USE TopicMana;
 CREATE TABLE Subject
 (
@@ -62,6 +61,12 @@ topicID int references Topic(topicID),
 quantity int
 );
 
+CREATE TABLE Admin
+(
+username VARCHAR(200),
+password VARCHAR(20) not null
+);
+
 USE topicmana;
 INSERT INTO subject (subjectName) VALUES("Công nghệ phần mềm");
 INSERT INTO subject (subjectName) VALUES("Mạng máy tính");
@@ -107,6 +112,9 @@ INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNu
 VALUES("Trần Quốc Bảo", "079384738679", "nam", '1998-5-15', "tqbao@student.edu.vn", "0399987678", "Kỹ thuật dữ liệu", "tranquocbao", "bao@123");
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
 VALUES("Nguyễn Bích Thủy", "002384738886", "nữ", '1998-1-12', "nbthuy@student.edu.vn", "0797778678", "Kỹ thuật dữ liệu", "nguyenbichthuy", "thuy@123");
+
+INSERT INTO Admin (username, password) VALUES("trannhatphong", "123456");
+
 
 SELECT * FROM Team
 SELECT * FROM Topic

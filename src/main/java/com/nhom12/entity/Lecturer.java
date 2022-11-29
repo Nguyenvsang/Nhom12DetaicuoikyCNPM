@@ -23,7 +23,7 @@ public class Lecturer extends User {
     public Lecturer() {
     }
 
-    public Lecturer(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification) {
+    public Lecturer(int lecturerID, String lecturername, String citizenID, String gender, Date dateOfbirth, String email, String phonenumber, String professionalQualification, String string6) {
         this.lecturerID = lecturerID;
         this.lecturerName = lecturername;
         this.citizenID = citizenID;

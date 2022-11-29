@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ASUS
  */
-@WebServlet(name = "LecturerEditServlet", urlPatterns = {"/LecturerEditServlet"})
+@WebServlet(name = "LecturerEditServlet", urlPatterns = {"/editlecturer"})
 public class LecturerEditServlet extends HttpServlet {
     
     LecturerDAOImpl dao = new LecturerDAOImpl();
@@ -54,11 +54,15 @@ public class LecturerEditServlet extends HttpServlet {
         String lecturerName = request.getParameter("lecturerName");
         String citizenID = request.getParameter("citizenID");
         String gender = request.getParameter("gender");
-        String dayOfBirth =request.getParameter("dayOfBirth"); //get the parameter convert it to a data type Date.out.println(startDate);
+        Date dateOfBirth = null;
+        try {
+            dateOfBirth = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dateOfBirth"));
+        } catch (ParseException ex) {
+            Logger.getLogger(LecturerEditServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String email = request.getParameter("email");
         String phoneNumber = request.getParameter("phoneNumber");
-        String professionalQualification = request.getParameter("professionalQualification");
-        Date dateOfBirth = null;
+        String professionalQualification = request.getParameter("professionalQualification");       
         
         dao.editLecturer(lecturerID,  lecturerName,  citizenID,  gender,  dateOfBirth, email,  phoneNumber, professionalQualification);
         

@@ -9,5 +9,5 @@ package com.nhom12.entity;
  * @author nguye
  */
 public class Admin extends User {
-    
+   
 }

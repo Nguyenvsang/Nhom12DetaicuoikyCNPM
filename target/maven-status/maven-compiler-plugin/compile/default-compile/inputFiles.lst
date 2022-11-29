@@ -8,6 +8,7 @@ D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Admin.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Student.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\SubjectDAO.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicRegistrationDAO.java
+D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\AdminDAOImpl.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\context\DBContext.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Subject.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\StudentDAO.java
@@ -20,6 +21,7 @@ D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Topic.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicTypeDAOImpl.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TeamDAOImpl.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\TypeOfTopic.java
+D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\AdminDAO.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicRegisterStudent.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\LecturerDAOImpl.java
 D:\TAILIEU\CNPM\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\StudentDAOImpl.java
