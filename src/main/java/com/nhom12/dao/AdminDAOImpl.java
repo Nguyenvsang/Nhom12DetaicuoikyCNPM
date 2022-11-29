@@ -5,6 +5,8 @@
 package com.nhom12.dao;
 
 import com.nhom12.context.DBContext;
+import com.nhom12.entity.Admin;
+import com.nhom12.entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,16 +15,17 @@ import java.sql.ResultSet;
  *
  * @author ASUS
  */
-public class AdminDAOImpl implements AdminDAO{
+public class AdminDAOImpl implements AdminDAO {
+
     // Kết nối
     Connection conn = null;
     // Ném câu lệnh query qua dbms
     PreparedStatement ps = null;
     // Nhận kết quả trả về
     ResultSet rs = null;
-    
+
     @Override
-    public boolean AdminLogin (String username, String password) {
+    public boolean AdminLogin(String username, String password) {
         String query = "SELECT * FROM Admin WHERE username = ? and password = ?";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
@@ -36,5 +39,41 @@ public class AdminDAOImpl implements AdminDAO{
         } catch (Exception e) {
         }
         return false;
-    }   
+    }
+
+    @Override
+    public void updateAdmin(String username, String password) {
+        String query = "UPDATE Admin SET password = ? WHERE username = ?";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setString(1, password);
+            ps.setString(2, username);
+
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+//    @Override
+//    public Admin checkPasswordAdmin(String username, String password) {
+//        String query = "SELECT * FROM Admin WHERE username = ? AND password = ?";
+//        try {
+//            conn = new DBContext().getConnection();// Mở kết nối
+//            ps = conn.prepareStatement(query.trim());
+//            ps.setString(1, username);
+//            ps.setString(2, password);
+//
+//            ps.executeQuery();
+//            while (rs.next()) {
+//                //Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(rs.getDate(5));
+//
+//                //java.sql.Date sql_StartDate = new java.sql.Date(startDate.getTime());
+//                return new User(
+//                        rs.getString(1),
+//                        rs.getString(2));
+//            }
+//        } catch (Exception e) {
+//        }
+//    }
 }

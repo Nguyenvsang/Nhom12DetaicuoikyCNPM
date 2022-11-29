@@ -10,4 +10,6 @@ package com.nhom12.dao;
  */
 public interface AdminDAO {
     boolean AdminLogin(String username, String password);
+
+    void updateAdmin(String username, String password);
 }

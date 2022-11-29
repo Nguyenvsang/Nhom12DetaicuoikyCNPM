@@ -35,6 +35,7 @@ public class SubjectDAOImpl implements SubjectDAO {
         return subject;
     }
 
+    
     public static void main(String[] args) {
         SubjectDAOImpl dao = new SubjectDAOImpl();
         List<Subject> subject = dao.getAllSubjects();

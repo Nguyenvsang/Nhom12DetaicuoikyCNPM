@@ -26,12 +26,14 @@ public class LoginServlet extends HttpServlet {
     AdminDAOImpl adminDAOImpl = new AdminDAOImpl();
     LecturerDAOImpl lecturerDAOImpl = new LecturerDAOImpl();
     StudentDAOImpl studentDAOImpl = new StudentDAOImpl();
-    
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -44,18 +46,20 @@ public class LoginServlet extends HttpServlet {
             // Khởi tạo biến xác thực
             boolean verification = false;
             // Khởi tạo biến lưu đường dẫn chuyển đến trang phù hợp 
-            String pathrequestDispatcher = "/topic-to-register";
+            String pathrequestDispatcher = "";
 
             // Gọi DAO để xác thực đăng nhập và đặt đường dẫn chuyển đến trang danh sách đề tài
             if ("lecturer".equals(typechecked)) {
                 verification = lecturerDAOImpl.LecturerLogin(username, password);
-                pathrequestDispatcher = "/topic-to-register";
+                pathrequestDispatcher = "/student/manage";
             } else if ("student".equals(typechecked)) {
                 verification = studentDAOImpl.StudentLogin(username, password);
-                pathrequestDispatcher = "/topic-to-register";
+
+                pathrequestDispatcher = "/student/manage";
             } else if ("admin".equals(typechecked)) {
                 verification = adminDAOImpl.AdminLogin(username, password);
                 pathrequestDispatcher = "/topic-to-register";
+
             }
             // Nếu login hợp lệ sẽ chuyển đến trang phù hợp
             if (verification == true) {
