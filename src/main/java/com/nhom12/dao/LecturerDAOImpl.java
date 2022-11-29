@@ -108,9 +108,6 @@ public class LecturerDAOImpl implements LecturerDAO {
                         rs.getDate(5),
                         rs.getString(6),
                         rs.getString(7),
-<<<<<<< Updated upstream
-                        rs.getString(8), rs.getString(9));
-=======
                         rs.getString(8),
                         rs.getInt(9));
             }
@@ -142,7 +139,6 @@ public class LecturerDAOImpl implements LecturerDAO {
                         rs.getString("phoneNumber"),
                         rs.getString("professionalQualification"),
                         rs.getInt("deanID"));
->>>>>>> Stashed changes
             }
         } catch (Exception e) {
         }
@@ -167,24 +163,16 @@ public class LecturerDAOImpl implements LecturerDAO {
                         rs.getString("email"),
                         rs.getString("phoneNumber"),
                         rs.getString("professionalQualification"),
-<<<<<<< Updated upstream
                         rs.getString(9)));
-=======
                         rs.getInt("deanID")));
->>>>>>> Stashed changes
             }
         } catch (Exception e) {
         }
         return lecturer;
     }
-<<<<<<< Updated upstream
     public static void main(String[] args) {
         LecturerDAOImpl dao = new LecturerDAOImpl();
         dao.addLecturer("Nguyen Thi Nhung", "089456781256", "Nu",  new Date(622790105000L) , "nhung@111", "0397461236", "Thạc Sỹ");
     }     
-=======
-    
-    
 
->>>>>>> Stashed changes
 }

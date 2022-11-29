@@ -4,11 +4,8 @@
  */
 package com.nhom12.controller;
 
-<<<<<<< Updated upstream
 import com.nhom12.dao.AdminDAOImpl;
-=======
 import com.nhom12.dao.DeanDAOImpl;
->>>>>>> Stashed changes
 import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.dao.StudentDAOImpl;
 import java.io.IOException;
@@ -27,6 +24,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
 public class LoginServlet extends HttpServlet {
+
     AdminDAOImpl adminDAOImpl = new AdminDAOImpl();
     LecturerDAOImpl lecturerDAOImpl = new LecturerDAOImpl();
     StudentDAOImpl studentDAOImpl = new StudentDAOImpl();
@@ -56,12 +54,9 @@ public class LoginServlet extends HttpServlet {
             // Gọi DAO để xác thực đăng nhập và đặt đường dẫn chuyển đến trang danh sách đề tài
             if ("lecturer".equals(typechecked)) {
                 verification = lecturerDAOImpl.LecturerLogin(username, password);
-<<<<<<< Updated upstream
                 pathrequestDispatcher = "/student/manage";
-=======
                 pathrequestDispatcher = "/topic-to-register";
-                
->>>>>>> Stashed changes
+
             } else if ("student".equals(typechecked)) {
                 verification = studentDAOImpl.StudentLogin(username, password);
 
@@ -69,34 +64,10 @@ public class LoginServlet extends HttpServlet {
             } else if ("admin".equals(typechecked)) {
                 verification = adminDAOImpl.AdminLogin(username, password);
                 pathrequestDispatcher = "/topic-to-register";
-<<<<<<< Updated upstream
-=======
+
             } else if ("dean".equals(typechecked)) {
                 verification = deanDAOImpl.DeanLogin(username, password);
                 pathrequestDispatcher = "/topicDean";
-            }
->>>>>>> Stashed changes
-
-            }
-            // Nếu login hợp lệ sẽ chuyển đến trang phù hợp
-            if (verification == true) {
-                // Khởi tạo session
-                HttpSession session = request.getSession();
-
-                // Thiết lập giá trị trong sesion
-                session.setAttribute("username", username);
-                if ("lecturer".equals(typechecked)) {
-                    session.setAttribute("lecturer", lecturerDAOImpl.findLecturerByUsername(username));
-                } else if ("student".equals(typechecked)) {
-                    session.setAttribute("student", studentDAOImpl.findStudentByUsername(username));
-                } else if ("dean".equals(typechecked)) {
-                    session.setAttribute("dean", deanDAOImpl.findDeanByUsername(username));
-                }
-
-                // Chuyển đến trang danh sách đề tài
-                RequestDispatcher dispatch = getServletContext().
-                        getRequestDispatcher(pathrequestDispatcher);
-                dispatch.forward(request, response);
             } else {
                 // Đăng nhập không hợp lệ sẽ quay lại trang login
                 RequestDispatcher dispatch = getServletContext().
