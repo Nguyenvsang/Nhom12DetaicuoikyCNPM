@@ -101,15 +101,15 @@ public class LecturerDAOImpl implements LecturerDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new Lecturer(
-                        rs.getInt("lecturerID"),
-                        rs.getString("lecturerName"),
-                        rs.getString("citizenID"),
-                        rs.getString("gender"),
-                        rs.getDate("dateOfBirth"),
-                        rs.getString("email"),
-                        rs.getString("phoneNumber"),
-                        rs.getString("professionalQualification"),
-                        rs.getInt("deanID"));
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getInt(9));
             }
         } catch (Exception e) {
         }
@@ -169,5 +169,4 @@ public class LecturerDAOImpl implements LecturerDAO {
         }
         return lecturer;
     }
-
 }

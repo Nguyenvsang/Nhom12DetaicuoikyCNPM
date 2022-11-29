@@ -6,10 +6,6 @@ package com.nhom12.entity;
 
 import java.util.Date;
 
-/**
- *
- * @author nguye
- */
 public class Lecturer extends User {
     private int lecturerID;
     private String lecturerName;

@@ -24,6 +24,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
 public class LoginServlet extends HttpServlet {
+
     AdminDAOImpl adminDAOImpl = new AdminDAOImpl();
     LecturerDAOImpl lecturerDAOImpl = new LecturerDAOImpl();
     StudentDAOImpl studentDAOImpl = new StudentDAOImpl();

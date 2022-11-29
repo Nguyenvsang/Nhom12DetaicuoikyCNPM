@@ -29,7 +29,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Chỉnh sửa thông tin</h3>
+                            <h3 class="card-title">Chỉnh sửa mật khẩu admin</h3>
                         </div>
                         <div class="row justify-content-center"
                              style="margin-top: 15px; margin-bottom: -15px;">
@@ -38,48 +38,23 @@
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form role="form" method="post"
-                              action="${pageContext.request.contextPath}/student/update?studentID=${student.studentID}">
+                              action="${pageContext.request.contextPath}/admin/update?username=${admin.username}">
 
                             <div class="card-body">
 
-                                <input type="hidden" name="studentID" value="${student.studentID}"/>
                                 <div class="form-group">
-                                    <label>Họ và tên</label> <input type="text" class="form-control"
-                                                                    name="studentName" value="${student.studentName}">
+                                    <label>Tên đăng nhập</label> <input type="text" class="form-control"
+                                                                    name="username" value="${admin.username}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label>CCCD/CMND</label> <input type="text" class="form-control"
-                                                                    name="citizenID" value="${student.citizenID}">
-                                </div>
-                                <div class="form-group">
-                                    <label>Giới tính</label> <input type="text" class="form-control"
-                                                                    name="gender" value=" ${student.gender == "nam" ? "Nam" : "Nữ"}">
-                                </div> 
-                                <div class="form-group">
-                                    <label>Ngày sinh</label> <input type="date"
-                                                                    class="form-control"  name="dateOfBirth"
-                                                                    value="${student.dateOfBirth}">
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label> <input type="email"
-                                                                class="form-control" name="email"
-                                                                value="${student.email}">
-                                </div> 
-                                <div class="form-group">
-                                    <label>Số điện thoại</label> <input type="text"
-                                                                        class="form-control" name="phoneNumber" 
-                                                                        value="${student.phoneNumber}">
-                                </div>
-                                <div class="form-group">
-                                    <label>Khoa</label> <input type="text"
-                                                               class="form-control" name="department" 
-                                                               value="${student.department}">
+                                    <label>Mật khẩu</label> <input type="text" class="form-control"
+                                                                    name="password" value="${admin.password}">
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary ">Lưu</button>
                                 <input type="button" value="Trở lại" class="btn btn-primary"
-                                       onclick="location.href = '${pageContext.request.contextPath}/student/manage'">
+                                       onclick="location.href = '${pageContext.request.contextPath}/admin/update'">
                             </div>
                         </form>
                     </div>
