@@ -36,15 +36,10 @@
 								<div style="color: red;">${errorString}</div>
 							</div>
 							<div class="card-body">
-<<<<<<< Updated upstream
-                                                                <label><input type="radio" name="typelogin" value="lecturer">Giảng viên &ensp; &ensp; &ensp;</label>
-                                                                <label><input type="radio" name="typelogin" value="student">Sinh viên &ensp; &ensp; &ensp;</label>
-                                                                <label><input type="radio" name="typelogin" value="admin" checked>Admin &ensp; &ensp; &ensp;</label>
-=======
                                                                 <label><input type="radio" name="typelogin" value="dean">Trưởng bộ môn &ensp;</label>
                                                                 <label><input type="radio" name="typelogin" value="lecturer">Giảng viên &ensp;</label>
                                                                 <label><input type="radio" name="typelogin" value="student" checked>Sinh viên &ensp;</label>
->>>>>>> Stashed changes
+                                                                <label><input type="radio" name="typelogin" value="admin">Admin &ensp;</label>
 								<div class="form-group text-center">
                                                                                 <input
 										type="text" class="form-control" name="username"

@@ -20,6 +20,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -56,15 +57,21 @@ public class TopicDean extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Topic> listtopic = dao3.getAllTopics();
-        List<Subject> subject = dao5.getAllSubjects();
-        List<TypeOfTopic> topictype = dao4.getAllTypeOfTopics();
+        HttpSession session = request.getSession();
+        if (session != null && session.getAttribute("dean") != null) {
+            List<Topic> listtopic = dao3.getAllTopics();
+            List<Subject> subject = dao5.getAllSubjects();
+            List<TypeOfTopic> topictype = dao4.getAllTypeOfTopics();
 
-        request.setAttribute("listtopic", listtopic);
-        request.setAttribute("subject", subject);
-        request.setAttribute("topictype", topictype);
-
-        request.getRequestDispatcher("/register_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
+            request.setAttribute("listtopic", listtopic);
+            request.setAttribute("subject", subject);
+            request.setAttribute("topictype", topictype);
+            
+            request.getRequestDispatcher("/register_topic_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
+        } else {
+            response.sendRedirect(request.getContextPath()+ "/login.jsp");
+        }
+        
     }
 
     @Override

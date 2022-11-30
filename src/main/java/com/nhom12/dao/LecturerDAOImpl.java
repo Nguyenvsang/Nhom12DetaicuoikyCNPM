@@ -169,4 +169,37 @@ public class LecturerDAOImpl implements LecturerDAO {
         }
         return lecturer;
     }
+    
+    @Override
+    public List<Lecturer> getListLecturerByDean(int deanID) {
+        List<Lecturer> lecturerListByDean = new ArrayList<>();
+        String query = "SELECT * FROM Lecturer WHERE deanID = ?";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, deanID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                lecturerListByDean.add(new Lecturer(
+                        rs.getInt("lecturerID"),
+                        rs.getString("lecturerName"),
+                        rs.getString("citizenID"),
+                        rs.getString("gender"),
+                        rs.getDate("dateOfBirth"),
+                        rs.getString("email"),
+                        rs.getString("phoneNumber"),
+                        rs.getString("professionalQualification"),
+                        rs.getInt("deanID")));
+            }
+        } catch (Exception e) {
+        }
+        return lecturerListByDean;
+    }
+    
+    public static void main(String[] args) {
+        LecturerDAOImpl dao = new LecturerDAOImpl();
+        List<Lecturer> l = dao.getListLecturerByDean(1);
+        
+        System.out.println(l.get(1).getLecturerName());
+    }  
 }

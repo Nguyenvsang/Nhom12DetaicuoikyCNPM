@@ -82,9 +82,7 @@ public class LoginServlet extends HttpServlet {
                 }
 
                 // Chuyển đến trang danh sách đề tài
-                RequestDispatcher dispatch = getServletContext().
-                        getRequestDispatcher(pathrequestDispatcher);
-                dispatch.forward(request, response);
+                response.sendRedirect(request.getContextPath() + pathrequestDispatcher);
             } else {
                 // Đăng nhập không hợp lệ sẽ quay lại trang login
                 RequestDispatcher dispatch = getServletContext().
