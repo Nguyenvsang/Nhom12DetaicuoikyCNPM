@@ -34,32 +34,37 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="${pageContext.request.contextPath}/edittopic">
+                        <form role="form" method="post" action="${pageContext.request.contextPath}/edittopic?topicID=${topic.topicID}">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>ID</label> <input type="text"
                                                              class="form-control" id="topicID" name="topicID"
-                                                             placeholder="ID" value=${topic.topicID} readonly>
+                                                             value="${topic.topicID}" readonly="">
                                 </div>
                                 <div class="form-group">
                                     <label>Tên đề tài</label> <input type="text"
                                                                      class="form-control" id="topicName" name="topicName"
-                                                                     placeholder="Nhập tên đề tài" value=${topic.topicName}>
+                                                                     value="${topic.topicName}">
                                 </div>
                                 <div class="form-group">
                                     <label>Mục tiêu</label> <input type="text"
                                                                    class="form-control" id="topicRequire" name="topicRequire"
-                                                                   placeholder="Nhập mục tiêu" value=${topic.topicGoal}>
+                                                                   value="${topic.topicGoal}">
                                 </div>
                                 <div class="form-group">
                                     <label>Yêu cầu</label> <input type="text"
                                                                   class="form-control" id="topicGoal" name="topicGoal"
-                                                                  placeholder="Nhập yêu cầu" value=${topic.topicRequire}>
+                                                                  value="${topic.topicRequire}">
                                 </div>
                                 <div class="form-group">
                                     <label>Năm học</label> <input type="text"
                                                                   class="form-control" id="schoolYear" name="schoolYear"
-                                                                  placeholder="Nhập năm học" value=${topic.schoolYear}>
+                                                                  value=${topic.schoolYear}>
+                                </div>
+                                <div class="form-group">
+                                    <label>Số lượng sinh viên</label> <input type="text"
+                                                                  class="form-control" id="quantity" name="quantity"
+                                                                  value=2 readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Loại đề tài</label> 
@@ -75,7 +80,7 @@
                                     <label>Bộ môn</label> 
                                     <select name="subjectID" id="subjectID"
                                             class="form-control" required>
-                                         <option value="">Chọn 1 thể loại</option> 
+                                        <option value="">Chọn 1 thể loại</option> 
                                         <c:forEach items="${subject}" var="sub">
                                             <option value="${sub.subjectID}">${sub.subjectName}</option>
                                         </c:forEach>

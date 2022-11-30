@@ -25,6 +25,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
 public class LoginServlet extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+
     AdminDAOImpl adminDAOImpl = new AdminDAOImpl();
     LecturerDAOImpl lecturerDAOImpl = new LecturerDAOImpl();
     StudentDAOImpl studentDAOImpl = new StudentDAOImpl();
@@ -54,18 +56,18 @@ public class LoginServlet extends HttpServlet {
             // Gọi DAO để xác thực đăng nhập và đặt đường dẫn chuyển đến trang danh sách đề tài
             if ("lecturer".equals(typechecked)) {
                 verification = lecturerDAOImpl.LecturerLogin(username, password);
-                pathrequestDispatcher = "/student/manage";
+                pathrequestDispatcher = "/list_topic.jsp";
             } else if ("student".equals(typechecked)) {
                 verification = studentDAOImpl.StudentLogin(username, password);
                 pathrequestDispatcher = "/student/manage";
             } else if ("admin".equals(typechecked)) {
                 verification = adminDAOImpl.AdminLogin(username, password);
-                pathrequestDispatcher = "/topic-to-register";
+                pathrequestDispatcher = "/admin/update";
             } else if ("dean".equals(typechecked)) {
                 verification = deanDAOImpl.DeanLogin(username, password);
                 pathrequestDispatcher = "/topicDean";
             }
-            
+
             // Nếu login hợp lệ sẽ chuyển đến trang phù hợp
             if (verification == true) {
                 // Khởi tạo session
@@ -79,12 +81,12 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("student", studentDAOImpl.findStudentByUsername(username));
                 } else if ("dean".equals(typechecked)) {
                     session.setAttribute("dean", deanDAOImpl.findDeanByUsername(username));
+                } else if ("admin".equals(typechecked)) {
+                    session.setAttribute("admin", adminDAOImpl.findAdminByUsername(username));
                 }
 
                 // Chuyển đến trang danh sách đề tài
-                RequestDispatcher dispatch = getServletContext().
-                        getRequestDispatcher(pathrequestDispatcher);
-                dispatch.forward(request, response);
+                response.sendRedirect(request.getContextPath() + pathrequestDispatcher);
             } else {
                 // Đăng nhập không hợp lệ sẽ quay lại trang login
                 RequestDispatcher dispatch = getServletContext().

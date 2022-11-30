@@ -53,15 +53,15 @@ public class TopicDAOImpl implements TopicDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new Topic(
-                        rs.getInt("topicID"),
-                        rs.getString("topicName"),
-                        rs.getString("topicRequire"),
-                        rs.getString("topicGoal"),
-                        rs.getInt("year"),
-                        rs.getInt("quantity"),
-                        rs.getInt("typeID"),
-                        rs.getInt("subjectID"),
-                        rs.getInt("lecturerID"));
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getInt(9));
             }
         } catch (Exception e) {
         }
@@ -114,6 +114,8 @@ public class TopicDAOImpl implements TopicDAO {
 
     public static void main(String[] args) {
         TopicDAOImpl dao = new TopicDAOImpl();
-        dao.addTopic("Điện thông minh", "2 sinh viên", "Công tắc", 2019, 1, 1, 0, 1);
+        //dao.addTopic("Điện thông minh", "2 sinh viên", "Công tắc", 2019, 1, 1, 0, 1);
+        Topic topic = dao.findTopicByID(1);
+        System.out.print(topic);
     }
 }

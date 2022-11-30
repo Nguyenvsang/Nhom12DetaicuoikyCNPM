@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.nhom12.controller;
 
 import com.nhom12.dao.AdminDAOImpl;
@@ -14,10 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Admin
- */
 @WebServlet(name = "AdminAccountUpdateServlet", urlPatterns = {"/admin/update"})
 public class AdminAccountUpdateServlet extends HttpServlet {
 
@@ -62,7 +54,7 @@ public class AdminAccountUpdateServlet extends HttpServlet {
 
             dao.updateAdmin(username, password);
 
-            session.setAttribute("admin", dao.findAdminByUsername(username, password));
+            session.setAttribute("admin", dao.findAdminByUsername(username));
             response.sendRedirect(request.getContextPath() + "/admin/update");
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp");

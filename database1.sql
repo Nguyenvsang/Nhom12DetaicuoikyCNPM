@@ -1,4 +1,5 @@
 CREATE DATABASE TopicMana;
+DROP DATABASE TopicMana;
 USE TopicMana;
 CREATE TABLE Subject
 (
@@ -79,21 +80,21 @@ INSERT INTO TypeOfTopic (typeName) VALUES("Tiểu luận chuyên ngành | K17 (2
 INSERT INTO TypeOfTopic (typeName) VALUES("Tiểu luận chuyên ngành | K19 (2019 - 2024) | Học kỳ 1 (2022-2023)");
 
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
-VALUES("Nguyễn Văn Song", "084779811199", "nam", '1990-7-04', "nvsong@gmail.com", "0388177890", "Tiến sỹ", 1, "nguyenvansong", "song@111");
+VALUES("Nguyễn Văn Song", "084779811199", "Nam", '1990-7-04', "nvsong@gmail.com", "0388177890", "Tiến sỹ", 1, "nguyenvansong", "song@111");
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
-VALUES("Nguyễn Thị Hồng", "079779822999", "nữ", '1991-8-14', "nthong@gmail.com", "0399177890", "Tiến sỹ", 2, "nguyenthihong", "hong@111");
+VALUES("Nguyễn Thị Hồng", "079779822999", "Nữ", '1991-8-14', "nthong@gmail.com", "0399177890", "Tiến sỹ", 2, "nguyenthihong", "hong@111");
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
-VALUES("Trần Văn Xuân", "066779899199", "nam", '1989-1-15', "tvxuan@gmail.com", "0988177888", "Tiến sỹ", 3, "tranvanxuan", "xuan@111");
+VALUES("Trần Văn Xuân", "066779899199", "Nam", '1989-1-15', "tvxuan@gmail.com", "0988177888", "Tiến sỹ", 3, "tranvanxuan", "xuan@111");
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
-VALUES("Lê Thị Nhung", "077779818999", "nữ", '1990-12-04', "ltnhung@gmail.com", "0788168890", "Thạc sỹ", 1, "lethinhung", "nhung@111");
+VALUES("Lê Thị Nhung", "077779818999", "Nữ", '1990-12-04', "ltnhung@gmail.com", "0788168890", "Thạc sỹ", 1, "lethinhung", "nhung@111");
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
-VALUES("Nguyễn Văn Việt", "080777771199", "nam", '1985-4-04', "nvviet@gmail.com", "0388678890", "Thạc sỹ", 1, "nguyenvanviet", "viet@111");
+VALUES("Nguyễn Văn Việt", "080777771199", "Nam", '1985-4-04', "nvviet@gmail.com", "0388678890", "Thạc sỹ", 1, "nguyenvanviet", "viet@111");
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
-VALUES("Nguyễn Thị Thắm", "082779888999", "nữ", '1985-8-18', "nttham@gmail.com", "0712377890", "Thạc sỹ", 2, "nguyenthitham", "tham@111");
+VALUES("Nguyễn Thị Thắm", "082779888999", "Nữ", '1985-8-18', "nttham@gmail.com", "0712377890", "Thạc sỹ", 2, "nguyenthitham", "tham@111");
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
-VALUES("Trần Văn Tùng", "083779897899", "nam", '1987-1-15', "tvtung@gmail.com", "0888123888", "Thạc sỹ", 3, "tranvantung", "tung@111");
+VALUES("Trần Văn Tùng", "083779897899", "Nam", '1987-1-15', "tvtung@gmail.com", "0888123888", "Thạc sỹ", 3, "tranvantung", "tung@111");
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
-VALUES("Lê Thị Thanh", "084779818789", "nữ", '1988-12-04', "ltthanh@gmail.com", "0888168890", "Thạc sỹ", 1, "lethithanh", "thanh@111");
+VALUES("Lê Thị Thanh", "084779818789", "Nữ", '1988-12-04', "ltthanh@gmail.com", "0888168890", "Thạc sỹ", 1, "lethithanh", "thanh@111");
 
 INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Máy phát nhạc MP3 trên nền kit nhúng", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 2, 2, 0);
 INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Hệ thống cảnh báo bằng phát hiện chuyển động trên kit nhúng Raspberry Pi", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 2, 2, 0);
@@ -107,26 +108,30 @@ INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subje
 INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Xây dựng ứng dụng IoT với NodeJS.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 3, 7, 0);
 
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
-VALUES("Nguyễn Gia Cát", "001384738666", "nam", '1997-8-17', "ngcat@student.edu.vn", "0399168678", "Công nghệ thông tin", "nguyengiacat", "cat@123");
+VALUES("Nguyễn Gia Cát", "001384738666", "Nam", '1997-8-17', "ngcat@student.edu.vn", "0399168678", "Công nghệ thông tin", "nguyengiacat", "cat@123");
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
-VALUES("Trần Bích Hà", "002387778666", "nữ", '1997-10-18', "tbha@student.edu.vn", "0799166678", "Công nghệ thông tin", "tranbichha", "ha@123");
+VALUES("Trần Bích Hà", "002387778666", "Nữ", '1997-10-18', "tbha@student.edu.vn", "0799166678", "Công nghệ thông tin", "tranbichha", "ha@123");
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
-VALUES("Lê Minh Quang", "004384767866", "nam", '1997-9-9', "lmquang@student.edu.vn", "0399789678", "Công nghệ thông tin", "leminhquang", "quang@123");
+VALUES("Lê Minh Quang", "004384767866", "Nam", '1997-9-9', "lmquang@student.edu.vn", "0399789678", "Công nghệ thông tin", "leminhquang", "quang@123");
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
-VALUES("Lê Mỹ Duyên", "010384799966", "nữ", '1997-1-17', "lmduyen@student.edu.vn", "0377168678", "Công nghệ thông tin", "lemyduyen", "duyen@123");
+VALUES("Lê Mỹ Duyên", "010384799966", "Nữ", '1997-1-17', "lmduyen@student.edu.vn", "0377168678", "Công nghệ thông tin", "lemyduyen", "duyen@123");
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
-VALUES("Phan Minh Luân", "011367938666", "nam", '1997-2-12', "pmquan@student.edu.vn", "0799777678", "Công nghệ thông tin", "phanminhluan", "luan@123");
+VALUES("Phan Minh Luân", "011367938666", "Nam", '1997-2-12', "pmquan@student.edu.vn", "0799777678", "Công nghệ thông tin", "phanminhluan", "luan@123");
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
-VALUES("Nguyễn Cát Tiên", "095384738666", "nữ", '1998-8-16', "nctien@student.edu.vn", "0399188878", "Công nghệ thông tin", "nguyencattien", "tien@123");
+VALUES("Nguyễn Cát Tiên", "095384738666", "Nữ", '1998-8-16', "nctien@student.edu.vn", "0399188878", "Công nghệ thông tin", "nguyencattien", "tien@123");
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
-VALUES("Huỳnh Anh Dũng", "094384738666", "nam", '1998-8-8', "hadung@student.edu.vn", "0199168999", "Kỹ thuật dữ liệu", "huynhanhdung", "dung@123");
+VALUES("Huỳnh Anh Dũng", "094384738666", "Nam", '1998-8-8', "hadung@student.edu.vn", "0199168999", "Kỹ thuật dữ liệu", "huynhanhdung", "dung@123");
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
-VALUES("Trần Gia Linh", "079387778666", "nữ", '1998-1-19', "tglinh@student.edu.vn", "0799168987", "Kỹ thuật dữ liệu", "trangialinh", "linh@123");
+VALUES("Trần Gia Linh", "079387778666", "Nữ", '1998-1-19', "tglinh@student.edu.vn", "0799168987", "Kỹ thuật dữ liệu", "trangialinh", "linh@123");
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
-VALUES("Trần Quốc Bảo", "079384738679", "nam", '1998-5-15', "tqbao@student.edu.vn", "0399987678", "Kỹ thuật dữ liệu", "tranquocbao", "bao@123");
+VALUES("Trần Quốc Bảo", "079384738679", "Nam", '1998-5-15', "tqbao@student.edu.vn", "0399987678", "Kỹ thuật dữ liệu", "tranquocbao", "bao@123");
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
-VALUES("Nguyễn Bích Thủy", "002384738886", "nữ", '1998-1-12', "nbthuy@student.edu.vn", "0797778678", "Kỹ thuật dữ liệu", "nguyenbichthuy", "thuy@123");
+VALUES("Nguyễn Bích Thủy", "002384738886", "Nữ", '1998-1-12', "nbthuy@student.edu.vn", "0797778678", "Kỹ thuật dữ liệu", "nguyenbichthuy", "thuy@123");
 
 INSERT INTO Admin (username, password) VALUES("trannhatphong", "123456");
 
-INSERT INTO Team(leaderID, topicID, quantity) VALUES(1, 1, 0)
+INSERT INTO Team(leaderID, topicID, quantity) VALUES(1, 1, 0);
+
+SELECT * FROM Student
+SELECT * FROM Topic 
+SELECT * FROM Lecturer WHERE username = "nguyenvansong" AND password = "song@111"

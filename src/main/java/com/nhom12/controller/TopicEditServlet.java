@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "TopicEditServlet", urlPatterns = {"/edittopic"})
 public class TopicEditServlet extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+
     TopicDAOImpl dao = new TopicDAOImpl();
     SubjectDAOImpl dao2 = new SubjectDAOImpl();
     TopicTypeDAOImpl dao3 = new TopicTypeDAOImpl();

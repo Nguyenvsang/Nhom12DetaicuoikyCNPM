@@ -6,7 +6,6 @@ package com.nhom12.dao;
 
 import com.nhom12.context.DBContext;
 import com.nhom12.entity.Lecturer;
-import com.nhom12.entity.Topic;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +19,6 @@ import java.util.List;
  */
 public class LecturerDAOImpl implements LecturerDAO {
     // Kết nối
-
     Connection conn = null;
     // Ném câu lệnh query qua dbms
     PreparedStatement ps = null;
@@ -168,5 +166,12 @@ public class LecturerDAOImpl implements LecturerDAO {
         } catch (Exception e) {
         }
         return lecturer;
+    }
+    
+    public static void main(String[] args) {
+        LecturerDAOImpl dao = new LecturerDAOImpl();
+        boolean a = dao.LecturerLogin("nguyenvansong", "song@111");
+        Lecturer l = dao.findLecturerByUsername("nguyenvansong");
+        System.out.print(l);
     }
 }

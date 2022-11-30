@@ -66,6 +66,30 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
+    public Student findStudentByID(int studentID) {
+        String query = "SELECT * FROM Student WHERE studentID = ?";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, studentID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Student(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    @Override
     public void updateStudent(int studentID, String studentName, String citizenID, String gender, Date dateOfBirth, String email, String phoneNumber, String department) {
         String query = "UPDATE Student SET studentName = ?,  citizenID = ?, gender = ?, dateOfBirth = ?, email = ?, phoneNumber = ?, department = ? WHERE studentID = ?";
         try {

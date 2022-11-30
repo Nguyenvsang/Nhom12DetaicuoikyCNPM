@@ -5,6 +5,7 @@
 <!-- Main content -->
 <!-- Content Wrapper. Contains page content -->
 <jsp:useBean id="t" class="com.nhom12.dao.TopicDAOImpl" scope="request"/>
+<jsp:useBean id="lecturer" class="com.nhom12.dao.LecturerDAOImpl" scope="request"/>
 
 <div class="content-wrapper">
     <!-- Main content -->
@@ -34,7 +35,7 @@
                                     </div>
                                 </div>
 
-                           </div>
+                            </div>
                         </form>
                         <div class="row justify-content-center">
                             <div style="margin-top: 20px; color: red;">${errorString}</div>
@@ -52,7 +53,7 @@
                             <div class="card-header" style="margin-left: -20px; margin-top: -40px;">
                                 <input type="button" value="Đăng ký đề tài"
                                        class="btn btn-primary"
-                                       onclick="location.href = '${pageContext.request.contextPath}/AddBook'">
+                                       onclick="location.href = '${pageContext.request.contextPath}/topicregister}'">
                             </div>
                             <table class="table table-bordered table-hover" id="example2">
                                 <thead>
@@ -70,24 +71,27 @@
                                         <tr>
                                             <td>${i.topicID}</td>
                                             <td>${i.topicName}</td>
-                                            <td> </td>                                                                                                                                                                                                                                                                                                     
-                                            
-                                    <td><figcaption>
-                                        <a href="Resources/img/products/${book.getImage()}"
-                                           style="font-size: 14px;" target="_blank">Xem chi tiết</a>
-                                    </figcaption></td>
-                                    <td><a
-                                            href="${pageContext.request.contextPath}/EditBook?id=${book.getId()}"
-                                            class="btn btn-sm btn-info">Chỉnh sửa</a></td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary btn-danger"
-                                                data-toggle="modal"
-                                                data-target="#staticBackdrop-${Integer.toString(book.getId())}"
-                                                style="padding-bottom: 5px; padding-top: 3px; font-size: 14px">Xóa</button>
-                                    </td>
-                                    </tr>
+                                            <c:forEach items="${lecturer.alllecturer}" var="l">
+                                                <c:if test="${l.lecturerID == i.lecturerID}">
+                                                    <td>${l.lecturerName}</td>  
+                                                </c:if>
+                                            </c:forEach>
 
-                                </c:forEach>
+                                            <td><a
+                                                    href="${pageContext.request.contextPath}/topicdetail?topicID=${i.topicID}"
+                                                    class="btn btn-sm btn-primary">Chi tiết</a></td>
+                                            <td><a
+                                                    href="${pageContext.request.contextPath}/edittopic?topicID=${i.topicID}"
+                                                    class="btn btn-sm btn-info">Chỉnh sửa</a></td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-danger"
+                                                        data-toggle="modal"
+                                                        data-target="#staticBackdrop-${Integer.toString(book.getId())}"
+                                                        style="padding-bottom: 5px; padding-top: 3px; font-size: 14px">Xóa</button>
+                                            </td>
+                                        </tr>
+
+                                    </c:forEach>
                                 </tbody>
                             </table>
 

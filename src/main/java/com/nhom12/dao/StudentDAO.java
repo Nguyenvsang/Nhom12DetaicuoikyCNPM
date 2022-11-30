@@ -18,4 +18,6 @@ public interface StudentDAO {
 
     void updateStudent(int studentID, String studentName, String citizenID, String gender, java.util.Date dateOfBirth, String email, String phoneNumber, String department);
 
+    Student findStudentByID(int studentID);
+
 }

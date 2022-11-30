@@ -60,7 +60,7 @@
                                     <label>Loại đề tài</label> 
                                     <select name="typeID" id="typeID"
                                             class="form-control" required>
-                                         <option value="">Chọn 1 thể loại</option> 
+                                        <option value="">Chọn 1 thể loại</option> 
                                         <c:forEach items="${topictype}" var="tt">
                                             <option value="${tt.typeID}">${tt.typeName}</option>
                                         </c:forEach>
@@ -70,7 +70,7 @@
                                     <label>Bộ môn</label> 
                                     <select name="subjectID" id="subjectID"
                                             class="form-control" required>
-                                         <option value="">Chọn 1 thể loại</option> 
+                                        <option value="">Chọn 1 thể loại</option> 
                                         <c:forEach items="${subject}" var="sub">
                                             <option value="${sub.subjectID}">${sub.subjectName}</option>
                                         </c:forEach>

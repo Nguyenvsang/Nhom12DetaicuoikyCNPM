@@ -77,14 +77,12 @@ public class AdminDAOImpl implements AdminDAO {
 //        }
 //    }
     @Override
-    public Admin findAdminByUsername(String username, String password) {
-        String query = "SELECT * FROM Admin WHERE username = ? AND password = ?";
+    public Admin findAdminByUsername(String username) {
+        String query = "SELECT * FROM Admin WHERE username = ?";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
             ps.setString(1, username);
-            ps.setString(2, password);
-
             ps.executeQuery();
             while (rs.next()) {
                 return new Admin();

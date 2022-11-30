@@ -1,34 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.nhom12.controller;
 
 
 import com.nhom12.dao.LecturerDAOImpl;
-import com.nhom12.dao.TopicDAOImpl;
 import com.nhom12.entity.Lecturer;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author ASUS
- */
 @WebServlet(name = "LecturerEditServlet", urlPatterns = {"/editlecturer"})
 public class LecturerEditServlet extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
     
     LecturerDAOImpl dao = new LecturerDAOImpl();
     
