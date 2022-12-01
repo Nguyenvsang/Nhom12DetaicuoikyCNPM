@@ -165,7 +165,7 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item"><a
-                                                href="${pageContext.request.contextPath}/AddReader"
+                                                href="${pageContext.request.contextPath}/viewMyselfLecturer"
                                             class="nav-link <c:if test="${sessionScope.Check.toString().equals('AddReader')}">active</c:if>">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Thông tin giảng viên</p>

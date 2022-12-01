@@ -73,7 +73,7 @@
                                                 <a href="${pageContext.request.contextPath}/register?id={i}" class="btn btn-sm btn-info">Chi tiết</a>
                                             </td>
                                             <td>
-                                                <a href="${pageContext.request.contextPath}/student-register?topicID=${i.topicID}" class="btn btn-sm btn-info">Chọn</a>
+                                                <a href="${pageContext.request.contextPath}/student-register?topicID=${i.lecturerID}" class="btn btn-sm btn-info">Chọn</a>
                                             </td>
                                         </tr>
 

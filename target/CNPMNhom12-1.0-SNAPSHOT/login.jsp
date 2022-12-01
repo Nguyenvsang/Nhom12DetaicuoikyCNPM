@@ -38,7 +38,7 @@
                             <div class="card-body">
                                 <label><input type="radio" name="typelogin" value="lecturer">Giảng viên &ensp; &ensp; &ensp;</label>
                                 <label><input type="radio" name="typelogin" value="student">Sinh viên &ensp; &ensp; &ensp;</label>
-                                <label><input type="radio" name="typelogin" value="admin" checked>Admin &ensp; &ensp; &ensp;</label>
+                                <label><input type="radio" name="typelogin" value="admin">Admin &ensp; &ensp; &ensp;</label>
                                 <label><input type="radio" name="typelogin" value="dean">Trưởng bộ môn &ensp;</label>
                                 <div class="form-group text-center">
                                     <input
