@@ -80,15 +80,7 @@
                 <a href="${pageContext.request.contextPath}/UserManual" class="brand-link"> <img
                         src="Resources/img/AdminLTELogo.png" alt="AdminLTE Logo"
                         class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <c:if test="${sessionScope.admin != null}">
-                        <span class="brand-text font-weight-light">${sessionScope.admin.getUsername()}</span>
-                    </c:if>
-                    <c:if test="${sessionScope.account == null}">
-                        <span class="brand-text font-weight-light">ĐĂNG KÝ ĐỀ TÀI</span>
-                    </c:if>
-                    <c:if test="${sessionScope.admin == null && sessionScope.account != null}">
-                        <span class="brand-text font-weight-light">${sessionScope.account.getUsername()}</span>
-                    </c:if>
+                    <span class="brand-text font-weight-light">DANH MỤC</span>
                 </a>
                 <!-- Sidebar -->
                 <div class="sidebar">
@@ -128,35 +120,55 @@
                                     class="nav-link <c:if test="${sessionScope.Check.toString().equals('Manual')}">active</c:if> ">
                                         <i class="nav-icon fas fa-book"></i>
                                         <p>Hướng dẫn</p>
-                                    </a></li>
-                                <li
-                                    class="nav-item has-treeview <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">menu-open</c:if>"><a
+                                    </a>
+                                </li>
+                                <li class="nav-item "><a
+                                        href="<c:url value="/viewMyselfLecturer"/>"
+                                    class="nav-link">
+                                    <i class="nav-icon fas fa-book"></i>
+                                    <p>Thông tin cá nhân</p>
+                                </a>
+                            </li>
+                            <li
+                                class="nav-item has-treeview <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">menu-open</c:if>"><a
                                         href="#"
                                         class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">active</c:if> ">
                                         <i class="nav-icon fas fa-book"></i>
                                         <p>
-                                            Quản lý đề tài<i class="right fas fa-angle-left"></i>
+                                            Danh sách đề tài<i class="right fas fa-angle-left"></i>
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item"><a
-                                                href="${pageContext.request.contextPath}/ManageBook"
-                                            class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageBook')}">active</c:if> ">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Danh sách đề tài</p>
-                                            </a></li>
-                                        <!--                                        <li class="nav-item"><a
-                                                                                        href="${pageContext.request.contextPath}/AddBook"
-                                                                                    class="nav-link <c:if test="${sessionScope.Check.toString().equals('AddBook')}">active</c:if>">
-                                                                                        <i class="far fa-circle nav-icon"></i>
-                                                                                        <p>Thông tin giảng viên</p>
-                                                                                    </a></li>
-                                                                                <li class="nav-item"><a
-                                                                                        href="${pageContext.request.contextPath}/ManageCategory"
-                                                                                    class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageCategory')}">active</c:if>">
-                                                                                        <i class="far fa-circle nav-icon"></i>
-                                                                                        <p>Thể loại</p>
-                                                                                    </a></li>-->
+                                                href="${pageContext.request.contextPath}/all-topic"
+                                            class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Tất cả đề tài</p>
+                                        </a></li>
+                                    <li class="nav-item"><a
+                                            href="${pageContext.request.contextPath}/list-of-topic"
+                                            class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Đề tài đã đăng ký</p>
+                                        </a></li>
+                                    <li class="nav-item"><a
+                                            href="${pageContext.request.contextPath}/topic-to-register"
+                                            class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Đề tài cho sinh viên</p>
+                                        </a></li>
+                                    <!--                                        <li class="nav-item"><a
+                                                                                    href="${pageContext.request.contextPath}/AddBook"
+                                                                                class="nav-link <c:if test="${sessionScope.Check.toString().equals('AddBook')}">active</c:if>">
+                                                                                    <i class="far fa-circle nav-icon"></i>
+                                                                                    <p>Thông tin giảng viên</p>
+                                                                                </a></li>
+                                                                            <li class="nav-item"><a
+                                                                                    href="${pageContext.request.contextPath}/ManageCategory"
+                                                                                class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageCategory')}">active</c:if>">
+                                                                                    <i class="far fa-circle nav-icon"></i>
+                                                                                    <p>Thể loại</p>
+                                                                                </a></li>-->
                                     </ul></li>
                                 <li
                                     class="nav-item has-treeview  <c:if test="${sessionScope.Check.toString().equals('ManageReader_0') || sessionScope.Check.toString().equals('AddReader') || sessionScope.Check.toString().equals('ManageReader_1')}">menu-open</c:if>"><a
@@ -170,23 +182,23 @@
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item"><a
                                                 href="${pageContext.request.contextPath}/viewMyselfLecturer"
-                                            class="nav-link <c:if test="${sessionScope.Check.toString().equals('AddReader')}">active</c:if>">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Thông tin giảng viên</p>
-                                            </a></li>
-                                        <li class="nav-item"><a
-                                                href="${pageContext.request.contextPath}/ManageReader"
-                                            class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageReader_0')}">active</c:if>">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Thông tin sinh viên</p>
-                                            </a></li>
+                                            class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Thông tin giảng viên</p>
+                                        </a></li>
+                                    <li class="nav-item"><a
+                                            href="${pageContext.request.contextPath}/ManageReader"
+                                            class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Thông tin sinh viên</p>
+                                        </a></li>
 
-                                        <!--                                        <li class="nav-item"><a
-                                                                                        href="${pageContext.request.contextPath}/ManageReader?status=1"
-                                                                                    class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageReader_1')}">active</c:if>">
-                                                                                        <i class="far fa-circle nav-icon"></i>
-                                                                                        <p>Lịch sử mượn sách</p>
-                                                                                    </a></li>-->
+                                    <!--                                        <li class="nav-item"><a
+                                                                                    href="${pageContext.request.contextPath}/ManageReader?status=1"
+                                                                                class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageReader_1')}">active</c:if>">
+                                                                                    <i class="far fa-circle nav-icon"></i>
+                                                                                    <p>Lịch sử mượn sách</p>
+                                                                                </a></li>-->
                                     </ul></li>
                                 <%
                                     if (request.getSession().getAttribute("User") != null) {

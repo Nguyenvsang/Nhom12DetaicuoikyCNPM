@@ -57,15 +57,15 @@ public class TopicOfLecturer extends HttpServlet {
         Lecturer l = (Lecturer) session.getAttribute("lecturer");
         if (session != null && l != null) {
             listtopic = dao3.findTopicByLecturer(l.getLecturerID());
-        } else {
-            listtopic = dao3.getAllTopics();
-        }
-        request.setAttribute("listtopic", listtopic);
-        request.setAttribute("subject", subject);
-        request.setAttribute("topictype", topictype);
-        request.setAttribute("lecturer", lecturer);
+            request.setAttribute("listtopic", listtopic);
+            request.setAttribute("subject", subject);
+            request.setAttribute("topictype", topictype);
+            request.setAttribute("lecturer", lecturer);
 
-        request.getRequestDispatcher("/list_topic.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
+            request.getRequestDispatcher("/list_topic.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
+        } else {
+            response.sendRedirect(request.getContextPath() + "/login.jsp"); // Lưu ý không cần request.getContextPath() + 
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -87,10 +87,10 @@
 
                                             <td>${i.quantity}</td>   
                                             <td>
-                                                <a href="${pageContext.request.contextPath}/register?id={i}" class="btn btn-sm btn-info">Chi tiết</a>
+                                                <a href="<c:url value="/topicdetail?topicID=${i.topicID}"/>" class="btn btn-sm btn-info">Chi tiết</a>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-primary btn-success"  style="font-size: 14px"
+                                                <button type="button" class="btn btn-primary btn-success ${i.quantity == 2 ? "disabled" : ""}"  style="font-size: 14px"
                                                         data-toggle="modal"
                                                         data-target="#staticBackdrop-${i.topicID}">Đăng ký</button>
                                             </td>

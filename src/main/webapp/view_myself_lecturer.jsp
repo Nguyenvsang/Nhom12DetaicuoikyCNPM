@@ -59,7 +59,7 @@
                                 <div class="form-group">
                                     <label>Ngày sinh</label> <input type="date"
                                                                   class="form-control" id="dateOfBirth" name="dateOfBirth"
-                                                                  placeholder="Nhập giới tính" value=${lecturer.dateOfBirth} readonly>
+                                                                  placeholder="Nhập ngày sinh" value=${lecturer.dateOfBirth} readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label> <input type="email"

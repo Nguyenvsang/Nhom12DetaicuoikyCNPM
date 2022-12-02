@@ -1,8 +1,10 @@
 package com.nhom12.controller;
 
+import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.dao.SubjectDAOImpl;
 import com.nhom12.dao.TopicDAOImpl;
 import com.nhom12.dao.TopicTypeDAOImpl;
+import com.nhom12.entity.Lecturer;
 import com.nhom12.entity.Subject;
 import com.nhom12.entity.Topic;
 import com.nhom12.entity.TypeOfTopic;
@@ -13,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "TopicEditServlet", urlPatterns = {"/edittopic"})
 public class TopicEditServlet extends HttpServlet {
@@ -22,6 +25,7 @@ public class TopicEditServlet extends HttpServlet {
     TopicDAOImpl dao = new TopicDAOImpl();
     SubjectDAOImpl dao2 = new SubjectDAOImpl();
     TopicTypeDAOImpl dao3 = new TopicTypeDAOImpl();
+    LecturerDAOImpl dao4 = new LecturerDAOImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,10 +35,12 @@ public class TopicEditServlet extends HttpServlet {
         List<Subject> subject = dao2.getAllSubjects();
         List<TypeOfTopic> topictype = dao3.getAllTypeOfTopics();
         Topic topic = dao.findTopicByID(topicid);
+        List<Lecturer> lecturer = dao4.getAlllecturer();
 
         request.setAttribute("subject", subject);
         request.setAttribute("topictype", topictype);
         request.setAttribute("topic", topic);
+        request.setAttribute("lecturer", lecturer);
         request.getRequestDispatcher("/edit_topic.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
     }
 
@@ -44,20 +50,25 @@ public class TopicEditServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
+        if (session != null && session.getAttribute("lecturer") != null) {
+            Lecturer lecturer = (Lecturer) session.getAttribute("lecturer");
+            int topicID = Integer.parseInt(request.getParameter("topicID"));
+            String topicName = request.getParameter("topicName");
+            String topicRequire = request.getParameter("topicRequire");
+            String topicGoal = request.getParameter("topicGoal");
+            int schoolYear = Integer.parseInt(request.getParameter("schoolYear"));
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            int typeID = Integer.parseInt(request.getParameter("typeID"));
+            int subjectID = Integer.parseInt(request.getParameter("subjectID"));
+            int lecturerID = lecturer.getLecturerID();
 
-        int topicID = Integer.parseInt(request.getParameter("topicID"));
-        String topicName = request.getParameter("topicName");
-        String topicRequire = request.getParameter("topicRequire");
-        String topicGoal = request.getParameter("topicGoal");
-        int schoolYear = Integer.parseInt(request.getParameter("schoolYear"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        int typeID = Integer.parseInt(request.getParameter("typeID"));
-        int subjectID = Integer.parseInt(request.getParameter("subjectID"));
-        int lecturerID = Integer.parseInt(request.getParameter("lecturerID"));
-
-        dao.editTopic(topicID, topicName, topicRequire, topicGoal, schoolYear, quantity, typeID, subjectID, lecturerID);
-
-        response.sendRedirect(request.getContextPath() + "/topicregister");
+            dao.editTopic(topicID, topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity);
+            
+            request.setAttribute("message", "Chỉnh sửa đề tài thành công!");
+            request.getRequestDispatcher("/list-of-topic").forward(request, response);
+        } else {
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+        }
     }
-
 }

@@ -26,7 +26,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Đăng ký đề tài mới</h3>
+                            <h3 class="card-title">Chỉnh sửa đề tài</h3>
                         </div>
                         <div class="row justify-content-center"
                              style="margin-top: 15px; margin-bottom: -15px;">
@@ -64,7 +64,7 @@
                                 <div class="form-group">
                                     <label>Số lượng sinh viên</label> <input type="text"
                                                                   class="form-control" id="quantity" name="quantity"
-                                                                  value=2 readonly>
+                                                                  value=${topic.quantity} readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Loại đề tài</label> 
@@ -89,7 +89,7 @@
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary ">Lưu</button>
                                     <input type="button" value="Trở lại" class="btn btn-primary"
-                                           onclick="location.href = 'edittopic'">
+                                           onclick="location.href = '/list-of-topic'">
                                 </div>
                             </div>
                         </form>

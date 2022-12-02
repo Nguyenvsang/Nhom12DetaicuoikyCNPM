@@ -59,16 +59,16 @@ public class LoginServlet extends HttpServlet {
             // Gọi DAO để xác thực đăng nhập và đặt đường dẫn chuyển đến trang danh sách đề tài
             if ("lecturer".equals(typechecked)) {
                 verification = lecturerDAOImpl.LecturerLogin(username, password);
-                pathrequestDispatcher = "/list_topic.jsp";
+                pathrequestDispatcher = "/list-of-topic";
             } else if ("student".equals(typechecked)) {
                 verification = studentDAOImpl.StudentLogin(username, password);
-                pathrequestDispatcher = "/student/manage";
+                pathrequestDispatcher = "/topic-to-register";
             } else if ("admin".equals(typechecked)) {
                 verification = adminDAOImpl.AdminLogin(username, password);
-                pathrequestDispatcher = "/list_topic.jsp";
+                pathrequestDispatcher = "/all-topic";
             } else if ("dean".equals(typechecked)) {
                 verification = deanDAOImpl.DeanLogin(username, password);
-                pathrequestDispatcher = "/topicDean";
+                pathrequestDispatcher = "/all-topic";
             }
 
             // Nếu login hợp lệ sẽ chuyển đến trang phù hợp

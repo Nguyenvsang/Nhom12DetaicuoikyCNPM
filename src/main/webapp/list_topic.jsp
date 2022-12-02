@@ -44,6 +44,7 @@
                                 <option value="${c.id}">${c.name}</option>
                             </c:forEach>
                         </select>
+                        <p class="text-warning text-center">${message}</p>
                         <!-- /.card-header -->
                         <div class="card-body" >
 
@@ -51,7 +52,7 @@
                             <div class="card-header" style="margin-left: -20px; margin-top: -40px;">
                                 <input type="button" value="Đăng ký đề tài"
                                        class="btn btn-primary"
-                                       onclick="location.href = '${pageContext.request.contextPath}/topicregister}'">
+                                       onclick="location.href = '${pageContext.request.contextPath}/topicregister'">
                             </div>
                             <table class="table table-bordered table-hover" id="example2">
                                 <thead>
@@ -61,7 +62,7 @@
                                         <th style="width: 20%;">Giảng viên hướng dẫn</th>                                       
                                         <th style="width: 10%;">Xem</th>
                                         <th style="width: 10%;">Chỉnh sửa</th>
-                                        <th style="width: 5%;">Xóa</th>
+<!--                                        <th style="width: 5%;">Xóa</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,17 +77,17 @@
                                             </c:forEach>
 
                                             <td><a
-                                                    href="${pageContext.request.contextPath}/topicdetail?topicID=${i.topicID}"
+                                                    href="<c:url value="/topicdetail?topicID=${i.topicID}"/>"
                                                     class="btn btn-sm btn-primary">Chi tiết</a></td>
                                             <td><a
                                                     href="${pageContext.request.contextPath}/edittopic?topicID=${i.topicID}"
                                                     class="btn btn-sm btn-info">Chỉnh sửa</a></td>
-                                            <td>
+<!--                                            <td>
                                                 <button type="button" class="btn btn-primary btn-danger"
                                                         data-toggle="modal"
                                                         data-target="#staticBackdrop-${Integer.toString(book.getId())}"
                                                         style="padding-bottom: 5px; padding-top: 3px; font-size: 14px">Xóa</button>
-                                            </td>
+                                            </td>-->
                                         </tr>
 
                                     </c:forEach>

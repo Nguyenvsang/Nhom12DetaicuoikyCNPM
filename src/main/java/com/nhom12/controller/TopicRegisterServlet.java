@@ -54,9 +54,10 @@ public class TopicRegisterServlet extends HttpServlet {
             int subjectID = Integer.parseInt(request.getParameter("subjectID"));
             int lecturerID = lecturer.getLecturerID();
 
-            dao.addTopic(topicName, topicRequire, topicGoal, schoolYear, quantity, typeID, subjectID, lecturerID);
+            dao.addTopic(topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity);
 
-            response.sendRedirect(request.getContextPath() + "/list_topic.jsp");
+            request.setAttribute("message", "Chỉnh sửa đề tài thành công!");
+            request.getRequestDispatcher("/list-of-topic").forward(request, response);
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp");
         }
