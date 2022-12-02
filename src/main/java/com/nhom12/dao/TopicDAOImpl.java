@@ -105,17 +105,42 @@ public class TopicDAOImpl implements TopicDAO {
             ps.setInt(6, typeID);
             ps.setInt(7, subjectID);
             ps.setInt(8, lecturerID);
+            ps.setInt(9, topicID);
             ps.executeUpdate();
         } catch (Exception e) {
             {
             }
         }
     }
+    
+    @Override
+    public List<Topic> findTopicByLecturer(int lecturerID) {
+        String query = "SELECT * FROM Topic WHERE lecturerID = ?";
+        List<Topic> topic = new ArrayList<>();
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, lecturerID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                topic.add(new Topic(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getInt(9)));
+            }
+        } catch (Exception e) {
+        }
+        return topic;
+    }
 
     public static void main(String[] args) {
         TopicDAOImpl dao = new TopicDAOImpl();
-        //dao.addTopic("Điện thông minh", "2 sinh viên", "Công tắc", 2019, 1, 1, 0, 1);
-        Topic topic = dao.findTopicByID(1);
-        System.out.print(topic);
+        
     }
 }

@@ -5,7 +5,9 @@
 package com.nhom12.controller;
 
 import com.nhom12.dao.LecturerDAOImpl;
+import com.nhom12.dao.TopicDAOImpl;
 import com.nhom12.entity.Lecturer;
+import com.nhom12.entity.Topic;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -26,6 +28,7 @@ public class LecturerDean extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     LecturerDAOImpl lecturerDAOImpl = new LecturerDAOImpl();
+    TopicDAOImpl topicDAOImpl = new TopicDAOImpl();
 //    
 //    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 //            throws ServletException, IOException {
@@ -64,6 +67,11 @@ public class LecturerDean extends HttpServlet {
             List<Lecturer> lecturerListByDean = lecturerDAOImpl.getListLecturerByDean(dean.getDeanID());
 
             request.setAttribute("lecturerListByDean", lecturerListByDean);
+            
+            // Nhận topicID từ thanh địa chỉ và setAttribute tên "topic"
+            int topicID = Integer.parseInt(request.getParameter("topicID"));
+            Topic topic = topicDAOImpl.findTopicByID(topicID);
+            request.setAttribute("topic", topic);
 
             request.getRequestDispatcher("/register_lecturer_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
         }

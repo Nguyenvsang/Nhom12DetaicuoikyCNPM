@@ -38,7 +38,7 @@
                         <div class="row justify-content-center">
                             <div style="margin-top: 20px; color: red;">${errorString}</div>
                         </div>
-                        <label style="margin-left: 20px">Bộ môn</label>
+                        <label style="margin-left: 20px">Vui lòng chọn giảng viên phản biện</label>
                         <%--  <select name="subjectID" style="margin-bottom: 20px;margin-left: 20px;width: 20%">
                             <c:forEach items="${subject}" var="s">
                                 <option value="${s.id}">${s.name}</option>
@@ -52,10 +52,8 @@
                                     <tr>
                                         <th style="width: 5%">STT</th>
                                         <th style="width: 25%;">Tên giảng viên</th>                                                                                                                         
-                                        <th style="width: 15%;">email</th>
-                                        <th style="width: 10%;">Số điện thoại</th>
-                                        <th style="width: 10%;">Mã môn học</th>
-                                        <th style="width: 10%;">Số lượng</th>
+                                        <th style="width: 25%;">email</th>
+                                        <th style="width: 20%;">Số điện thoại</th>
                                         <th style="width: 10%;">Xem</th>
                                         <th style="width: 15%;">Chọn</th>
                                     </tr>
@@ -67,13 +65,11 @@
                                             <td>${i.lecturerName}</td>
                                             <td>${i.email}</td>                                            
                                             <td>${i.phoneNumber}</td>
-                                            <td>$</td>                                         
-                                            <td>$</td>   
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/register?id={i}" class="btn btn-sm btn-info">Chi tiết</a>
                                             </td>
                                             <td>
-                                                <a href="${pageContext.request.contextPath}/student-register?topicID=${i.lecturerID}" class="btn btn-sm btn-info">Chọn</a>
+                                                <a href="${pageContext.request.contextPath}/evaluationCommitteeTopicAdd?lecturerID=${i.lecturerID}" class="btn btn-sm btn-info">Chọn</a>
                                             </td>
                                         </tr>
 
