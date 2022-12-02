@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Đăng ký đề tài</title>
+        <title>Trang đăng ký đề tài</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Font Awesome -->
@@ -118,14 +118,14 @@
                             <li class="nav-item "><a
                                     href="${pageContext.request.contextPath}/UserManual"
                                     class="nav-link <c:if test="${sessionScope.Check.toString().equals('Manual')}">active</c:if> ">
-                                        <i class="nav-icon fas fa-book"></i>
+                                        <i class="nav-icon fas fa-list""></i>
                                         <p>Hướng dẫn</p>
                                     </a>
                                 </li>
                                 <li class="nav-item "><a
-                                        href="<c:url value="/viewMyselfLecturer"/>"
+                                        href="<c:url value="/editlecturer"/>"
                                     class="nav-link">
-                                    <i class="nav-icon fas fa-book"></i>
+                                    <i class="nav-icon fas fa-list"></i>
                                     <p>Thông tin cá nhân</p>
                                 </a>
                             </li>
@@ -133,7 +133,7 @@
                                 class="nav-item has-treeview <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">menu-open</c:if>"><a
                                         href="#"
                                         class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">active</c:if> ">
-                                        <i class="nav-icon fas fa-book"></i>
+                                        <i class="nav-icon fas fa-list""></i>
                                         <p>
                                             Danh sách đề tài<i class="right fas fa-angle-left"></i>
                                         </p>
@@ -174,20 +174,20 @@
                                     class="nav-item has-treeview  <c:if test="${sessionScope.Check.toString().equals('ManageReader_0') || sessionScope.Check.toString().equals('AddReader') || sessionScope.Check.toString().equals('ManageReader_1')}">menu-open</c:if>"><a
                                         href="#"
                                         class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageReader_0')|| sessionScope.Check.toString().equals('ManageReader_1') || sessionScope.Check.toString().equals('AddReader')}">active</c:if>">
-                                        <i class="nav-icon fas fa-book"></i>
+                                        <i class="nav-icon fas fa-list""></i>
                                         <p>
                                             Quản lý người dùng<i class="right fas fa-angle-left"></i>
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item"><a
-                                                href="${pageContext.request.contextPath}/viewMyselfLecturer"
+                                                href="${pageContext.request.contextPath}/lecturer/manage"
                                             class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Thông tin giảng viên</p>
                                         </a></li>
                                     <li class="nav-item"><a
-                                            href="${pageContext.request.contextPath}/ManageReader"
+                                            href="${pageContext.request.contextPath}"
                                             class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Thông tin sinh viên</p>

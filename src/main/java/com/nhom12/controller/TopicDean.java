@@ -9,7 +9,6 @@ import com.nhom12.entity.Subject;
 import com.nhom12.entity.Topic;
 import com.nhom12.entity.TypeOfTopic;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,7 +38,7 @@ public class TopicDean extends HttpServlet {
         request.setAttribute("subject", subject);
         request.setAttribute("topictype", topictype);
 
-        request.getRequestDispatcher("/register_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
+        request.getRequestDispatcher("/register_topic_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
     }
 
     @Override

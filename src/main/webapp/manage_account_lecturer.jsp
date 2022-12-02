@@ -81,7 +81,7 @@
                                            <input type="button" value="Chỉnh sửa" class="btn btn-primary"
                                            onclick="location.href = '${pageContext.request.contextPath}/editlecturer'">                                    
                                            <input type="button" value="Trở lại" class="btn btn-primary"
-                                           onclick="location.href = 'edittopic'">
+                                           onclick="location.href = '${pageContext.request.contextPath}/list-of-topic'">
                                 </div>
                             </div>
                         </form>

@@ -34,10 +34,11 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="${pageContext.request.contextPath}/editlecturer">
+                        <form role="form" method="post" action="${pageContext.request.contextPath}/editlecturer?lectureID=${lecturer.lecturerID}">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>ID</label> <input type="text"
+<!--                                    <label class="hide-text">ID</label> -->
+                                    <input type="hidden"
                                                              class="form-control" id="lecturerID" name="lecturerID"
                                                              placeholder="ID" value=${lecturer.lecturerID} readonly>
                                 </div>
@@ -80,7 +81,7 @@
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary ">Lưu</button>
                                     <input type="button" value="Trở lại" class="btn btn-primary"
-                                           onclick="location.href = 'edittopic'">
+                                           onclick="location.href = 'list-of-topic'">
                                 </div>
                             </div>
                         </form>

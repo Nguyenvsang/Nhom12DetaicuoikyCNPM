@@ -85,10 +85,10 @@
 								quản lý xác nhận đã đã sách hay chưa. Nếu người đó đến trả thì
 								bạn chọn <b>Đã trả.</b>
 							</p>
-							<p>
+<!--							<p>
 								- Muốn xem danh sách đang mượn sách thì chọn<b> Quản lý mượn
 									sách-&gt;Danh sách đang mượn.&nbsp;</b>
-							</p>
+							</p>-->
                                                         <p>
 								<b>III. Quản lý thông tin cá nhân</b>
 							</p>
@@ -96,16 +96,16 @@
 								- Muốn đăng kí đề tài thì chọn <b>Quản lý đề
 									tài-&gt;Danh sách đề tài-&gt;Chọn đề tài-&gt;Đăng ký.</b>
 							</p>
-							<p>
+<!--							<p>
 								-Muốn xem danh sách đã đăng ký thì chọn <b>Quản lý mượn
 									sách-&gt;Danh sách đang mượn.</b> Ở mục này bạn có thể tìm kiếm,
 								quản lý xác nhận đã đã sách hay chưa. Nếu người đó đến trả thì
 								bạn chọn <b>Đã trả.</b>
-							</p>
-							<p>
+							</p>-->
+<!--							<p>
 								- Muốn xem danh sách đang mượn sách thì chọn<b> Quản lý mượn
 									sách-&gt;Danh sách đang mượn.&nbsp;</b>
-							</p>
+							</p>-->
 						</div>
 					</div>
 
