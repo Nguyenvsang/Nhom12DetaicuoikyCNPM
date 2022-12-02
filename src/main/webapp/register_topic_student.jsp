@@ -46,6 +46,7 @@
                         </select>
                         --%>
                         <!-- /.card-header -->
+                        <p class="text-warning text-center">${message}</p>
                         <div class="card-body" >
                             <table class="table table-bordered table-hover" id="example2">
                                 <thead>
@@ -53,11 +54,11 @@
                                         <th style="width: 5%">STT</th>
                                         <th style="width: 25%;">Tên đề tài</th>                                                                                                                         
                                         <th style="width: 15%;">Giảng viên hướng dẫn</th>
-                                        <th style="width: 10%;">Mã loại đề tài</th>
-                                        <th style="width: 10%;">Mã môn học</th>
+                                        <th style="width: 15%;">Loại đề tài</th>
+                                        <th style="width: 10%;">Môn học</th>
                                         <th style="width: 10%;">Số lượng</th>
                                         <th style="width: 10%;">Xem</th>
-                                        <th style="width: 15%;">Đăng ký</th>
+                                        <th style="width: 10%;">Đăng ký</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,19 +66,68 @@
                                         <tr>
                                             <td>${i.topicID}</td>
                                             <td>${i.topicName}</td>
-                                            <td>${i.lecturerID}</td>                                            
-                                            <td>${i.typeID}</td>
-                                            <td>${i.subjectID}</td>                                         
+
+                                            <c:forEach items="${lecturer}" var="l">
+                                                <c:if test="${l.lecturerID == i.lecturerID}">
+                                                    <td>${l.lecturerName}</td>  
+                                                </c:if>
+                                            </c:forEach>                                           
+
+                                            <c:forEach items="${topictype}" var="t">
+                                                <c:if test="${t.typeID == i.typeID}">
+                                                    <td>${t.typeName}</td>  
+                                                </c:if>
+                                            </c:forEach>
+
+                                            <c:forEach items="${subject}" var="s">
+                                                <c:if test="${s.subjectID == i.subjectID}">
+                                                    <td>${s.subjectName}</td>  
+                                                </c:if>
+                                            </c:forEach>
+
                                             <td>${i.quantity}</td>   
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/register?id={i}" class="btn btn-sm btn-info">Chi tiết</a>
                                             </td>
                                             <td>
-                                                <a href="${pageContext.request.contextPath}/student-register?topicID=${i.topicID}" class="btn btn-sm btn-info">Đăng ký</a>
+                                                <button type="button" class="btn btn-primary btn-success"  style="font-size: 14px"
+                                                        data-toggle="modal"
+                                                        data-target="#staticBackdrop-${i.topicID}">Đăng ký</button>
                                             </td>
                                         </tr>
 
-                                    </c:forEach>
+                                    <div class="modal fade"
+                                         id="staticBackdrop-${i.topicID}"
+                                         data-backdrop="static" data-keyboard="false" tabindex="-1"
+                                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel1">Chú
+                                                        ý</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <span class="text-warning"> Bạn có chắc muốn đăng ký đề tài ${i.topicName} không?</span>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button"
+                                                            class="btn btn-warning  btn-secondary"
+                                                            data-dismiss="modal">Hủy</button>
+                                                    <form action="${pageContext.request.contextPath}/student-register?topicID=${i.topicID}"
+                                                          method="post">
+                                                        <button type="submit" class="btn btn-success">Đăng ký</button>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>

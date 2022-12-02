@@ -38,7 +38,7 @@
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form role="form" method="post"
-                              action="${pageContext.request.contextPath}/admin/update?username=${admin.username}">
+                              action="${pageContext.request.contextPath}/admin/update">
 
                             <div class="card-body">
 

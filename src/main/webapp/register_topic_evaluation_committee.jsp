@@ -57,7 +57,7 @@
                                         <th style="width: 10%;">Mã môn học</th>
                                         <th style="width: 10%;">Số lượng</th>
                                         <th style="width: 10%;">Xem</th>
-                                        <th style="width: 15%;">Chọn</th>
+                                        <th style="width: 15%;">Đăng ký</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,8 +73,7 @@
                                                 <a href="${pageContext.request.contextPath}/register?id={i}" class="btn btn-sm btn-info">Chi tiết</a>
                                             </td>
                                             <td>
-                                                <!--<a href="${pageContext.request.contextPath}/lecturerDean?topicID=${i.topicID}" class="btn btn-sm btn-info">Chọn</a>-->
-                                                <a href="${pageContext.request.contextPath}/lecturerDean" class="btn btn-sm btn-info">Chọn</a>
+                                                <a href="${pageContext.request.contextPath}/student-register?topicID=${i.topicID}" class="btn btn-sm btn-info">Đăng ký</a>
                                             </td>
                                         </tr>
 

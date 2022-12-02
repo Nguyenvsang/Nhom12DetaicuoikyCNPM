@@ -1,20 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.nhom12.dao;
 
 import com.nhom12.context.DBContext;
 import com.nhom12.entity.Admin;
-import com.nhom12.entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-/**
- *
- * @author ASUS
- */
 public class AdminDAOImpl implements AdminDAO {
 
     // Kết nối
@@ -85,10 +76,18 @@ public class AdminDAOImpl implements AdminDAO {
             ps.setString(1, username);
             ps.executeQuery();
             while (rs.next()) {
-                return new Admin();
+                Admin a = new Admin();
+                a.setUsername(username);
+                return a;
             }
         } catch (Exception e) {
         }
         return null;
+    }
+    
+     public static void main(String[] args) {
+        AdminDAOImpl dao = new AdminDAOImpl();
+        System.out.print(dao.AdminLogin("trannhatphong", "123456"));
+        System.out.print(dao.findAdminByUsername("trannhatphong"));
     }
 }

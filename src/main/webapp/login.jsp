@@ -31,15 +31,15 @@
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form role="form" action="loginServlet" method="post">
-                            <div class="row justify-content-center card-body"
+<!--                            <div class="row justify-content-center card-body"
                                  style="margin-bottom: -34px;">
                                 <div style="color: red;">${errorString}</div>
-                            </div>
+                            </div>-->
                             <div class="card-body">
-                                <label><input type="radio" name="typelogin" value="lecturer">Giảng viên &ensp; &ensp; &ensp;</label>
-                                <label><input type="radio" name="typelogin" value="student">Sinh viên &ensp; &ensp; &ensp;</label>
-                                <label><input type="radio" name="typelogin" value="admin" checked>Admin &ensp; &ensp; &ensp;</label>
-                                <label><input type="radio" name="typelogin" value="dean">Trưởng bộ môn &ensp;</label>
+                                <label><input type="radio" name="typelogin" value="lecturer">&ensp;Giảng viên &ensp; &ensp;</label>
+                                <label><input type="radio" name="typelogin" value="student">&ensp;Sinh viên &ensp; &ensp;</label>
+                                <label><input type="radio" name="typelogin" value="admin" checked>&ensp;Admin &ensp; &ensp;</label>
+                                <label><input type="radio" name="typelogin" value="dean">&ensp;Trưởng bộ môn &ensp;</label>
                                 <div class="form-group text-center">
                                     <input
                                         type="text" class="form-control" name="username"
@@ -51,13 +51,7 @@
                                         id="exampleInputPassword1" placeholder="Mật khẩu"
                                         required="required">
                                 </div>
-                                <!--								<div class="form-check">
-                                                                                                        <input type="checkbox" class="form-check-input"
-                                                                                                                id="exampleCheck1" name="rememberMe" value="Y"> <label
-                                                                                                                class="form-check-label" for="exampleCheck1">Nhớ tài
-                                                                                                                khoản</label>
-                                                                                                </div>-->
-
+                                <p class="text-danger text-center">${message}</p>
                             </div>
                             <!-- /.card-body -->
 

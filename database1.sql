@@ -134,4 +134,9 @@ INSERT INTO Team(leaderID, topicID, quantity) VALUES(1, 1, 0);
 
 SELECT * FROM Student
 SELECT * FROM Topic 
+SELECT * FROM Lecturer
 SELECT * FROM Lecturer WHERE username = "nguyenvansong" AND password = "song@111"
+SELECT * FROM TopicRegistration
+SELECT * FROM Team
+SELECT * FROM Topic WHERE lecturerID = 1
+UPDATE Topic  SET topicName = "1", topicRequire = "2", topicGoal = "3", schoolYear = 4, quantity = 10, typeID = 1, subjectID = 1, lecturerID = 1 WHERE topicID = 1

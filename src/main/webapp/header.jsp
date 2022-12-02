@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Quản lý thư viện</title>
+        <title>Đăng ký đề tài</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Font Awesome -->
@@ -69,9 +69,7 @@
                                             href="#" role="button"><i class="fas fa-bars"></i></a></li>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a href="${pageContext.request.contextPath}/UserManual"
-                                                                     class="nav-link" style="font-weight: bold">WEB SITE ĐĂNG KÝ ĐỀ TÀI KHOA CÔNG NGHỆ THÔNG TIN</a></li>
-                    <a href="${pageContext.request.contextPath}/info"
-                       class="nav-link" style="display: flex;justify-content: flex-end">XIN CHÀO A</a>
+                           class="nav-link" style="font-weight: bold">WEB SITE ĐĂNG KÝ ĐỀ TÀI KHOA CÔNG NGHỆ THÔNG TIN</a>
                 </ul>
 
             </nav>
@@ -82,18 +80,20 @@
                 <a href="${pageContext.request.contextPath}/UserManual" class="brand-link"> <img
                         src="Resources/img/AdminLTELogo.png" alt="AdminLTE Logo"
                         class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light">ĐĂNG KÝ ĐỀ TÀI</span>
+                    <c:if test="${sessionScope.admin != null}">
+                        <span class="brand-text font-weight-light">${sessionScope.admin.getUsername()}</span>
+                    </c:if>
+                    <c:if test="${sessionScope.account == null}">
+                        <span class="brand-text font-weight-light">ĐĂNG KÝ ĐỀ TÀI</span>
+                    </c:if>
+                    <c:if test="${sessionScope.admin == null && sessionScope.account != null}">
+                        <span class="brand-text font-weight-light">${sessionScope.account.getUsername()}</span>
+                    </c:if>
                 </a>
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <%
-                            if (request.getSession().getAttribute("User") != null) {
-                        %>
-                        <%
-                            //User user = (User) request.getSession().getAttribute("User");
-                        %>
                         <div class="image">
                             <img src="Resources/img/avatar.jpg" class="img-circle elevation-2"
                                  alt="User Image">
@@ -102,17 +102,21 @@
 
                             <a href="#" class="d-block"><%//=user.getUsername()%></a>
                         </div>
-                        <%
-                        } else {
-                        %>
+                        <c:choose>
+                            <c:when test="${sessionScope.account == null}">
+                                <div class="info" style="margin-left: 60px;">
+                                    <a href="${pageContext.request.contextPath}/login.jsp" class="d-block">Đăng
+                                        nhập</a>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="info" style="margin-left: 60px;">
+                                    <a href="${pageContext.request.contextPath}/list_topic.jsp" class="d-block">Đăng
+                                        xuất</a>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
 
-                        <div class="info" style="margin-left: 60px;">
-                            <a href="${pageContext.request.contextPath}/Login" class="d-block">Đăng
-                                nhập</a>
-                        </div>
-                        <%
-                            }
-                        %>
                     </div>
 
                     <!-- Sidebar Menu -->

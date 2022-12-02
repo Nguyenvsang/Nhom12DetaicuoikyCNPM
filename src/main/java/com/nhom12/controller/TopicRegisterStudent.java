@@ -63,17 +63,20 @@ public class TopicRegisterStudent extends HttpServlet {
             // Kiểm tra đã đăng ký topic chưa
             TopicRegistration tr = dao2.findTopicRegistrationBySandT(student.getStudentID(), team.getTeamID());
             if (tr != null) {
-                response.sendRedirect(request.getContextPath() + "/topic-to-register");
-            }
-            
-            // Đầy
-            if (team.getQuantity() == 2 || topic.getQuantity() == 2) {
-                response.sendRedirect(request.getContextPath() + "/topic-to-register");
-            } else {
-                dao2.addTopicRegistration(student.getStudentID(), team.getTeamID());
-                dao.updateTeam(team.getTeamID(), team.getLeaderID(), team.getTopicID(), team.getQuantity() + 1);
-                topic.setQuantity(topic.getQuantity() + 1);
-                response.sendRedirect(request.getContextPath() + "/topic-to-register");
+                request.setAttribute("message", "Đề tài đã được đăng ký trước đó!");
+                request.getRequestDispatcher("/topic-to-register").forward(request, response);
+            } else { // Chưa đăng ký đề tài
+                // Đầy
+                if (team.getQuantity() == 2 || topic.getQuantity() == 2) {
+                    request.setAttribute("message", "Đề tài " + topicID + " đã có đủ người đăng ký! Vui lòng đăng ký đề tài khác!");
+                    request.getRequestDispatcher("/topic-to-register").forward(request, response);
+                } else {
+                    dao2.addTopicRegistration(student.getStudentID(), team.getTeamID());
+                    dao.updateTeam(team.getTeamID(), team.getLeaderID(), team.getTopicID(), team.getQuantity() + 1);
+                    dao3.editTopic(topicID, topic.getTopicName(), topic.getTopicRequire(), topic.getTopicGoal(), topic.getSchoolYear(), topic.getQuantity() + 1, topic.getTypeID(), topic.getSubjectID(), topic.getLecturerID());
+                    request.setAttribute("message", "Đăng ký thành công đề tài số " + topicID);
+                    request.getRequestDispatcher("/topic-to-register").forward(request, response);
+                }
             }
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp");

@@ -41,7 +41,7 @@ public class TopicRegistrationDAOImpl implements TopicRegistrationDAO{
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
             ps.setInt(1, studentID);            
-            ps.setInt(1, teamID);
+            ps.setInt(2, teamID);
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new TopicRegistration(

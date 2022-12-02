@@ -23,6 +23,4 @@ public interface LecturerDAO {
     Lecturer findLecturerByID(int lecturerID);
     
     Lecturer findLecturerByUsername(String username);
-    
-    List<Lecturer> getListLecturerByDean(int deanID);
 }

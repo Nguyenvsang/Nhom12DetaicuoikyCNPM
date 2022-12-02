@@ -8,6 +8,9 @@ import com.nhom12.dao.AdminDAOImpl;
 import com.nhom12.dao.DeanDAOImpl;
 import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.dao.StudentDAOImpl;
+import com.nhom12.entity.Admin;
+import com.nhom12.entity.Lecturer;
+import com.nhom12.entity.Student;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -62,7 +65,7 @@ public class LoginServlet extends HttpServlet {
                 pathrequestDispatcher = "/student/manage";
             } else if ("admin".equals(typechecked)) {
                 verification = adminDAOImpl.AdminLogin(username, password);
-                pathrequestDispatcher = "/admin/update";
+                pathrequestDispatcher = "/list_topic.jsp";
             } else if ("dean".equals(typechecked)) {
                 verification = deanDAOImpl.DeanLogin(username, password);
                 pathrequestDispatcher = "/topicDean";
@@ -76,22 +79,29 @@ public class LoginServlet extends HttpServlet {
                 // Thiết lập giá trị trong sesion
                 session.setAttribute("username", username);
                 if ("lecturer".equals(typechecked)) {
-                    session.setAttribute("lecturer", lecturerDAOImpl.findLecturerByUsername(username));
+                    Lecturer lecturer = lecturerDAOImpl.findLecturerByUsername(username);
+                    session.setAttribute("lecturer", lecturer);
+                    session.setAttribute("account", lecturer);
                 } else if ("student".equals(typechecked)) {
-                    session.setAttribute("student", studentDAOImpl.findStudentByUsername(username));
+                    Student student = studentDAOImpl.findStudentByUsername(username);
+                    session.setAttribute("student", student);
+                    session.setAttribute("account", student);
                 } else if ("dean".equals(typechecked)) {
-                    session.setAttribute("dean", deanDAOImpl.findDeanByUsername(username));
+                    Lecturer dean = deanDAOImpl.findDeanByUsername(username);
+                    session.setAttribute("dean", dean);
+                    session.setAttribute("account", dean);
                 } else if ("admin".equals(typechecked)) {
-                    session.setAttribute("admin", adminDAOImpl.findAdminByUsername(username));
+                    Admin admin = new Admin();
+                    session.setAttribute("admin", admin);
+                    session.setAttribute("account", admin);
                 }
 
                 // Chuyển đến trang danh sách đề tài
                 response.sendRedirect(request.getContextPath() + pathrequestDispatcher);
             } else {
                 // Đăng nhập không hợp lệ sẽ quay lại trang login
-                RequestDispatcher dispatch = getServletContext().
-                        getRequestDispatcher("/login.jsp");
-                dispatch.forward(request, response);
+                request.setAttribute("message", "Tên đăng nhập hoặc mật khẩu sai!\nVui lòng thử lại!");
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
         } finally {
             out.close();

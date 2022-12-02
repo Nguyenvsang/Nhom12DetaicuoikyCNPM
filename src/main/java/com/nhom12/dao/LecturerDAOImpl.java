@@ -171,7 +171,7 @@ public class LecturerDAOImpl implements LecturerDAO {
     public static void main(String[] args) {
         LecturerDAOImpl dao = new LecturerDAOImpl();
         boolean a = dao.LecturerLogin("nguyenvansong", "song@111");
-        Lecturer l = dao.findLecturerByUsername("nguyenvansong");
-        System.out.print(l);
+        List<Lecturer> l = dao.getAlllecturer();
+        System.out.print(l.size());
     }
 }

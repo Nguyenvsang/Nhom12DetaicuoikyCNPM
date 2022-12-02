@@ -2,6 +2,7 @@ package com.nhom12.dao;
 
 import com.nhom12.context.DBContext;
 import com.nhom12.entity.Team;
+import com.nhom12.entity.TopicRegistration;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -86,8 +87,8 @@ public class TeamDAOImpl implements TeamDAO {
 
     public static void main(String[] args) {
         TeamDAOImpl dao = new TeamDAOImpl();
-        Team team = dao.findTeamByTopicID(1);
-        team.setQuantity(2);
-        System.out.println(team.getLeaderID());
+        TopicRegistrationDAOImpl dao2 = new TopicRegistrationDAOImpl();
+        Team team = dao.findTeamByTopicID(2);
+        System.out.println(dao2.findTopicRegistrationBySandT(1, team.getTeamID()));
     }
 }

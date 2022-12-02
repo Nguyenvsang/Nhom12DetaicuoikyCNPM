@@ -15,7 +15,7 @@ public class Topic {
     public Topic() {
     }
 
-    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int year, int quantity, int typeID, int subjectID, int lecturerID) {
+    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int year, int typeID, int subjectID, int lecturerID, int quantity) {
         this.topicID = topicID;
         this.topicName = topicName;
         this.topicRequire = topicRequire;

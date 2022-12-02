@@ -4,8 +4,6 @@
 <%@ include file="header.jsp"%>
 <!-- Main content -->
 <!-- Content Wrapper. Contains page content -->
-<jsp:useBean id="t" class="com.nhom12.dao.TopicDAOImpl" scope="request"/>
-<jsp:useBean id="lecturer" class="com.nhom12.dao.LecturerDAOImpl" scope="request"/>
 
 <div class="content-wrapper">
     <!-- Main content -->
@@ -67,11 +65,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${t.allTopics}" var="i" >
+                                    <c:forEach items="${listtopic}" var="i" >
                                         <tr>
                                             <td>${i.topicID}</td>
                                             <td>${i.topicName}</td>
-                                            <c:forEach items="${lecturer.alllecturer}" var="l">
+                                            <c:forEach items="${lecturer}" var="l">
                                                 <c:if test="${l.lecturerID == i.lecturerID}">
                                                     <td>${l.lecturerName}</td>  
                                                 </c:if>
