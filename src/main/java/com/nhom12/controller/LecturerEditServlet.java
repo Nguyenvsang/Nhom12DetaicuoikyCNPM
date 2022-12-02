@@ -14,8 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "LecturerEditServlet", urlPatterns = {"/editlecturer"})
+@WebServlet(name = "editlecturer", urlPatterns = {"/editlecturer"})
 public class LecturerEditServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -25,12 +26,17 @@ public class LecturerEditServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int topicid = Integer.parseInt(request.getParameter("lecturerID"));
-        
-        Lecturer lecturer = dao.findLecturerByID(topicid);
-        
-        request.setAttribute("lecturer", lecturer);
-        request.getRequestDispatcher("/edit_lecturer.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
+        HttpSession session = request.getSession();
+
+        Lecturer lecturer = (Lecturer) session.getAttribute("lecturer");
+        if (session != null && lecturer != null) {
+
+            request.setAttribute("lecturer", lecturer);
+
+            request.getRequestDispatcher("/edit_lecturer.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
+        } else {
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+        }
     }
     
     @Override

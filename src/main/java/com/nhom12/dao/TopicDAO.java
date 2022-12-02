@@ -23,4 +23,6 @@ public interface TopicDAO {
 
     List<Topic> findTopicByLecturer(int lecturerID);
     
+    List<Topic> findTopicByLecturer(int lecturerID);
+    
 }
