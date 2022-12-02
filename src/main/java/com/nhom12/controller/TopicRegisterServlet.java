@@ -56,7 +56,7 @@ public class TopicRegisterServlet extends HttpServlet {
 
             dao.addTopic(topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity);
 
-            request.setAttribute("message", "Chỉnh sửa đề tài thành công!");
+            request.setAttribute("message", "Đăng ký đề tài thành công!");
             request.getRequestDispatcher("/list-of-topic").forward(request, response);
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp");
