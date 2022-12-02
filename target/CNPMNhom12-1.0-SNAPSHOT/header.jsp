@@ -103,7 +103,7 @@
                             </c:when>
                             <c:otherwise>
                                 <div class="info" style="margin-left: 60px;">
-                                    <a href="${pageContext.request.contextPath}/list_topic.jsp" class="d-block">Đăng
+                                    <a href="${pageContext.request.contextPath}/logout" class="d-block">Đăng
                                         xuất</a>
                                 </div>
                             </c:otherwise>
