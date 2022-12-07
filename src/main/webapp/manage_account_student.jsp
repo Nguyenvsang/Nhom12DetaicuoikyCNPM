@@ -33,8 +33,6 @@
                             <!--<div style="color: red;">${errorString}</div>-->
                         </div>
                         <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form" method="post" action="${pageContext.request.contextPath}/edittopic?topicID=${topic.topicID}">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>ID</label> <input type="hidden"
@@ -78,12 +76,12 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary ">Lưu</button>
+                                    <input type="button" value="Chỉnh sửa" class="btn btn-primary"
+                                           onclick="location.href = '/student/update'">
                                     <input type="button" value="Trở lại" class="btn btn-primary"
                                            onclick="location.href = 'edittopic'">
                                 </div>
                             </div>
-                        </form>
                     </div>
                     <!-- /.row -->
                 </div>
@@ -106,3 +104,4 @@
                                                });
                 </script>
                 <!-- /.card -->
+                </div>

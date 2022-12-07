@@ -8,7 +8,7 @@ public class Topic {
     private String topicGoal;
     private int schoolYear;
     private int quantity;
-    private int typeID;
+    private int typeID;// tương ứng với periodID có chứa topicType
     private int subjectID;
     private int lecturerID;
 

@@ -3,7 +3,6 @@ package com.nhom12.controller;
 import com.nhom12.dao.StudentDAOImpl;
 import com.nhom12.entity.Student;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,9 +26,6 @@ public class StudentAccountManageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
         
         HttpSession session = request.getSession();
         if (session != null && session.getAttribute("student") != null) {

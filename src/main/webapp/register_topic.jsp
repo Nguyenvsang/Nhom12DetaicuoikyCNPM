@@ -26,7 +26,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Đăng ký đề tài mới</h3>
+                            <h3 class="card-title">Tạo đợt đăng ký</h3>
                         </div>
                         <div class="row justify-content-center"
                              style="margin-top: 15px; margin-bottom: -15px;">
@@ -34,7 +34,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="${pageContext.request.contextPath}/topicregister">
+                        <form role="form" method="post" action="${pageContext.request.contextPath}/create_period">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Tên đề tài</label> <input type="text"
