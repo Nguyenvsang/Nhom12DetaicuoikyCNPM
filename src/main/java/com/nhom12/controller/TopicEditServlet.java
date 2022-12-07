@@ -3,11 +3,11 @@ package com.nhom12.controller;
 import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.dao.SubjectDAOImpl;
 import com.nhom12.dao.TopicDAOImpl;
-import com.nhom12.dao.TopicTypeDAOImpl;
+import com.nhom12.dao.PeriodDAOImpl;
 import com.nhom12.entity.Lecturer;
 import com.nhom12.entity.Subject;
 import com.nhom12.entity.Topic;
-import com.nhom12.entity.TypeOfTopic;
+import com.nhom12.entity.Period;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -24,7 +24,7 @@ public class TopicEditServlet extends HttpServlet {
 
     TopicDAOImpl dao = new TopicDAOImpl();
     SubjectDAOImpl dao2 = new SubjectDAOImpl();
-    TopicTypeDAOImpl dao3 = new TopicTypeDAOImpl();
+    PeriodDAOImpl dao3 = new PeriodDAOImpl();
     LecturerDAOImpl dao4 = new LecturerDAOImpl();
 
     @Override
@@ -33,12 +33,12 @@ public class TopicEditServlet extends HttpServlet {
         int topicid = Integer.parseInt(request.getParameter("topicID"));
 
         List<Subject> subject = dao2.getAllSubjects();
-        List<TypeOfTopic> topictype = dao3.getAllTypeOfTopics();
+        List<Period> period = dao3.getAllPeriods();
         Topic topic = dao.findTopicByID(topicid);
         List<Lecturer> lecturer = dao4.getAlllecturer();
 
         request.setAttribute("subject", subject);
-        request.setAttribute("topictype", topictype);
+        request.setAttribute("period", period);
         request.setAttribute("topic", topic);
         request.setAttribute("lecturer", lecturer);
         request.getRequestDispatcher("/edit_topic.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
@@ -59,11 +59,10 @@ public class TopicEditServlet extends HttpServlet {
             String topicGoal = request.getParameter("topicGoal");
             int schoolYear = Integer.parseInt(request.getParameter("schoolYear"));
             int quantity = Integer.parseInt(request.getParameter("quantity"));
-            int typeID = Integer.parseInt(request.getParameter("typeID"));
-            int subjectID = Integer.parseInt(request.getParameter("subjectID"));
+            int periodID = Integer.parseInt(request.getParameter("periodID"));
             int lecturerID = lecturer.getLecturerID();
 
-            dao.editTopic(topicID, topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity);
+            dao.editTopic(topicID, topicName, topicRequire, topicGoal, schoolYear, periodID, lecturerID, quantity);
             
             request.setAttribute("message", "Chỉnh sửa đề tài thành công!");
             request.getRequestDispatcher("/list-of-topic").forward(request, response);

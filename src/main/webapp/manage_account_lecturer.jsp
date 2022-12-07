@@ -43,44 +43,44 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Họ và tên</label> <input type="text"
-                                                                     class="form-control" id="lecturerName" name="lecturuerName"
-                                                                     placeholder="Nhập họ và tên" value="${lecturer.lecturerName}" readonly>
+                                                                    class="form-control" id="lecturerName" name="lecturuerName"
+                                                                    placeholder="Nhập họ và tên" value="${lecturer.lecturerName}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Số CCCD/CMND</label> <input type="text"
-                                                                   class="form-control" id="citizenID" name="citizenID"
-                                                                   placeholder="Nhập số CCCD/CMND" value="${lecturer.citizenID}" readonly>
+                                                                       class="form-control" id="citizenID" name="citizenID"
+                                                                       placeholder="Nhập số CCCD/CMND" value="${lecturer.citizenID}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Giới tính</label> <input type="text"
-                                                                  class="form-control" id="gender" name="gender"
-                                                                  placeholder="Nhập giới tính" value="${lecturer.gender}" readonly>
+                                                                    class="form-control" id="gender" name="gender"
+                                                                    placeholder="Nhập giới tính" value="${lecturer.gender}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Ngày sinh</label> <input type="date"
-                                                                  class="form-control" id="dateOfBirth" name="dateOfBirth"
-                                                                  placeholder="Nhập ngày sinh" value=${lecturer.dateOfBirth} readonly>
+                                                                    class="form-control" id="dateOfBirth" name="dateOfBirth"
+                                                                    placeholder="Nhập ngày sinh" value=${lecturer.dateOfBirth} readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label> <input type="email"
-                                                                  class="form-control" id="email" name="email"
-                                                                  placeholder="Nhập email" value="${lecturer.email}" readonly>
+                                                                class="form-control" id="email" name="email"
+                                                                placeholder="Nhập email" value="${lecturer.email}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Số điện thoại</label> <input type="text"
-                                                                  class="form-control" id="phoneNumber" name="phoneNumber"
-                                                                  placeholder="Nhập số điện thoại" value="${lecturer.phoneNumber}" readonly>
+                                                                        class="form-control" id="phoneNumber" name="phoneNumber"
+                                                                        placeholder="Nhập số điện thoại" value="${lecturer.phoneNumber}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Trình độ chuyên môn</label> <input type="text"
-                                                                  class="form-control" id="professionalQualification" name="professionalQualification"
-                                                                  placeholder="Nhập trình độ chuyên môn" value="${lecturer.professionalQualification}" readonly>
+                                                                              class="form-control" id="professionalQualification" name="professionalQualification"
+                                                                              placeholder="Nhập trình độ chuyên môn" value="${lecturer.professionalQualification}" readonly>
                                 </div>
-                                
+
                                 <div class="card-footer">
-                                           <input type="button" value="Chỉnh sửa" class="btn btn-primary"
+                                    <input type="button" value="Chỉnh sửa" class="btn btn-primary"
                                            onclick="location.href = '${pageContext.request.contextPath}/editlecturer'">                                    
-                                           <input type="button" value="Trở lại" class="btn btn-primary"
+                                    <input type="button" value="Trở lại" class="btn btn-primary"
                                            onclick="location.href = '${pageContext.request.contextPath}/list-of-topic'">
                                 </div>
                             </div>
@@ -88,22 +88,24 @@
                     </div>
                     <!-- /.row -->
                 </div>
-                <!-- /.container-fluid -->
-                </section>
-                <!-- /.content -->
-                <%@ include file="footer.jsp"%>
-                <!-- jQuery -->
-                <script src="./Resources/plugins/jquery/jquery.min.js"></script>
+            </div>
+            <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <%@ include file="footer.jsp"%>
+    <!-- jQuery -->
+    <script src="./Resources/plugins/jquery/jquery.min.js"></script>
 
-                <script
-                src="./Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-                <!-- AdminLTE App -->
-                <script src="./Resources/js/adminlte.min.js"></script>
-                <!-- AdminLTE for demo purposes -->
-                <script src="./Resources/js/demo.js"></script>
-                <script type="text/javascript">
+    <script
+    src="./Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="./Resources/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="./Resources/js/demo.js"></script>
+    <script type="text/javascript">
                                                $(document).ready(function () {
                                                    bsCustomFileInput.init();
                                                });
-                </script>
-                <!-- /.card -->
+    </script>
+    <!-- /.card -->
+</div>

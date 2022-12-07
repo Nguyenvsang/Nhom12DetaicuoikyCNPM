@@ -5,11 +5,11 @@ import com.nhom12.dao.SubjectDAOImpl;
 import com.nhom12.dao.TeamDAOImpl;
 import com.nhom12.dao.TopicDAOImpl;
 import com.nhom12.dao.TopicRegistrationDAOImpl;
-import com.nhom12.dao.TopicTypeDAOImpl;
+import com.nhom12.dao.PeriodDAOImpl;
 import com.nhom12.entity.Lecturer;
 import com.nhom12.entity.Subject;
 import com.nhom12.entity.Topic;
-import com.nhom12.entity.TypeOfTopic;
+import com.nhom12.entity.Period;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -27,7 +27,7 @@ public class TopicStudent extends HttpServlet {
     TeamDAOImpl dao = new TeamDAOImpl();
     TopicRegistrationDAOImpl dao2 = new TopicRegistrationDAOImpl();
     TopicDAOImpl dao3 = new TopicDAOImpl();
-    TopicTypeDAOImpl dao4 = new TopicTypeDAOImpl();
+    PeriodDAOImpl dao4 = new PeriodDAOImpl();
     SubjectDAOImpl dao5 = new SubjectDAOImpl();
     LecturerDAOImpl dao6 = new LecturerDAOImpl();
 
@@ -36,17 +36,18 @@ public class TopicStudent extends HttpServlet {
             throws ServletException, IOException {
         List<Topic> listtopic = dao3.getAllTopics();
         List<Subject> subject = dao5.getAllSubjects();
-        List<TypeOfTopic> topictype = dao4.getAllTypeOfTopics();
+        List<Period> period = dao4.getAllPeriods();
         List<Lecturer> lecturer = dao6.getAlllecturer();
 
         request.setAttribute("listtopic", listtopic);
         request.setAttribute("subject", subject);
-        request.setAttribute("topictype", topictype);
+        request.setAttribute("period", period);
         request.setAttribute("lecturer", lecturer);
 
         request.getRequestDispatcher("/register_topic_student.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
