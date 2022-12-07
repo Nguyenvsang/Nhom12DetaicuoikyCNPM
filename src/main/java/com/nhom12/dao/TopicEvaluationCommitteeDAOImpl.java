@@ -23,14 +23,13 @@ public class TopicEvaluationCommitteeDAOImpl implements TopicEvaluationCommittee
     ResultSet rs = null;
     
     @Override
-    public void addTopicEvaluationCommittee(int id, int topicID, int lecturerID, int quantity) {
-        String query = "INSERT INTO TopicEvaluationCommittee (topicID, lecturerID, quantity) VALUES (?, ?, ?)";
+    public void addTopicEvaluationCommittee(int topicID, int lecturerID) {
+        String query = "INSERT INTO TopicEvaluationCommittee (topicID, lecturerID) VALUES (?, ?)";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
             ps.setInt(1, topicID);
             ps.setInt(2, lecturerID);
-            ps.setInt(3, quantity);
             ps.executeUpdate();
         } catch (Exception e) {
             {
@@ -38,4 +37,9 @@ public class TopicEvaluationCommitteeDAOImpl implements TopicEvaluationCommittee
         }
     }
     
+    public static void main(String[] args) {
+        TopicEvaluationCommitteeDAOImpl dao = new TopicEvaluationCommitteeDAOImpl();
+        dao.addTopicEvaluationCommittee(1,7);
+        //System.out.println(ll.getDateOfBirth());
+    }  
 }

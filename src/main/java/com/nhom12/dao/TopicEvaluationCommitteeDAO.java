@@ -9,5 +9,5 @@ package com.nhom12.dao;
  * @author nguye
  */
 public interface TopicEvaluationCommitteeDAO {
-    void addTopicEvaluationCommittee(int id, int topicID, int lecturerID, int quantity);
+    void addTopicEvaluationCommittee(int topicID, int lecturerID);
 }

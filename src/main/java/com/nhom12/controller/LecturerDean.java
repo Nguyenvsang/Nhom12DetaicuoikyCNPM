@@ -45,7 +45,7 @@ public class LecturerDean extends HttpServlet {
             // Nhận topicID từ thanh địa chỉ và setAttribute tên "topic"
             int topicID = Integer.parseInt(request.getParameter("topicID"));
             Topic topic = topicDAOImpl.findTopicByID(topicID);
-            request.setAttribute("topic", topic);
+            session.setAttribute("topic", topic);
 
             request.getRequestDispatcher("/register_lecturer_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
         }

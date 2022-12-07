@@ -68,7 +68,7 @@ public class LoginServlet extends HttpServlet {
                 pathrequestDispatcher = "/all-topic";
             } else if ("dean".equals(typechecked)) {
                 verification = deanDAOImpl.DeanLogin(username, password);
-                pathrequestDispatcher = "/all-topic";
+                pathrequestDispatcher = "/topicDean";
             }
 
             // Nếu login hợp lệ sẽ chuyển đến trang phù hợp

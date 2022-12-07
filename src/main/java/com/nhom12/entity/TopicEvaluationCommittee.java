@@ -12,16 +12,14 @@ public class TopicEvaluationCommittee {
     private int id;
     private int topicID;
     private int lecturerID;
-    private int quantity;
 
     public TopicEvaluationCommittee() {
     }
 
-    public TopicEvaluationCommittee(int id, int topicID, int lecturerID, int quantity) {
+    public TopicEvaluationCommittee(int id, int topicID, int lecturerID) {
         this.id = id;
         this.topicID = topicID;
         this.lecturerID = lecturerID;
-        this.quantity = quantity;
     }
 
     public int getId() {
@@ -47,14 +45,5 @@ public class TopicEvaluationCommittee {
     public void setLecturerID(int lecturerID) {
         this.lecturerID = lecturerID;
     }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-    
     
 }

@@ -6,6 +6,7 @@ package com.nhom12.controller;
 
 import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.dao.TopicDAOImpl;
+import com.nhom12.dao.TopicEvaluationCommitteeDAOImpl;
 import com.nhom12.entity.Lecturer;
 import com.nhom12.entity.Topic;
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class EvaluationCommitteeTopicAdd extends HttpServlet {
 
     LecturerDAOImpl lecturerDAOImpl = new LecturerDAOImpl();
     TopicDAOImpl topicDAOImpl = new TopicDAOImpl();
+    TopicEvaluationCommitteeDAOImpl evalutiondaoImpl = new TopicEvaluationCommitteeDAOImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -47,9 +49,13 @@ public class EvaluationCommitteeTopicAdd extends HttpServlet {
             Lecturer lecturer = lecturerDAOImpl.findLecturerByID(lecturerID);
             // Tạo đối tượng topic được lưu trong session 
             Topic topic = (Topic) session.getAttribute("topic");
+            // Thêm giảng viên và đề tài vào database của TopicEvaluationCommittee
+            evalutiondaoImpl.addTopicEvaluationCommittee(topic.getTopicID(), lecturer.getLecturerID());
             
-
-            request.getRequestDispatcher("/register_lecturer_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
+            // Sau khi đã hoàn thành sẽ chuyển về trang register_topic_evaluation_committee.jsp và hiện thông báo 
+            request.setAttribute("message", "Đã phân giảng viên phản biện thành công cho đề tài" );
+            //+ topic.getTopicID()
+            request.getRequestDispatcher(request.getContextPath() + "/topicDean").forward(request, response);
         }
         else{
             response.sendRedirect(request.getContextPath()+ "/login.jsp");

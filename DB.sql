@@ -69,6 +69,14 @@ username VARCHAR(200) primary key,
 password VARCHAR(20) not null
 );
 
+CREATE TABLE TopicEvaluationCommittee
+(
+subjectID INT AUTO_INCREMENT primary key,
+topicID INT references Topic(topicID),
+lecturerID INT references Lecturer(lecturerID),
+quantity INT
+);
+
 USE topicmana;
 INSERT INTO subject (subjectName) VALUES("Công nghệ phần mềm");
 INSERT INTO subject (subjectName) VALUES("Mạng máy tính");
