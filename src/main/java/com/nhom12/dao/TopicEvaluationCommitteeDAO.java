@@ -4,10 +4,14 @@
  */
 package com.nhom12.dao;
 
+import com.nhom12.entity.TopicEvaluationCommittee;
+
 /**
  *
  * @author nguye
  */
 public interface TopicEvaluationCommitteeDAO {
-    void addTopicEvaluationCommittee(int topicID, int lecturerID);
+    void addTopicEvaluationCommittee(int lecturerID, int councilID);
+    TopicEvaluationCommittee findTopicEvaluationCommitteeByID(int evaluationID);
+    TopicEvaluationCommittee findTECommitteeByLecturerandCouncil(int lecturerID, int councilID);
 }

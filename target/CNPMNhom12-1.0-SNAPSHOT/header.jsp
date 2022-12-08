@@ -206,6 +206,12 @@
                                             <p>Phân theo bộ môn</p>
                                         </a>
                                     </li>
+                                    <li class="nav-item ">
+                                        <a href="<c:url value="/topicDean"/>" class="nav-link">
+                                            <i class="nav-icon fas fa-list"></i>
+                                            <p>Phân giảng viên phản biện</p>
+                                        </a>
+                                    </li>
                                 <%
                                     if (request.getSession().getAttribute("User") != null) {
                                 %>

@@ -9,33 +9,33 @@ package com.nhom12.entity;
  * @author nguye
  */
 public class TopicEvaluationCommittee {
-    private int id;
-    private int topicID;
+    private int evaluationID;
+    private int councilID;
     private int lecturerID;
 
     public TopicEvaluationCommittee() {
     }
 
-    public TopicEvaluationCommittee(int id, int topicID, int lecturerID) {
-        this.id = id;
-        this.topicID = topicID;
+    public TopicEvaluationCommittee(int evaluationID, int councilID, int lecturerID) {
+        this.evaluationID = evaluationID;
+        this.councilID = councilID;
         this.lecturerID = lecturerID;
     }
 
-    public int getId() {
-        return id;
+    public int getEvaluationID() {
+        return evaluationID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEvaluationID(int evaluationID) {
+        this.evaluationID = evaluationID;
     }
 
-    public int getTopicID() {
-        return topicID;
+    public int getCouncilID() {
+        return councilID;
     }
 
-    public void setTopicID(int topicID) {
-        this.topicID = topicID;
+    public void setCouncilID(int councilID) {
+        this.councilID = councilID;
     }
 
     public int getLecturerID() {

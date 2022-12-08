@@ -5,9 +5,11 @@ import com.nhom12.dao.TeamDAOImpl;
 import com.nhom12.dao.TopicDAOImpl;
 import com.nhom12.dao.TopicRegistrationDAOImpl;
 import com.nhom12.dao.PeriodDAOImpl;
+import com.nhom12.dao.ReviewCouncilDAOImpl;
 import com.nhom12.entity.Subject;
 import com.nhom12.entity.Topic;
 import com.nhom12.entity.Period;
+import com.nhom12.entity.ReviewCouncil;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -26,6 +28,7 @@ public class TopicDean extends HttpServlet {
     TopicDAOImpl dao3 = new TopicDAOImpl();
     PeriodDAOImpl dao4 = new PeriodDAOImpl();
     SubjectDAOImpl dao5 = new SubjectDAOImpl();
+    ReviewCouncilDAOImpl dao6 = new ReviewCouncilDAOImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -33,10 +36,12 @@ public class TopicDean extends HttpServlet {
         List<Topic> listtopic = dao3.getAllTopics();
         List<Subject> subject = dao5.getAllSubjects();
         List<Period> period = dao4.getAllPeriods();
+        List<ReviewCouncil> listcouncil = dao6.getAllReviewCouncils();
 
         request.setAttribute("listtopic", listtopic);
         request.setAttribute("subject", subject);
         request.setAttribute("period", period);
+        request.setAttribute("listcouncil", listcouncil);
 
         request.getRequestDispatcher("/register_topic_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
     }

@@ -50,12 +50,12 @@ public class EvaluationCommitteeTopicAdd extends HttpServlet {
             // Tạo đối tượng topic được lưu trong session 
             Topic topic = (Topic) session.getAttribute("topic");
             // Thêm giảng viên và đề tài vào database của TopicEvaluationCommittee
-            evalutiondaoImpl.addTopicEvaluationCommittee(topic.getTopicID(), lecturer.getLecturerID());
+            //evalutiondaoImpl.addTopicEvaluationCommittee(topic.getTopicID(), lecturer.getLecturerID());
             
             // Sau khi đã hoàn thành sẽ chuyển về trang register_topic_evaluation_committee.jsp và hiện thông báo 
             request.setAttribute("message", "Đã phân giảng viên phản biện thành công cho đề tài" );
             //+ topic.getTopicID()
-            request.getRequestDispatcher(request.getContextPath() + "/topicDean").forward(request, response);
+            request.getRequestDispatcher("/topicDean").forward(request, response);
         }
         else{
             response.sendRedirect(request.getContextPath()+ "/login.jsp");

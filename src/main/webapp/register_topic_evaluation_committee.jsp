@@ -68,10 +68,15 @@
                                             <td>${i.topicName}</td>
                                             <td>${i.lecturerID}</td>                                            
                                             <td>${i.typeID}</td>
-                                            <td>${i.subjectID}</td>                                         
-                                            <td>${i.quantity}</td>   
+                                            <td>${i.subjectID}</td>   
+                                            <td>${i.quantity}</td>
+                                            <c:forEach items="${listcouncil}" var="c">
+                                                <c:if test="${c.topicID == i.topicID}">
+<!--                                                    <td>${c.quantity}</td>  -->
+                                                </c:if>
+                                            </c:forEach>
                                             <td>
-                                                <a href="${pageContext.request.contextPath}/register?id={i}" class="btn btn-sm btn-info">Chi tiết</a>
+                                                <a href="${pageContext.request.contextPath}/topicdetail?topicID=${i.topicID}" class="btn btn-sm btn-info">Chi tiết</a>
                                             </td>
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/lecturerDean?topicID=${i.topicID}" class="btn btn-sm btn-info">Chọn</a>
