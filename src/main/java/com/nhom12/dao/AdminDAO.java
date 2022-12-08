@@ -16,4 +16,6 @@ public interface AdminDAO {
     void updateAdmin(String username, String password);
 
     Admin findAdminByUsername(String username);
+    
+    void AdminTopicDivisionBySubject(int topicID, int subjectID);
 }

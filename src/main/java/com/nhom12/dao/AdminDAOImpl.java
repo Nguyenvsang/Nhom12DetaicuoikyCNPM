@@ -85,6 +85,20 @@ public class AdminDAOImpl implements AdminDAO {
         return null;
     }
     
+    @Override
+    public void AdminTopicDivisionBySubject(int topicID, int subjectID) {
+        String query = "UPDATE Topic SET subjectID = ? WHERE topicID = ?";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, subjectID);
+            ps.setInt(2, topicID);
+
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+    
      public static void main(String[] args) {
         AdminDAOImpl dao = new AdminDAOImpl();
         System.out.print(dao.AdminLogin("trannhatphong", "123456"));
