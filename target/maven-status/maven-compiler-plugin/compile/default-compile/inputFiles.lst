@@ -8,6 +8,7 @@ D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\m
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicEvaluationCommitteeDAO.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\ReviewCouncil.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicDAO.java
+D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicEvaluation.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\SubjectDAO.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\SubjectDAOImpl.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\AdminDAO.java
@@ -18,6 +19,7 @@ D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\m
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\User.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\LecturerEditServlet.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TeamDAO.java
+D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\TopicEvaluation.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TeamDAOImpl.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Admin.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\StudentDAO.java
@@ -31,6 +33,7 @@ D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\m
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\ReviewCouncilDAO.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicEvaluationCommitteeDAOImpl.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Topic.java
+D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicEvaluationDAOImpl.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\DeanDAOImpl.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicRegisterStudent.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\PeriodDAOImpl.java
@@ -49,6 +52,7 @@ D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\m
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\StudentDAOImpl.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\LogoutServlet.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\ReviewCouncilDAOImpl.java
+D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicEvaluationDAO.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\StudentAccountUpdateServlet.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\TopicEvaluationCommittee.java
 D:\Baitapthumuc\HK1Nam3\Congnghephanmem\DeTaiCuoiKy3\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicStudent.java

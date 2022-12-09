@@ -45,6 +45,7 @@
                             </c:forEach>
                         </select>
                         --%>
+                        <p class="text-warning text-center">${message}</p>
                         <!-- /.card-header -->
                         <div class="card-body" >
                             <table class="table table-bordered table-hover" id="example2">

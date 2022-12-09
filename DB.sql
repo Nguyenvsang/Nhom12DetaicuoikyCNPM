@@ -69,12 +69,19 @@ username VARCHAR(200) primary key,
 password VARCHAR(20) not null
 );
 
+CREATE TABLE ReviewCouncil
+(
+councilID INT AUTO_INCREMENT primary key,
+leaderID int references Lecturer(lecturerID),
+topicID int references Topic(topicID),
+quantity int 
+);
+
 CREATE TABLE TopicEvaluationCommittee
 (
-subjectID INT AUTO_INCREMENT primary key,
-topicID INT references Topic(topicID),
-lecturerID INT references Lecturer(lecturerID),
-quantity INT
+evaluationID INT AUTO_INCREMENT primary key,
+councilID INT references ReviewCouncil(councilID),
+lecturerID INT references Lecturer(lecturerID)
 );
 
 USE topicmana;
