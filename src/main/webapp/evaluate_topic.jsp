@@ -33,18 +33,18 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="${pageContext.request.contextPath}/topicevaluate">
+                        <form role="form" method="post" action="${pageContext.request.contextPath}/topic/evaluate">
                             <div class="card-body">
                                 <input type="hidden"
-                                       class="form-control" id="id" name="id">
+                                       class="form-control" value="${topicEvaluation.id}" name="id">
                                 <div class="form-group">
                                     <label>Nhận xét</label> 
-                                    <textarea rows="5" cols="80" 
+                                    <textarea rows="5" cols="63" 
                                               placeholder="Nhập nhận xét" 
                                               name="evaluation" required></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label>Nhận xét</label> 
+                                    <label>Nhập điểm</label> 
                                     <input type="text"
                                            class="form-control" name="point"
                                            placeholder="Nhập điểm"  required>
@@ -66,14 +66,14 @@
     <!-- /.content -->
     <%@ include file="footer.jsp"%>
     <!-- jQuery -->
-    <script src="./Resources/plugins/jquery/jquery.min.js"></script>
+    <script src="<c:url value="/Resources/plugins/jquery/jquery.min.js"/>"></script>
 
     <script
-    src="./Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    src="<c:url value="/Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"/>"></script>
     <!-- AdminLTE App -->
-    <script src="./Resources/js/adminlte.min.js"></script>
+    <script src="<c:url value="/Resources/js/adminlte.min.js"/>"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="./Resources/js/demo.js"></script>
+    <script src="<c:url value="/Resources/js/demo.js"/>"></script>
     <script type="text/javascript">
                                                $(document).ready(function () {
                                                    bsCustomFileInput.init();

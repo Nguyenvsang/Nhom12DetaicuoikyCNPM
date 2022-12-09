@@ -1,33 +1,34 @@
 package com.nhom12.entity;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class TopicEvaluation {
     /*
-    A committee includes:
+    A council includes:
     - ID
     - topicID
     - quantity
-    So a teacher is assigned to a committee to evaluate a topic.
-    Then the committee will check all evaluation to give the final point for the topic
+    - leaderID
+    So a teacher is assigned to a council to evaluate a topic.
+    Then the council will check all evaluation to give the final point for the topic
     */
     int id;
-    int committeeID;
+    int councilID;
     int lecturerID;
     String evaluation;
     double point;
-    Date dateEvaluate;
+    Timestamp dateEvaluate;
 
     public TopicEvaluation() {
     }
     // This is for the dean to fill.
-    public TopicEvaluation(int id, int committeeID, int lecturerID, String evaluation, double point, Date dateEvaluate) {
+    public TopicEvaluation(int id, int councilID, int lecturerID, String evaluation, double point, Timestamp dateEvaluate) {
         this.id = id;
-        this.committeeID = committeeID; //
+        this.councilID = councilID; 
         this.lecturerID = lecturerID; 
         this.evaluation = evaluation; // When first created, it is null.
         this.point = point; // When first created, it is null.
-        this.dateEvaluate = dateEvaluate;
+        this.dateEvaluate = dateEvaluate; // When first created, it is null.
     }
     
     public int getLecturerID() {
@@ -46,12 +47,12 @@ public class TopicEvaluation {
         this.id = id;
     }
 
-    public int getCommitteeID() {
-        return committeeID;
+    public int getCouncilID() {
+        return councilID;
     }
 
-    public void setCommitteeID(int committeeID) {
-        this.committeeID = committeeID;
+    public void setCouncilID(int councilID) {
+        this.councilID = councilID;
     }
 
     public String getEvaluation() {
@@ -70,11 +71,11 @@ public class TopicEvaluation {
         this.point = point;
     }
 
-    public Date getDateEvaluate() {
+    public Timestamp getTimestampEvaluate() {
         return dateEvaluate;
     }
 
-    public void setDateEvaluate(Date dateEvaluate) {
+    public void setTimestampEvaluate(Timestamp dateEvaluate) {
         this.dateEvaluate = dateEvaluate;
     }
     

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface TopicEvaluationDAO {
 
-    void distributeLecturer(int committeeID, int lecturerID);
+    void distributeLecturer(int councilID, int lecturerID);
 
     List<TopicEvaluation> getAllEvaluation();
 
@@ -17,6 +17,6 @@ public interface TopicEvaluationDAO {
 
     List<Topic> getListToEvaluate(int lecturerID);
 
-    TopicEvaluation findTopicEvaluationByLecturer(int topicID);
+    TopicEvaluation findTopicEvaluation(int topicID, int lecturerID);
     
 }

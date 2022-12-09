@@ -69,21 +69,6 @@ username VARCHAR(200) primary key,
 password VARCHAR(20) not null
 );
 
-CREATE TABLE ReviewCouncil
-(
-councilID INT AUTO_INCREMENT primary key,
-leaderID int references Lecturer(lecturerID),
-topicID int references Topic(topicID),
-quantity int 
-);
-
-CREATE TABLE TopicEvaluationCommittee
-(
-evaluationID INT AUTO_INCREMENT primary key,
-councilID INT references ReviewCouncil(councilID),
-lecturerID INT references Lecturer(lecturerID)
-);
-
 USE topicmana;
 INSERT INTO subject (subjectName) VALUES("Công nghệ phần mềm");
 INSERT INTO subject (subjectName) VALUES("Mạng máy tính");
@@ -199,3 +184,22 @@ INSERT INTO Team(leaderID, topicID, quantity) VALUES(1, 1, 0);
 SELECT * FROM Student;
 SELECT * FROM Topic;
 SELECT * FROM Lecturer WHERE username = "nguyenvansong" AND password = "song@111";
+
+DROP TABLE Period;
+CREATE TABLE Period(
+	periodID INT PRIMARY KEY auto_increment,
+    beginning DATE,
+    `end` DATE,
+    topicType CHAR(100),
+    createFor int CHECK (createFor = 0 OR createFor = 1)
+    );
+    
+select * from period;
+INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2021-08-15", "2021-08-22", "Tiểu luận chuyên ngành | K18 (2018 - 2022) | Học kỳ 1 (2021-2022", 0);
+INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2021-09-01", "2021-09-07", "Tiểu luận chuyên ngành | K18 (2018 - 2022) | Học kỳ 1 (2021-2022", 1);
+INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2021-09-20", "2021-09-27", "Đề tài tốt nghiệp | K18 (2018 - 2022) | Học kỳ 1 (2022-2023)", 0);
+INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-08-15", "2022-08-22", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 1 (2021-2022)", 0);
+INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-09-05", "2022-09-12", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 1 (2021-2022)", 1);
+INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-08-15", "2022-08-22", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022", 0);
+INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-09-05", "2022-09-12", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022", 1);
+    

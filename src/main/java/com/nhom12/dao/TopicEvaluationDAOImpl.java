@@ -34,7 +34,7 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
                         rs.getInt(3),
                         rs.getString(4),
                         rs.getDouble(5),
-                        rs.getDate(6)));
+                        rs.getTimestamp(6)));
             }
         } catch (Exception e) {
         }
@@ -42,14 +42,15 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
     }
 
     @Override
-    public TopicEvaluation findTopicEvaluationByLecturer(int topicID) {
+    public TopicEvaluation findTopicEvaluation(int topicID, int lecturerID) {
         String query = "SELECT * FROM TopicEvaluation e "
-                + "INNER JOIN Committee c WHERE c.id = e.committeeID"
-                + "WHERE c.topicID = ?";
+                + "INNER JOIN Council c ON c.councilID = e.councilID"
+                + "WHERE c.topicID = ? AND e.lecturerID = ?";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
             ps.setInt(1, topicID);
+            ps.setInt(2, lecturerID);
             rs = ps.executeQuery();
             while (rs.next()) {
                 return new TopicEvaluation(
@@ -57,8 +58,8 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
                         rs.getInt(2),
                         rs.getInt(3),
                         rs.getString(4),
-                        rs.getDouble(5),
-                        rs.getDate(6));
+                        rs.getDouble(5), 
+                        rs.getTimestamp(6));
             }
         } catch (Exception e) {
         }
@@ -68,8 +69,8 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
     @Override
     public List<TopicEvaluation> getEvaluationOfTopic(int topicID) {
         String query = "SELECT * FROM Topic t "
-                + "INNER JOIN Committee c WHERE t.topicID = c.id"
-                + "INNER JOIN TopicEvaluation e WHERE c.id = e.committeeID"
+                + "INNER JOIN Council c WHERE t.topicID = c.id"
+                + "INNER JOIN TopicEvaluation e WHERE c.id = e.councilID"
                 + "WHERE t.topicID = ?";
 
         List<TopicEvaluation> topicEvaluation = new ArrayList<>();
@@ -85,7 +86,7 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
                         rs.getInt(3),
                         rs.getString(4),
                         rs.getDouble(5),
-                        rs.getDate(6)));
+                        rs.getTimestamp(6)));
             }
         } catch (Exception e) {
         }
@@ -94,9 +95,10 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
 
     @Override
     public List<Topic> getListToEvaluate(int lecturerID) {
-        String query = "SELECT * FROM Topic t "
-                + "INNER JOIN Committee c WHERE t.topicID = c.id"
-                + "INNER JOIN TopicEvaluation e WHERE c.id = e.committeeID"
+        String query = "SELECT * "
+                + "FROM Topic t "
+                + "INNER JOIN Council c ON t.topicID = c.topicID "
+                + "INNER JOIN TopicEvaluation e ON c.councilID = e.councilID "
                 + "WHERE e.lecturerID = ?";
 
         List<Topic> topic = new ArrayList<>();
@@ -123,12 +125,12 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
     }
 
     @Override
-    public void distributeLecturer(int committeeID, int lecturerID) { // This is for Dean
-        String query = "INSERT INTO TopicEvaluation (committeeID, lecturerID) VALUES (?, ?)";
+    public void distributeLecturer(int councilID, int lecturerID) { // This is for Dean
+        String query = "INSERT INTO TopicEvaluation (councilID, lecturerID) VALUES (?, ?)";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
-            ps.setInt(1, committeeID);
+            ps.setInt(1, councilID);
             ps.setInt(2, lecturerID);
             ps.executeUpdate();
         } catch (Exception e) {
@@ -151,6 +153,16 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
         } catch (Exception e) {
             {
             }
+        }
+    }
+    
+    public static void main(String[] args) {
+        TopicEvaluationDAOImpl dao = new TopicEvaluationDAOImpl();
+        TopicEvaluation te = dao.findTopicEvaluation(1, 1);
+        System.out.println(te.getId());
+        List<TopicEvaluation> topic = dao.getEvaluationOfTopic(1);
+        for(TopicEvaluation t: topic){
+            System.out.println(t.getId());
         }
     }
 }
