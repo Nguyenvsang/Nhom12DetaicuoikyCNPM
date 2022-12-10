@@ -8,7 +8,7 @@ public class Council {
 
     public Council() {
     }
-
+    
     public Council(int councilID, int leaderID, int topicID, int quantity) {
         this.councilID = councilID;
         this.leaderID = leaderID;

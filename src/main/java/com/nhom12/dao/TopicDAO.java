@@ -22,4 +22,7 @@ public interface TopicDAO {
     Topic findTopicByID(int topicID);
 
     List<Topic> findTopicByLecturer(int lecturerID); 
+    List<Topic> AllTopicsHaveAvaiCouncil();
+    
+    List<Topic> AllTopicsNoAvaiCouncil();
 }

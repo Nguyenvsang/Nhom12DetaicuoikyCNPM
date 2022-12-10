@@ -212,6 +212,12 @@
                                     <p>Phân giảng viên phản biện</p>
                                 </a>
                             </li>
+                            <li class="nav-item ">
+                                <a href="<c:url value="/createCouncil"/>" class="nav-link">
+                                    <i class="nav-icon fas fa-list"></i>
+                                    <p>Tạo hội đồng phản biện</p>
+                                </a>
+                            </li>
                             <%
                                 if (request.getSession().getAttribute("User") != null) {
                             %>

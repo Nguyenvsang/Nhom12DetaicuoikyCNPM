@@ -136,15 +136,69 @@ public class TopicDAOImpl implements TopicDAO {
             }
         }
     }
+    
+    @Override
+    public List<Topic> AllTopicsHaveAvaiCouncil(){
+        List<Topic> topic = new ArrayList<>();
+        String query = "SELECT * FROM Topic, AvailableCouncil Where Topic.topicID = AvailableCouncil.topicID";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                topic.add(new Topic(
+                        rs.getInt("topicID"),
+                        rs.getString("topicName"),
+                        rs.getString("topicRequire"),
+                        rs.getString("topicGoal"),
+                        rs.getInt("schoolYear"),
+                        rs.getInt("typeID"),
+                        rs.getInt("subjectID"),
+                        rs.getInt("lecturerID"),
+                        rs.getInt("quantity")));
+            }
+        } catch (Exception e) {
+        }
+        return topic;
+    }
+    
+    @Override
+    public List<Topic> AllTopicsNoAvaiCouncil(){
+        List<Topic> topic = new ArrayList<>();
+        String query = "SELECT * FROM Topic Where TopicID NOT IN (SELECT Topic.topicID FROM Topic, AvailableCouncil Where Topic.topicID = AvailableCouncil.topicID)";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                topic.add(new Topic(
+                        rs.getInt("topicID"),
+                        rs.getString("topicName"),
+                        rs.getString("topicRequire"),
+                        rs.getString("topicGoal"),
+                        rs.getInt("schoolYear"),
+                        rs.getInt("typeID"),
+                        rs.getInt("subjectID"),
+                        rs.getInt("lecturerID"),
+                        rs.getInt("quantity")));
+            }
+        } catch (Exception e) {
+        }
+        return topic;
+    }
 
     public static void main(String[] args) {
         TopicDAOImpl dao = new TopicDAOImpl();
         //dao.addTopic("Điện thông minh", "2 sinh viên", "Công tắc", 2019, 3, 2, 2, 0);
-        Topic topic = dao.findTopicByID(2);
-        System.out.println(topic.getTopicID() + "a");
+        //Topic topic = dao.findTopicByID(2);
+        //System.out.println(topic.getTopicID() + "a");
         //dao.editTopic(22, topic.getTopicName(), "Có kiến thức về mạng và điện tử, AI và ML", topic.getTopicGoal(), 2021, topic.getTypeID(), topic.getSubjectID(), topic.getLecturerID(), 0);
         //List<Topic> topic1 = dao.findTopicByLecturer(1);
         //for(Topic t: topic1){
         //    System.out.println(t.getLecturerID());
+        List<Topic> topic1 = dao.AllTopicsNoAvaiCouncil();
+        for(Topic t: topic1){
+           System.out.println(t.getLecturerID());
+        }
     }
 }

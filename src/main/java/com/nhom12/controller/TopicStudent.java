@@ -6,10 +6,12 @@ import com.nhom12.dao.TeamDAOImpl;
 import com.nhom12.dao.TopicDAOImpl;
 import com.nhom12.dao.TopicRegistrationDAOImpl;
 import com.nhom12.dao.PeriodDAOImpl;
+import com.nhom12.dao.TopicTypeDAOImpl;
 import com.nhom12.entity.Lecturer;
 import com.nhom12.entity.Subject;
 import com.nhom12.entity.Topic;
 import com.nhom12.entity.Period;
+import com.nhom12.entity.TypeOfTopic;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -25,6 +27,7 @@ public class TopicStudent extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     TeamDAOImpl dao = new TeamDAOImpl();
+    TopicTypeDAOImpl dao1 = new TopicTypeDAOImpl();
     TopicRegistrationDAOImpl dao2 = new TopicRegistrationDAOImpl();
     TopicDAOImpl dao3 = new TopicDAOImpl();
     PeriodDAOImpl dao4 = new PeriodDAOImpl();
@@ -34,11 +37,13 @@ public class TopicStudent extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        List<TypeOfTopic> topictype = dao1.getAllTypeOfTopics();
         List<Topic> listtopic = dao3.getAllTopics();
         List<Subject> subject = dao5.getAllSubjects();
         List<Period> period = dao4.getAllPeriods();
         List<Lecturer> lecturer = dao6.getAlllecturer();
 
+        request.setAttribute("topictype", topictype);
         request.setAttribute("listtopic", listtopic);
         request.setAttribute("subject", subject);
         request.setAttribute("period", period);

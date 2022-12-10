@@ -63,6 +63,30 @@ topicID int references Topic(topicID),
 quantity int
 );
 
+CREATE TABLE AvailableCouncil
+(
+avaiID int primary key auto_increment,
+topicID int references Topic(topicID) 
+);
+
+CREATE TABLE Council
+(
+councilID int primary key auto_increment,
+leaderID int references Lecturer(lecturerID),
+topicID int references Topic(topicID),
+quantity int
+);
+
+CREATE TABLE TopicEvaluation
+(
+id int primary key auto_increment,
+councilID int references councilID(Council),
+lecturerID int references Lecturer(lecturerID),
+evaluation VARCHAR(200),
+point double,
+dateEvaluate timestamp
+);
+
 CREATE TABLE Admin
 (
 username VARCHAR(200) primary key,
@@ -185,7 +209,7 @@ SELECT * FROM Student;
 SELECT * FROM Topic;
 SELECT * FROM Lecturer WHERE username = "nguyenvansong" AND password = "song@111";
 
-DROP TABLE Period;
+-- DROP TABLE Period;
 CREATE TABLE Period(
 	periodID INT PRIMARY KEY auto_increment,
     beginning DATE,
