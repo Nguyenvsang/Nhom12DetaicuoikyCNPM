@@ -18,5 +18,7 @@ public interface TopicEvaluationDAO {
     List<Topic> getListToEvaluate(int lecturerID);
 
     TopicEvaluation findTopicEvaluation(int topicID, int lecturerID);
+
+    boolean checkEvaluation(TopicEvaluation te);
     
 }

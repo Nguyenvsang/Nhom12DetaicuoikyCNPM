@@ -42,8 +42,9 @@ public class CreatePeriod extends HttpServlet {
             try {
                 String beginningDate = request.getParameter("beginning");
                 String endDate = request.getParameter("end");
-                String topicType = request.getParameter("topicType");
+                String periodName = request.getParameter("periodName");
                 int createFor = Integer.parseInt(request.getParameter("createFor"));
+                int typeID = Integer.parseInt(request.getParameter("typeID"));
                 
                 java.util.Date b = new SimpleDateFormat("yyyy-MM-dd").parse(beginningDate);
                 java.sql.Date beginning = new java.sql.Date(b.getTime());
@@ -51,7 +52,7 @@ public class CreatePeriod extends HttpServlet {
                 java.util.Date e = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
                 java.sql.Date end = new java.sql.Date(e.getTime());
                 
-                dao.addPeriod(beginning, end, topicType, createFor);
+                dao.addPeriod(beginning, end, periodName, createFor, typeID);
                 
                 request.setAttribute("message", "Tạo thành công đợt đăng ký cho " + (createFor == 0 ? "giảng viên!" : "sinh viên!"));
                 request.getRequestDispatcher("/topic-to-register").forward(request, response);

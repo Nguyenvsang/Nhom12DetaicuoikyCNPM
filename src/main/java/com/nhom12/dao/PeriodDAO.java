@@ -8,6 +8,6 @@ public interface PeriodDAO {
 
     List<Period> getAllPeriods();
 
-    void addPeriod(java.sql.Date beginning, java.sql.Date end, String topicType, int creatFor);
+    void addPeriod(java.sql.Date beginning, java.sql.Date end, String periodName, int creatFor, int typeID);
     
 }

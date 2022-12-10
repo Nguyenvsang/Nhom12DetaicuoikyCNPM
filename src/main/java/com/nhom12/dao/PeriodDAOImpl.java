@@ -35,7 +35,8 @@ public class PeriodDAOImpl implements PeriodDAO {
                         rs.getDate(2),
                         rs.getDate(3),
                         rs.getString(4),
-                        rs.getInt(5)));
+                        rs.getInt(5),
+                        rs.getInt(6))); 
             }
         } catch (Exception e) {
         }
@@ -43,15 +44,16 @@ public class PeriodDAOImpl implements PeriodDAO {
     }
 
     @Override
-    public void addPeriod(java.sql.Date beginning, java.sql.Date end, String topicType, int createFor) {
-        String query = "INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES (?, ?, ?, ?);";
+    public void addPeriod(java.sql.Date beginning, java.sql.Date end, String periodName, int createFor, int typeID) {
+        String query = "INSERT INTO Period (beginning, `end`, periodName, createFor, typeID) VALUES (?, ?, ?, ?, ?);";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
             ps.setDate(1, beginning);
             ps.setDate(2, end);
-            ps.setString(3, topicType);
+            ps.setString(3, periodName);
             ps.setInt(4, createFor);
+            ps.setInt(5, typeID);
             ps.executeUpdate();
         } catch (Exception e) {
             {
@@ -71,7 +73,7 @@ public class PeriodDAOImpl implements PeriodDAO {
 
         List<Period> period = dao.getAllPeriods();
         for (Period p : period) {
-            System.out.println(p.getTopicType());
+            System.out.println(p.getPeriodName());
         }
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

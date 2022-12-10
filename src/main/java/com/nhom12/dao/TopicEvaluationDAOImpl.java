@@ -22,7 +22,7 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
     @Override
     public List<TopicEvaluation> getAllEvaluation() {
         List<TopicEvaluation> topicEvaluation = new ArrayList<>();
-        String query = "SELECT * FROM TopicEvaluation;";
+        String query = "SELECT * FROM TopicEvaluation WHERE;";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
@@ -43,9 +43,9 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
 
     @Override
     public TopicEvaluation findTopicEvaluation(int topicID, int lecturerID) {
-        String query = "SELECT * FROM TopicEvaluation e "
-                + "INNER JOIN Council c ON c.councilID = e.councilID"
-                + "WHERE c.topicID = ? AND e.lecturerID = ?";
+        String query = "SELECT * FROM TopicEvaluation e\n" +
+                        "LEFT JOIN Council c ON c.councilID = e.councilID\n" +
+                        "WHERE c.topicID = ? AND e.lecturerID = ?;";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
@@ -68,9 +68,9 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
 
     @Override
     public List<TopicEvaluation> getEvaluationOfTopic(int topicID) {
-        String query = "SELECT * FROM Topic t "
-                + "INNER JOIN Council c WHERE t.topicID = c.id"
-                + "INNER JOIN TopicEvaluation e WHERE c.id = e.councilID"
+        String query = "SELECT * FROM TopicEvaluation e \n"
+                + "INNER JOIN Council c ON e.councilID = c.councilID \n"
+                + "INNER JOIN Topic t ON t.topicID = c.topicID \n"
                 + "WHERE t.topicID = ?";
 
         List<TopicEvaluation> topicEvaluation = new ArrayList<>();
@@ -141,7 +141,7 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
 
     @Override
     public void evaluateTopic(int id, String evaluation, Double point, java.sql.Timestamp dateEvaluate) { // This is for Lecturer
-        String query = "UPDATE Topic SET evaluation = ?, point = ?, dateEvaluate = ? WHERE id = ?";
+        String query = "UPDATE TopicEvaluation SET evaluation = ?, point = ?, dateEvaluate = ? WHERE id = ?";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
@@ -156,11 +156,17 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
         }
     }
     
+    @Override
+    public boolean checkEvaluation(TopicEvaluation te){ // Chưa đánh giá thì true
+        return te.getEvaluation() == null || te.getTimestampEvaluate() == null;
+    }
+    
     public static void main(String[] args) {
         TopicEvaluationDAOImpl dao = new TopicEvaluationDAOImpl();
-        TopicEvaluation te = dao.findTopicEvaluation(1, 1);
-        System.out.println(te.getId());
+        TopicEvaluation te = dao.findTopicEvaluation(1, 2);
+        System.out.println(te.getTimestampEvaluate());
         List<TopicEvaluation> topic = dao.getEvaluationOfTopic(1);
+        System.out.println(topic.size());
         for(TopicEvaluation t: topic){
             System.out.println(t.getId());
         }
