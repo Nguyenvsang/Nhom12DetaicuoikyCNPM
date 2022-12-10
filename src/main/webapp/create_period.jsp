@@ -47,17 +47,26 @@
                                                                         placeholder="Nhập ngày bắt đầu" required="">
                                 </div>
                                 <div class="form-group">
-                                    <label>Loại đề tài</label> <input type="text"
-                                                                      class="form-control" id="topicType" name="topicType"
+                                    <label>Tên đợt đăng ký</label> <input type="text"
+                                                                      class="form-control" id="periodName" name="periodName"
                                                                       placeholder="Nhập loại đề tài" required="">
                                 </div>
                                 <div class="form-group">
-                                    <label>Tạo đề tài cho</label> 
+                                    <label>Tạo đợt đăng ký cho</label> 
                                     <select name="createFor" id="createFor"
                                             class="form-control" required>
                                         <option value="">Chọn đối tượng cho đợt đăng ký</option> 
                                         <option value="0">Giảng viên</option>
                                         <option value="1">Sinh viên</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Loại đề tài</label> 
+                                    <select name="createFor" id="createFor"
+                                            class="form-control" required>
+                                        <option value="">Chọn loại đề tài</option> 
+                                        <option value="0">Đề tài tốt nghiệp</option>
+                                        <option value="1">Tiểu luận chuyên ngành</option>
                                     </select>
                                 </div>
                                 <div class="card-footer">

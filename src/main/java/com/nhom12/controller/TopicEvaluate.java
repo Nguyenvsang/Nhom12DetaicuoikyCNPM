@@ -28,9 +28,12 @@ public class TopicEvaluate extends HttpServlet {
             int topicID = Integer.parseInt(request.getParameter("topicID"));// lấy topicID
             
             TopicEvaluation topicEvaluation = dao.findTopicEvaluation(topicID, lecturer.getLecturerID());
-
-            request.setAttribute("topicEvaluation", topicEvaluation);//
-            request.getRequestDispatcher("/evaluate_topic.jsp").forward(request, response);//
+            // Kiểm tra đề tài đã được đánh giá chưa
+            boolean check = dao.checkEvaluation(topicEvaluation);
+            
+            request.setAttribute("topicEvaluation", topicEvaluation);
+            request.setAttribute("check", check);
+            request.getRequestDispatcher("/evaluate_topic.jsp").forward(request, response);
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp");
         }
@@ -48,12 +51,12 @@ public class TopicEvaluate extends HttpServlet {
 
             Lecturer lecturer = (Lecturer) session.getAttribute("lecturer");
             
-            //int evaluationID = Integer.parseInt(request.getParameter("id"));
+            int evaluationID = Integer.parseInt(request.getParameter("id"));
             String evaluation = request.getParameter("evaluation");
             double point = Double.parseDouble(request.getParameter("point"));
             java.sql.Timestamp dateEvaluate = new java.sql.Timestamp(new java.util.Date().getTime());
 
-            dao.evaluateTopic(2, evaluation, point, dateEvaluate);
+            dao.evaluateTopic(evaluationID, evaluation, point, dateEvaluate);
 
             request.setAttribute("message", "Đã đánh giá đề tài! Đang đợi hội đồng thống nhất!");
             request.getRequestDispatcher("/list-of-topic").forward(request, response);

@@ -30,28 +30,31 @@
                         </div>
                         <div class="row justify-content-center"
                              style="margin-top: 15px; margin-bottom: -15px;">
-                        </div>
+                        </div>            
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form role="form" method="post" action="${pageContext.request.contextPath}/topic/evaluate">
                             <div class="card-body">
+                                <p class="text-warning text-center">${check == true ? "": "Đã đánh giá!"}</p>
                                 <input type="hidden"
                                        class="form-control" value="${topicEvaluation.id}" name="id">
                                 <div class="form-group">
                                     <label>Nhận xét</label> 
                                     <textarea rows="5" cols="63" 
-                                              placeholder="Nhập nhận xét" 
-                                              name="evaluation" required></textarea>
+                                              placeholder="Nhập nhận xét" name="evaluation" 
+                                              ${check == true ? "" : "readonly"} required 
+                                              style="text-align: justify">${topicEvaluation.evaluation}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Nhập điểm</label> 
                                     <input type="text"
                                            class="form-control" name="point"
-                                           placeholder="Nhập điểm"  required>
+                                           placeholder="Nhập điểm" value="${topicEvaluation.point}"
+                                           ${check == true ? "" : "readonly" } required>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary ">Lưu đánh giá</button>
-                                    <input type="button" value="Huỷ bỏ" class="btn btn-primary"
+                                    <button type="submit" class="btn btn-primary" ${check == true ? "" : "disabled"}>Lưu đánh giá</button>
+                                    <input type="button" value="Quay lại" class="btn btn-primary"
                                            onclick="location.href = 'topicregister'">
                                 </div>
                             </div>

@@ -6,15 +6,20 @@ public class Period {
     private int periodID;
     private Date beginning;
     private Date end;
-    private String topicType;
+    private String periodName;
     private int createFor;
+    private int typeID; // của periodName
 
-    public Period(int periodID, Date beginning, Date end, String topicType, int createFor) {
+    public Period() {
+    }
+
+    public Period(int periodID, Date beginning, Date end, String periodName, int createFor, int typeID) {
         this.periodID = periodID;
         this.beginning = beginning;
         this.end = end;
-        this.topicType = topicType;
+        this.periodName = periodName;
         this.createFor = createFor;
+        this.typeID = typeID;
     }
 
     public int getPeriodID() {
@@ -23,9 +28,6 @@ public class Period {
 
     public void setPeriodID(int periodID) {
         this.periodID = periodID;
-    }
-
-    public Period() {
     }
 
     public Date getBeginning() {
@@ -44,12 +46,12 @@ public class Period {
         this.end = end;
     }
 
-    public String getTopicType() {
-        return topicType;
+    public String getPeriodName() {
+        return periodName;
     }
 
-    public void setTopicType(String topicType) {
-        this.topicType = topicType;
+    public void setPeriodName(String periodName) {
+        this.periodName = periodName;
     }
 
     public int getCreateFor() {
@@ -60,5 +62,11 @@ public class Period {
         this.createFor = createFor;
     }
 
-    
+    public int getTypeID() {
+        return typeID;
+    }
+
+    public void setTypeID(int typeID) {
+        this.typeID = typeID;
+    }
 }
