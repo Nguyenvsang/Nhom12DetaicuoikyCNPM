@@ -17,7 +17,7 @@
                         <form role="form" method="post"
                               action="${pageContext.request.contextPath}/SearchBook">
                             <div class="card-header">
-                                <h3 class="card-title">Danh sách đề tài</h3>
+                                <h3 class="card-title">Danh sách đề tài khả dụng</h3>
 
                                 <div class="card-tools" style="margin-right: 1px;">
                                     <div class="input-group input-group-sm" style="width: 200px;">
@@ -38,7 +38,7 @@
                         <div class="row justify-content-center">
                             <div style="margin-top: 20px; color: red;">${errorString}</div>
                         </div>
-                        <label style="margin-left: 20px">Bộ môn</label>
+                        <label style="margin-left: 20px">Vui lòng chọn 1 đề tài muốn phân giảng viên phản biện</label>
                         <%--  <select name="subjectID" style="margin-bottom: 20px;margin-left: 20px;width: 20%">
                             <c:forEach items="${subject}" var="s">
                                 <option value="${s.id}">${s.name}</option>
@@ -62,7 +62,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${listtopic}" var="i" >
+                                    <c:forEach items="${listtopichavecouncil}" var="i" >
                                         <tr>
                                             <td>${i.topicID}</td>
                                             <td>${i.topicName}</td>

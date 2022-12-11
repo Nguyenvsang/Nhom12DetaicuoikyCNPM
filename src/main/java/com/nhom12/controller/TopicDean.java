@@ -33,12 +33,13 @@ public class TopicDean extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Topic> listtopic = dao3.getAllTopics();
+        // Lấy danh sách các topic đã có hội đồng khả dụng 
+        List<Topic> listtopichavecouncil = dao3.AllTopicsHaveCouncil();
         List<Subject> subject = dao5.getAllSubjects();
         List<Period> period = dao4.getAllPeriods();
-        List<Council> listcouncil = dao6.getAllReviewCouncils();
+        List<Council> listcouncil = dao6.getAllCouncils();
 
-        request.setAttribute("listtopic", listtopic);
+        request.setAttribute("listtopichavecouncil", listtopichavecouncil);
         request.setAttribute("subject", subject);
         request.setAttribute("period", period);
         request.setAttribute("listcouncil", listcouncil);

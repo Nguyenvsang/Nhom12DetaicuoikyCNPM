@@ -210,7 +210,7 @@
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a href="<c:url value="/createCouncil"/>" class="nav-link">
+                                <a href="<c:url value="/topicToCouncil"/>" class="nav-link">
                                     <i class="nav-icon fas fa-list"></i>
                                     <p>Tạo hội đồng phản biện</p>
                                 </a>

@@ -22,6 +22,13 @@ public class TopicEvaluation {
     public TopicEvaluation() {
     }
     // This is for the dean to fill.
+
+    public TopicEvaluation(int id, int councilID, int lecturerID) {
+        this.id = id;
+        this.councilID = councilID;
+        this.lecturerID = lecturerID;
+    }
+    
     public TopicEvaluation(int id, int councilID, int lecturerID, String evaluation, double point, Timestamp dateEvaluate) {
         this.id = id;
         this.councilID = councilID; 

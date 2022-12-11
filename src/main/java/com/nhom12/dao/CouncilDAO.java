@@ -13,6 +13,8 @@ import java.util.List;
  */
 public interface CouncilDAO {
     void addCouncil(int leaderID, int topicID, int quantity);
+    
+    void addCouncil(int topicID);
 
     Council findCouncilByID(int councilID);
 
@@ -20,5 +22,5 @@ public interface CouncilDAO {
 
     void updateCouncil(int councilID, int leaderID, int topicID, int quantity);
     
-    List<Council> getAllReviewCouncils();
+    List<Council> getAllCouncils();
 }
