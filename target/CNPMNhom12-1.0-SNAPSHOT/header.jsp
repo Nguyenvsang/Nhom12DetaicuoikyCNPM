@@ -184,7 +184,7 @@
                                             <p>Thông tin giảng viên</p>
                                         </a></li>
                                     <li class="nav-item"><a
-                                            href="${pageContext.request.contextPath}"
+                                            href="${pageContext.request.contextPath}/student/manage"
                                             class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Thông tin sinh viên</p>

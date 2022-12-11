@@ -26,7 +26,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4 class="card-title">Thông tin giảng viên</h4>
+                            <h4 class="card-title">Chỉnh sửa thông tin</h4>
                         </div>
                         <div class="row justify-content-center"
                              style="margin-top: 15px; margin-bottom: -15px;">

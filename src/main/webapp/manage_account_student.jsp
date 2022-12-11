@@ -26,7 +26,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Đăng ký đề tài mới</h3>
+                            <h3 class="card-title">Thông tin sinh viên</h3>
                         </div>
                         <div class="row justify-content-center"
                              style="margin-top: 15px; margin-bottom: -15px;">
@@ -77,9 +77,9 @@
 
                                 <div class="card-footer">
                                     <input type="button" value="Chỉnh sửa" class="btn btn-primary"
-                                           onclick="location.href = '/student/update'">
+                                           onclick="location.href = '${pageContext.request.contextPath}/student/update'">
                                     <input type="button" value="Trở lại" class="btn btn-primary"
-                                           onclick="location.href = 'edittopic'">
+                                           onclick="location.href = '${pageContext.request.contextPath}/topic-to-register'">
                                 </div>
                             </div>
                     </div>

@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -125,6 +127,31 @@ public class StudentDAOImpl implements StudentDAO {
             ps.executeUpdate();
         } catch (Exception e) {
         }
+    }
+    
+    @Override
+    public List<Student> getListStudentByLecturer(int lecturerID) {
+        List<Student> council = new ArrayList<>();
+        String query = "SELECT Student.studentID, studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department FROM Lecturer, Topic, TopicRegistration, Team, Student WHERE Lecturer.lecturerID = ? AND Lecturer.lecturerID = Topic.lecturerID AND TopicRegistration.teamID = Team.teamID AND Team.topicID =  Topic.topicID AND TopicRegistration.studentID = Student.studentID";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, lecturerID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                council.add(new Student(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)));
+            }
+        } catch (Exception e) {
+        }
+        return council;
     }
 
     public static void main(String[] args) throws ParseException {
