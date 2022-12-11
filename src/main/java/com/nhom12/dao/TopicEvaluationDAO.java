@@ -20,5 +20,7 @@ public interface TopicEvaluationDAO {
     TopicEvaluation findTopicEvaluation(int topicID, int lecturerID);
 
     boolean checkEvaluation(TopicEvaluation te);
+    // Tìm TopicEvaluation theo cả giảng viên và hội đồng, trả về 
+    TopicEvaluation findTopicEvaluationByLandC(int lecturerID, int councilID);
     
 }

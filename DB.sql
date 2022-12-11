@@ -63,12 +63,6 @@ topicID int references Topic(topicID),
 quantity int
 );
 
-CREATE TABLE AvailableCouncil
-(
-avaiID int primary key auto_increment,
-topicID int references Topic(topicID) 
-);
-
 CREATE TABLE Council
 (
 councilID int primary key auto_increment,
@@ -227,22 +221,6 @@ INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-08-15",
 INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-09-05", "2022-09-12", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 1 (2021-2022)", 1);
 INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-08-15", "2022-08-22", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022", 0);
 INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-09-05", "2022-09-12", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022", 1);
-    
-CREATE TABLE Council(
-	councilID INT PRIMARY KEY AUTO_INCREMENT,
-    leaderID INT REFERENCES Lecturer(lecturerID),
-    topicID INT REFERENCES Topic(topicID),
-    quantity INT CHECK(quantity BETWEEN 3 AND 5)
-    );
-
-CREATE TABLE TopicEvaluation(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    councilID INT REFERENCES Council(councilID),
-    lecturerID INT REFERENCES Lecturer(lecturerID),
-    evaluation TEXT,
-    point DOUBLE,
-    dateEvaluate TIMESTAMP
-    );
 
 INSERT INTO Council(leaderID, topicID, quantity) VALUES (1, 1, 3);
 
@@ -258,9 +236,6 @@ WHERE e.lecturerID = 2;
 SELECT * FROM TopicEvaluation e 
 INNER JOIN Council c ON c.councilID = e.councilID
 WHERE c.topicID = 1 AND e.lecturerID = 2;
-
-DROP TABLE Council;
-DROP TABLE TopicEvaluation;
 
 SELECT * FROM TopicEvaluation e
 LEFT JOIN Council c ON c.councilID = e.councilID

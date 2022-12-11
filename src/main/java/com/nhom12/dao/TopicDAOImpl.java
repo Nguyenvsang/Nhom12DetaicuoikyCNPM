@@ -141,9 +141,9 @@ public class TopicDAOImpl implements TopicDAO {
     }
     
     @Override
-    public List<Topic> AllTopicsHaveAvaiCouncil(){
+    public List<Topic> AllTopicsHaveCouncil(){
         List<Topic> topic = new ArrayList<>();
-        String query = "SELECT * FROM Topic, AvailableCouncil Where Topic.topicID = AvailableCouncil.topicID";
+        String query = "SELECT * FROM Topic, Council Where Topic.topicID = Council.topicID";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
@@ -167,9 +167,9 @@ public class TopicDAOImpl implements TopicDAO {
     }
     
     @Override
-    public List<Topic> AllTopicsNoAvaiCouncil(){
+    public List<Topic> AllTopicsNoCouncil(){
         List<Topic> topic = new ArrayList<>();
-        String query = "SELECT * FROM Topic Where TopicID NOT IN (SELECT Topic.topicID FROM Topic, AvailableCouncil Where Topic.topicID = AvailableCouncil.topicID)";
+        String query = "SELECT * FROM Topic Where TopicID NOT IN (SELECT Topic.topicID FROM Topic, Council Where Topic.topicID = Council.topicID)";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
@@ -201,7 +201,7 @@ public class TopicDAOImpl implements TopicDAO {
         //List<Topic> topic1 = dao.findTopicByLecturer(1);
         //for(Topic t: topic1){
         //    System.out.println(t.getLecturerID());
-        List<Topic> topic1 = dao.AllTopicsNoAvaiCouncil();
+        List<Topic> topic1 = dao.AllTopicsNoCouncil();
         for(Topic t: topic1){
            System.out.println(t.getLecturerID());
         }

@@ -162,6 +162,26 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
         return te.getEvaluation() == null || te.getTimestampEvaluate() == null;
     }
     
+    @Override
+    public TopicEvaluation findTopicEvaluationByLandC(int lecturerID, int councilID){
+        String query = "SELECT * FROM TopicEvaluation WHERE lecturerID = ? AND councilID = ?";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, lecturerID);            
+            ps.setInt(2, councilID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new TopicEvaluation(
+                        rs.getInt("id"),
+                        rs.getInt("councilID"),
+                        rs.getInt("lecturerID"));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
     public static void main(String[] args) {
         TopicEvaluationDAOImpl dao = new TopicEvaluationDAOImpl();
         TopicEvaluation te = dao.findTopicEvaluation(1, 2);

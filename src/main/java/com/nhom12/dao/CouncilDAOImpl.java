@@ -31,6 +31,18 @@ public class CouncilDAOImpl implements CouncilDAO {
         } catch (Exception e) {
         }
     }
+    
+    @Override
+    public void addCouncil(int topicID){
+        String query = "INSERT INTO Council (topicID) VALUES (?)";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, topicID);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
 
     @Override
     public Council findCouncilByID(int councilID) {
@@ -88,7 +100,7 @@ public class CouncilDAOImpl implements CouncilDAO {
     }
     
     @Override
-    public List<Council> getAllReviewCouncils(){
+    public List<Council> getAllCouncils(){
         List<Council> council = new ArrayList<>();
         String query = "SELECT * FROM Council;";
         try {
