@@ -33,9 +33,10 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getString(4),
                         rs.getInt(5),
                         rs.getInt(6),
-                        rs.getInt(7),
+                        rs.getDouble(7),
                         rs.getInt(8),
-                        rs.getInt(9)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
             }
         } catch (Exception e) {
         }
@@ -58,9 +59,10 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getString(4),
                         rs.getInt(5),
                         rs.getInt(6),
-                        rs.getInt(7),
+                        rs.getDouble(7),
                         rs.getInt(8),
-                        rs.getInt(9));
+                        rs.getInt(9),
+                        rs.getInt(10));
             }
         } catch (Exception e) {
         }
@@ -84,9 +86,10 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getString(4),
                         rs.getInt(5),
                         rs.getInt(6),
-                        rs.getInt(7),
+                        rs.getDouble(7),
                         rs.getInt(8),
-                        rs.getInt(9)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
             }
             if (topic.isEmpty() || topic == null) {
                 topic = null;
@@ -147,15 +150,16 @@ public class TopicDAOImpl implements TopicDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 topic.add(new Topic(
-                        rs.getInt("topicID"),
-                        rs.getString("topicName"),
-                        rs.getString("topicRequire"),
-                        rs.getString("topicGoal"),
-                        rs.getInt("schoolYear"),
-                        rs.getInt("typeID"),
-                        rs.getInt("subjectID"),
-                        rs.getInt("lecturerID"),
-                        rs.getInt("quantity")));
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getDouble(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getInt(10)));
             }
         } catch (Exception e) {
         }
@@ -172,15 +176,16 @@ public class TopicDAOImpl implements TopicDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 topic.add(new Topic(
-                        rs.getInt("topicID"),
-                        rs.getString("topicName"),
-                        rs.getString("topicRequire"),
-                        rs.getString("topicGoal"),
-                        rs.getInt("schoolYear"),
-                        rs.getInt("typeID"),
-                        rs.getInt("subjectID"),
-                        rs.getInt("lecturerID"),
-                        rs.getInt("quantity")));
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getDouble(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getInt(10)));
             }
         } catch (Exception e) {
         }

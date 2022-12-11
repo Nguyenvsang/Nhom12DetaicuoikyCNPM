@@ -8,6 +8,10 @@ public interface PeriodDAO {
 
     List<Period> getAllPeriods();
 
-    void addPeriod(java.sql.Date beginning, java.sql.Date end, String periodName, int creatFor, int typeID);
+    void addPeriod(java.sql.Date beginning, java.sql.Date end, String periodName, int creatFor, int typeID, int mainPeriod);
+
+    List<Period> getMainPeriods();
+
+    void updatePeriodFor(int periodID, int mainPeriod);
     
 }

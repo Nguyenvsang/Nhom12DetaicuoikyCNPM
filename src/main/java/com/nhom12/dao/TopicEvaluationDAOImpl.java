@@ -115,9 +115,10 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
                         rs.getString(4),
                         rs.getInt(5),
                         rs.getInt(6),
-                        rs.getInt(7),
+                        rs.getDouble(7),
                         rs.getInt(8),
-                        rs.getInt(9)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
             }
         } catch (Exception e) {
         }
@@ -170,5 +171,6 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
         for(TopicEvaluation t: topic){
             System.out.println(t.getId());
         }
+        dao.distributeLecturer(1, 4);
     }
 }

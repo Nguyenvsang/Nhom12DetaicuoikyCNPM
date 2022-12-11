@@ -18,14 +18,15 @@ public class CouncilDAOImpl implements CouncilDAO {
     ResultSet rs = null;
     
     @Override
-    public void addCouncil(int leaderID, int topicID, int quantity) {
-        String query = "INSERT INTO Council (leaderID, topicID, quantity) VALUES (?, ?, ?)";
+    public void addCouncil(int topicID, int quantity) {
+        //String query = "INSERT INTO Council (leaderID, topicID, quantity) VALUES (?, ?, ?)";
+        String query = "INSERT INTO Council (topicID, quantity) VALUES (?, ?)";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
-            ps.setInt(1, leaderID);
-            ps.setInt(2, topicID);
-            ps.setInt(3, quantity);
+            //ps.setInt(1, leaderID);
+            ps.setInt(1, topicID);
+            ps.setInt(2, quantity);
             ps.executeUpdate();
         } catch (Exception e) {
         }
@@ -115,5 +116,13 @@ public class CouncilDAOImpl implements CouncilDAO {
 //        System.out.println(dao2.findTECommitteeByLecturerandCouncil(1, council.getCouncilID()));
 //        System.out.print("1");
 //    }
+    
+        public static void main(String[] args) {
+        CouncilDAOImpl dao = new CouncilDAOImpl();
+        dao.addCouncil(4, 5);
+        Council council = dao.findCouncilByID(1);
+        //System.out.println(dao2.findTECommitteeByLecturerandCouncil(1, council.getCouncilID()));
+        //System.out.print("1");
+    }
     
 }

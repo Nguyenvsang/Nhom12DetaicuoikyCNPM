@@ -3,9 +3,11 @@ package com.nhom12.controller;
 import com.nhom12.dao.SubjectDAOImpl;
 import com.nhom12.dao.TopicDAOImpl;
 import com.nhom12.dao.PeriodDAOImpl;
+import com.nhom12.dao.TopicTypeDAOImpl;
 import com.nhom12.entity.Lecturer;
 import com.nhom12.entity.Subject;
 import com.nhom12.entity.Period;
+import com.nhom12.entity.TypeOfTopic;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +24,10 @@ public class TopicRegisterServlet extends HttpServlet {
     TopicDAOImpl dao = new TopicDAOImpl();
     SubjectDAOImpl dao2 = new SubjectDAOImpl();
     PeriodDAOImpl dao3 = new PeriodDAOImpl();
+    TopicTypeDAOImpl dao4 = new TopicTypeDAOImpl();
+    
     List<Period> period = dao3.getAllPeriods();
+    List<TypeOfTopic> topicType = dao4.getAllTypeOfTopics();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,6 +48,7 @@ public class TopicRegisterServlet extends HttpServlet {
                 request.setAttribute("message", "Hiện tại không nằm trong thời gian đăng ký đề tài!");
                 request.getRequestDispatcher("/list-of-topic").forward(request, response);
             } else {
+                request.setAttribute("topicType", topicType);
                 request.getRequestDispatcher("/register_topic.jsp").forward(request, response);
             }
         } else {

@@ -8,23 +8,25 @@ public class Topic {
     private String topicGoal;
     private int schoolYear;
     private int quantity;
-    private int typeID;// tương ứng với periodID có chứa topicType
+    private double point;
+    private int periodID;
     private int subjectID;
     private int lecturerID;
 
     public Topic() {
     }
 
-    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int year, int typeID, int subjectID, int lecturerID, int quantity) {
+    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, int quantity, double point, int periodID, int subjectID, int lecturerID) {
         this.topicID = topicID;
         this.topicName = topicName;
         this.topicRequire = topicRequire;
         this.topicGoal = topicGoal;
-        this.schoolYear = year;
-        this.typeID = typeID;
+        this.schoolYear = schoolYear;
+        this.quantity = quantity;
+        this.point = point;
+        this.periodID = periodID;
         this.subjectID = subjectID;
         this.lecturerID = lecturerID;
-        this.quantity = quantity;
     }
 
     public int getTopicID() {
@@ -75,12 +77,20 @@ public class Topic {
         this.quantity = quantity;
     }
 
-    public int getTypeID() {
-        return typeID;
+    public double getPoint() {
+        return point;
     }
 
-    public void setTypeID(int typeID) {
-        this.typeID = typeID;
+    public void setPoint(double point) {
+        this.point = point;
+    }
+
+    public int getPeriodID() {
+        return periodID;
+    }
+
+    public void setPeriodID(int periodID) {
+        this.periodID = periodID;
     }
 
     public int getSubjectID() {
@@ -99,4 +109,5 @@ public class Topic {
         this.lecturerID = lecturerID;
     }
 
+    
 }

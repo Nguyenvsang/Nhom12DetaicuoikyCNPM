@@ -215,6 +215,12 @@
                                     <p>Tạo hội đồng phản biện</p>
                                 </a>
                             </li>
+                            <li class="nav-item ">
+                                <a href="<c:url value="/createperiod"/>" class="nav-link">
+                                    <i class="nav-icon fas fa-list"></i>
+                                    <p>Tạo đợt đăng ký</p>
+                                </a>
+                            </li>
                             <%
                                 if (request.getSession().getAttribute("User") != null) {
                             %>

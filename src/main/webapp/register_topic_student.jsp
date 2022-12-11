@@ -73,7 +73,7 @@
                                                 </c:if>
                                             </c:forEach>                                           
 
-                                            <c:forEach items="${topictype}" var="t">
+                                            <c:forEach items="${topicType}" var="t">
                                                 <c:if test="${t.typeID == i.typeID}">
                                                     <td>${t.typeName}</td>  
                                                 </c:if>

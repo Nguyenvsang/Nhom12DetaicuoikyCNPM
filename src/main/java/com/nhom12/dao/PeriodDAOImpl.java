@@ -36,7 +36,8 @@ public class PeriodDAOImpl implements PeriodDAO {
                         rs.getDate(3),
                         rs.getString(4),
                         rs.getInt(5),
-                        rs.getInt(6))); 
+                        rs.getInt(6),
+                        rs.getInt(7)));
             }
         } catch (Exception e) {
         }
@@ -44,8 +45,31 @@ public class PeriodDAOImpl implements PeriodDAO {
     }
 
     @Override
-    public void addPeriod(java.sql.Date beginning, java.sql.Date end, String periodName, int createFor, int typeID) {
-        String query = "INSERT INTO Period (beginning, `end`, periodName, createFor, typeID) VALUES (?, ?, ?, ?, ?);";
+    public List<Period> getMainPeriods() { // Các đợt cho giảng viên
+        List<Period> period = new ArrayList<>();
+        String query = "SELECT * FROM Period WHERE createFor = 0;";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                period.add(new Period(
+                        rs.getInt(1),
+                        rs.getDate(2),
+                        rs.getDate(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7)));
+            }
+        } catch (Exception e) {
+        }
+        return period;
+    }
+
+    @Override
+    public void addPeriod(java.sql.Date beginning, java.sql.Date end, String periodName, int createFor, int typeID, int mainPeriod) {
+        String query = "INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES (?, ?, ?, ?, ?, ?);";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
@@ -54,6 +78,22 @@ public class PeriodDAOImpl implements PeriodDAO {
             ps.setString(3, periodName);
             ps.setInt(4, createFor);
             ps.setInt(5, typeID);
+            ps.setInt(6, mainPeriod);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            {
+            }
+        }
+    }
+
+    @Override
+    public void updatePeriodFor(int periodID, int mainPeriod) { // cập nhật lại mainPeriod
+        String query = "UPDATE Period SET mainPeriod =  ?;";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, periodID);
+            ps.setInt(2, mainPeriod);
             ps.executeUpdate();
         } catch (Exception e) {
             {
@@ -69,8 +109,7 @@ public class PeriodDAOImpl implements PeriodDAO {
         java.util.Date e = new SimpleDateFormat("yyyy-MM-dd").parse("2022-12-08");
         java.sql.Date end = new java.sql.Date(e.getTime());
 
-        //dao.addPeriod(beginning, end, "Tiểu luận chuyên ngành K20", 0);
-
+        dao.addPeriod(beginning, end, "Tiểu luận chuyên ngành K20", 0, 1, 0);
         List<Period> period = dao.getAllPeriods();
         for (Period p : period) {
             System.out.println(p.getPeriodName());

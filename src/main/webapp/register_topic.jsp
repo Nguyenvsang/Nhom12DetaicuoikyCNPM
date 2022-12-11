@@ -26,7 +26,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Tạo đợt đăng ký</h3>
+                            <h3 class="card-title">Đăng ký đề tài cho giảng viên</h3>
                         </div>
                         <div class="row justify-content-center"
                              style="margin-top: 15px; margin-bottom: -15px;">
@@ -34,7 +34,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="${pageContext.request.contextPath}/create_period">
+                        <form role="form" method="post" action="${pageContext.request.contextPath}/topicregister">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Tên đề tài</label> <input type="text"
@@ -58,23 +58,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Loại đề tài</label> 
-                                    <select name="typeID" id="typeID"
-                                            class="form-control" required>
-                                        <option value="">Chọn 1 thể loại</option> 
-                                        <c:forEach items="${topictype}" var="tt">
-                                            <option value="${tt.typeID}">${tt.typeName}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Bộ môn</label> 
-                                    <select name="subjectID" id="subjectID"
-                                            class="form-control" required>
-                                        <option value="">Chọn 1 thể loại</option> 
-                                        <c:forEach items="${subject}" var="sub">
-                                            <option value="${sub.subjectID}">${sub.subjectName}</option>
-                                        </c:forEach>
-                                    </select>
+                                    <c:forEach items="${topicType}" var="tt">
+                                        <c:if test="${tt.typeID == sessionScope.periodOfLecturer.typeID}">
+                                            <input type="text"
+                                                   class="form-control" id="typeID" name="typeID"
+                                                   value="${tt.typeName}">
+                                        </c:if>
+                                    </c:forEach>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary ">Lưu</button>

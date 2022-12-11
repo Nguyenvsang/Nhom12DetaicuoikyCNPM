@@ -9,17 +9,19 @@ public class Period {
     private String periodName;
     private int createFor;
     private int typeID; // của periodName
+    private int mainPeriod; // đợt đăng ký chính -> ví dụ đợt của sinh viên đăng ký từ đề tài của đợt cho giáo viên
 
     public Period() {
     }
 
-    public Period(int periodID, Date beginning, Date end, String periodName, int createFor, int typeID) {
+    public Period(int periodID, Date beginning, Date end, String periodName, int createFor, int typeID, int mainPeriod) {
         this.periodID = periodID;
         this.beginning = beginning;
         this.end = end;
         this.periodName = periodName;
         this.createFor = createFor;
         this.typeID = typeID;
+        this.mainPeriod = mainPeriod;
     }
 
     public int getPeriodID() {
@@ -69,4 +71,14 @@ public class Period {
     public void setTypeID(int typeID) {
         this.typeID = typeID;
     }
+
+    public int getMainPeriod() {
+        return mainPeriod;
+    }
+
+    public void setMainPeriod(int mainPeriod) {
+        this.mainPeriod = mainPeriod;
+    }
+
+    
 }

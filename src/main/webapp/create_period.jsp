@@ -48,8 +48,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tên đợt đăng ký</label> <input type="text"
-                                                                      class="form-control" id="periodName" name="periodName"
-                                                                      placeholder="Nhập loại đề tài" required="">
+                                                                          class="form-control" id="periodName" name="periodName"
+                                                                          placeholder="Nhập tên đợt đăng ký" required="">
                                 </div>
                                 <div class="form-group">
                                     <label>Tạo đợt đăng ký cho</label> 
@@ -62,11 +62,22 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Loại đề tài</label> 
-                                    <select name="createFor" id="createFor"
+                                    <select name="typeID" id="typeID"
                                             class="form-control" required>
                                         <option value="">Chọn loại đề tài</option> 
                                         <option value="0">Đề tài tốt nghiệp</option>
                                         <option value="1">Tiểu luận chuyên ngành</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Đợt đăng ký chính</label> 
+                                    <select name="mainPeriod" id="mainPeriod"
+                                            class="form-control" required>
+                                        <option value="">Chọn đợt đăng ký chính</option> 
+                                        <option value="0">Không có</option>
+                                        <c:forEach items="${period}" var="p">
+                                            <option value="${p.periodID}">${p.periodName}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                                 <div class="card-footer">

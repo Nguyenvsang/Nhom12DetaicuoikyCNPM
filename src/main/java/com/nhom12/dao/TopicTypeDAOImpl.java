@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.nhom12.dao;
 
 import com.nhom12.context.DBContext;
@@ -12,11 +8,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author nguye
- */
 public class TopicTypeDAOImpl implements TopicTypeDAO {
+
     // Kết nối
     Connection conn = null;
     // Ném câu lệnh query qua dbms
@@ -41,10 +34,11 @@ public class TopicTypeDAOImpl implements TopicTypeDAO {
         }
         return topictype;
     }
-        public static void main(String[] args) {
+
+    public static void main(String[] args) {
         TopicTypeDAOImpl dao = new TopicTypeDAOImpl();
         List<TypeOfTopic> topictype = dao.getAllTypeOfTopics();
-        for(TypeOfTopic t:topictype){
+        for (TypeOfTopic t : topictype) {
             System.out.println(t.getTypeName());
         }
     }

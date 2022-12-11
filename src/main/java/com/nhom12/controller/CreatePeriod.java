@@ -2,9 +2,11 @@ package com.nhom12.controller;
 
 import com.nhom12.dao.PeriodDAOImpl;
 import com.nhom12.entity.Admin;
+import com.nhom12.entity.Period;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -24,7 +26,19 @@ public class CreatePeriod extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+
+        if (session != null && session.getAttribute("admin") != null) {
+            List<Period> period = dao.getMainPeriods();
+            request.setAttribute("period", period);
+            request.getRequestDispatcher("/create_period.jsp").forward(request, response);
+        } else {
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+        }
     }
 
     @Override
@@ -35,8 +49,8 @@ public class CreatePeriod extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession();
-
         Admin admin = (Admin) session.getAttribute("admin");
+        
         if (session != null && admin != null) {
 
             try {
@@ -45,19 +59,22 @@ public class CreatePeriod extends HttpServlet {
                 String periodName = request.getParameter("periodName");
                 int createFor = Integer.parseInt(request.getParameter("createFor"));
                 int typeID = Integer.parseInt(request.getParameter("typeID"));
-                
+                int mainPeriod = Integer.parseInt(request.getParameter("mainPeriod"));
+
                 java.util.Date b = new SimpleDateFormat("yyyy-MM-dd").parse(beginningDate);
                 java.sql.Date beginning = new java.sql.Date(b.getTime());
-                
+
                 java.util.Date e = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
                 java.sql.Date end = new java.sql.Date(e.getTime());
-                
-                dao.addPeriod(beginning, end, periodName, createFor, typeID);
-                
+
+                dao.addPeriod(beginning, end, periodName, createFor, typeID, mainPeriod);
+
                 request.setAttribute("message", "Tạo thành công đợt đăng ký cho " + (createFor == 0 ? "giảng viên!" : "sinh viên!"));
                 request.getRequestDispatcher("/topic-to-register").forward(request, response);
+
             } catch (ParseException ex) {
-                Logger.getLogger(CreatePeriod.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CreatePeriod.class
+                        .getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp");
