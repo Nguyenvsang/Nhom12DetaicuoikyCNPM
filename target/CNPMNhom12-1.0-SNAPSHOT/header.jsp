@@ -166,6 +166,12 @@
                                         </a>
                                     </li>
                                 </ul>
+                                <li class="nav-item ">
+                                    <a href="<c:url value="/studentToLecturer"/>" class="nav-link">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>Quản lý sinh viên</p>
+                                    </a>
+                                </li>
                             </li>
 
                             <!-- Admin -->
