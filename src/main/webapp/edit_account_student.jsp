@@ -53,12 +53,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Giới tính</label> <input type="text" class="form-control"
-                                                                        name="gender" value=" ${student.gender}">
+                                                                        name="gender" value="${student.gender}">
                                     </div> 
                                     <div class="form-group">
-                                        <label>Ngày sinh</label> <input type="date"
-                                                                        class="form-control"  name="dateOfBirth"
-                                                                        value="${student.dateOfBirth}">
+                                        <label>Ngày sinh</label> <input type="date" class="form-control"  
+                                                                        name="dateOfBirth" value="${student.dateOfBirth}">
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label> <input type="email"

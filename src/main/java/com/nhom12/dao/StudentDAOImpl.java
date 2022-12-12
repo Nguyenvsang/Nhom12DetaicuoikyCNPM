@@ -1,7 +1,6 @@
 package com.nhom12.dao;
 
 import com.nhom12.context.DBContext;
-import com.nhom12.controller.StudentAccountUpdateServlet;
 import com.nhom12.entity.Student;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,8 +10,6 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class StudentDAOImpl implements StudentDAO {
 
@@ -110,24 +107,6 @@ public class StudentDAOImpl implements StudentDAO {
         } catch (Exception e) {
         }
     }
-
-    public void updateStudent1(int studentID, String studentName, String citizenID, String gender, String email, String phoneNumber, String department) {
-        String query = "UPDATE Student SET studentName = ?,  citizenID = ?, gender = ?, email = ?, phoneNumber = ?, department = ? WHERE studentID = ?";
-        try {
-            conn = new DBContext().getConnection();// Mở kết nối
-            ps = conn.prepareStatement(query.trim());
-            ps.setString(1, studentName);
-            ps.setString(2, citizenID);
-            ps.setString(3, gender);
-            ps.setString(4, email);
-            ps.setString(5, phoneNumber);
-            ps.setString(6, department);
-            ps.setInt(7, studentID);
-
-            ps.executeUpdate();
-        } catch (Exception e) {
-        }
-    }
     
     @Override
     public List<Student> getListStudentByLecturer(int lecturerID) {
@@ -156,10 +135,10 @@ public class StudentDAOImpl implements StudentDAO {
 
     public static void main(String[] args) throws ParseException {
         StudentDAOImpl dao = new StudentDAOImpl();
-        String dOB = "1999-20-19";
+        String dOB = "1999-10-19";
         java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dOB);
         java.sql.Date dateOfBirth = new java.sql.Date(date.getTime());
-        dao.updateStudent(1, "Phan Le", "021215254125", "Nam", dateOfBirth, "a@gmail.com", "0231456845", "CNTT");
+        dao.updateStudent(1, "Nguyễn Gia Cát", "021215254125", "Nam", dateOfBirth, "a@gmail.com", "0231456845", "CNTT");
         //System.out.println(s);
     }
 

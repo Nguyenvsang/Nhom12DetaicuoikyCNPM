@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "editlecturer", urlPatterns = {"/editlecturer"})
-public class LecturerEditServlet extends HttpServlet {
+@WebServlet(name = "LecturerAccountUpdateServlet", urlPatterns = {"/editlecturer"})
+public class LecturerAccountUpdateServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -58,7 +58,7 @@ public class LecturerEditServlet extends HttpServlet {
             try {
                 dateOfBirth = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dateOfBirth"));
             } catch (ParseException ex) {
-                Logger.getLogger(LecturerEditServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(LecturerAccountUpdateServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             String email = request.getParameter("email");
             String phoneNumber = request.getParameter("phoneNumber");

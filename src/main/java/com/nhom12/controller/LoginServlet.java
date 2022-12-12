@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.nhom12.controller;
 
 import com.nhom12.dao.AdminDAOImpl;
@@ -21,11 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author nguye
- */
-@WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
+@WebServlet(name = "LoginServlet", urlPatterns = {"/loginServlet"})
 public class LoginServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -75,7 +67,6 @@ public class LoginServlet extends HttpServlet {
             if (verification == true) {
                 // Khởi tạo session
                 HttpSession session = request.getSession();
-
                 // Thiết lập giá trị trong sesion
                 session.setAttribute("username", username);
                 if ("lecturer".equals(typechecked)) {

@@ -38,7 +38,7 @@ public class StudentAccountUpdateServlet extends HttpServlet {
 
             request.setAttribute("student", student);
 
-            request.getRequestDispatcher("/edit_student.jsp").forward(request, response);
+            request.getRequestDispatcher("/edit_account_student.jsp").forward(request, response);
 
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp");
@@ -66,17 +66,21 @@ public class StudentAccountUpdateServlet extends HttpServlet {
                 String dOB = request.getParameter("dateOfBirth");
                 java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dOB);
                 java.sql.Date dateOfBirth = new java.sql.Date(date.getTime());
-
+                
                 String email = request.getParameter("email");
                 String phoneNumber = request.getParameter("phoneNumber");
                 String department = request.getParameter("department");
-
-                System.out.print(gender);
-                System.out.print(department);
+                
+                System.out.println("\n" + dOB + "\n" + studentID);
+                System.out.println(studentName);
+                System.out.println(citizenID);
+                System.out.println(gender);
+                System.out.println(email);
+                System.out.println(phoneNumber);
+                System.out.println(department);
                 
                 dao.updateStudent(studentID, studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department);
 
-                session.removeAttribute("student");
                 session.setAttribute("student", dao.findStudentByID(studentID));
                 
                 response.sendRedirect(request.getContextPath() + "/student/manage");

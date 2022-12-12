@@ -36,7 +36,7 @@ public class TopicRegisterStudent extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        if (session != null && session.getAttribute("lecturer") != null) {
+        if (session != null && session.getAttribute("student") != null) {
             boolean check = false; // Kiểm tra đợt đăng ký
             // Kiểm tra có nằm trong thời gian đăng ký cho sinh viên không
             for (Period p : period) {

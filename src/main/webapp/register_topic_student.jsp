@@ -48,7 +48,7 @@
                         <!-- /.card-header -->
                         <p class="text-warning text-center">${message}</p>
                         <div class="card-body" >
-                            <table class="table table-bordered table-hover" id="example2">
+                            <table class="table table-bordered table-hover" id="example2" style="text-align: center">
                                 <thead>
                                     <tr>
                                         <th style="width: 5%">STT</th>
@@ -73,8 +73,8 @@
                                                 </c:if>
                                             </c:forEach>                                           
 
-                                            <c:forEach items="${topicType}" var="t">
-                                                <c:if test="${t.typeID == i.typeID}">
+                                            <c:forEach items="${topictype}" var="t">
+                                                <c:if test="${t.typeID == sessionScope.periodOfStudent.typeID}">
                                                     <td>${t.typeName}</td>  
                                                 </c:if>
                                             </c:forEach>
@@ -85,7 +85,7 @@
                                                 </c:if>
                                             </c:forEach>
 
-                                            <td>${i.quantity}</td>   
+                                            <td style="color: ${i.quantity == 1 ? "red":"green"}">${i.quantity}/2</td>   
                                             <td>
                                                 <a href="<c:url value="/topicdetail?topicID=${i.topicID}"/>" class="btn btn-sm btn-info">Chi tiết</a>
                                             </td>

@@ -70,7 +70,7 @@ public class CreatePeriod extends HttpServlet {
                 dao.addPeriod(beginning, end, periodName, createFor, typeID, mainPeriod);
 
                 request.setAttribute("message", "Tạo thành công đợt đăng ký cho " + (createFor == 0 ? "giảng viên!" : "sinh viên!"));
-                request.getRequestDispatcher("/topic-to-register").forward(request, response);
+                request.getRequestDispatcher("/all-topic").forward(request, response);
 
             } catch (ParseException ex) {
                 Logger.getLogger(CreatePeriod.class

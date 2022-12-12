@@ -44,37 +44,37 @@
                                 <div class="form-group">
                                     <label>Họ và tên</label> <input type="text"
                                                                     class="form-control" id="lecturerName" name="lecturuerName"
-                                                                    placeholder="Nhập họ và tên" value="${lecturer.lecturerName}" readonly>
+                                                                    value="${lecturer.lecturerName}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Số CCCD/CMND</label> <input type="text"
                                                                        class="form-control" id="citizenID" name="citizenID"
-                                                                       placeholder="Nhập số CCCD/CMND" value="${lecturer.citizenID}" readonly>
+                                                                       value="${lecturer.citizenID}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Giới tính</label> <input type="text"
                                                                     class="form-control" id="gender" name="gender"
-                                                                    placeholder="Nhập giới tính" value="${lecturer.gender}" readonly>
+                                                                    value="${lecturer.gender}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Ngày sinh</label> <input type="date"
                                                                     class="form-control" id="dateOfBirth" name="dateOfBirth"
-                                                                    placeholder="Nhập ngày sinh" value=${lecturer.dateOfBirth} readonly>
+                                                                    value=${lecturer.dateOfBirth} readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label> <input type="email"
                                                                 class="form-control" id="email" name="email"
-                                                                placeholder="Nhập email" value="${lecturer.email}" readonly>
+                                                                value="${lecturer.email}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Số điện thoại</label> <input type="text"
                                                                         class="form-control" id="phoneNumber" name="phoneNumber"
-                                                                        placeholder="Nhập số điện thoại" value="${lecturer.phoneNumber}" readonly>
+                                                                        value="${lecturer.phoneNumber}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Trình độ chuyên môn</label> <input type="text"
                                                                               class="form-control" id="professionalQualification" name="professionalQualification"
-                                                                              placeholder="Nhập trình độ chuyên môn" value="${lecturer.professionalQualification}" readonly>
+                                                                              value="${lecturer.professionalQualification}" readonly>
                                 </div>
 
                                 <div class="card-footer">

@@ -251,4 +251,18 @@ SELECT * FROM TopicEvaluation;
 SELECT * FROM TopicEvaluation e 
 INNER JOIN Council c ON e.councilID = c.councilID
 INNER JOIN Topic t ON t.topicID = c.topicID
-WHERE t.topicID = 1
+WHERE t.topicID = 1;
+
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Kiểm soát các truy cập Web trong mạng nội bộ", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2022, 0, null, 7, 1, 7);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Xây dựng hệ thống camera giám sát với Android Things.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 0, null, 7, 1, 7);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Khai phá luật kết hợp song song", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 0, null, 7, 1, 7);
+
+INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2022-12-08", "2022-12-15", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022)", 1, 1, 7);
+
+INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2022-12-08", "2022-12-15", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022)", 1, 1, 8);
+
+SELECT * FROM Topic t
+INNER JOIN Period p ON t.periodID = p.periodID 
+WHERE p.periodID = 7;
+
+SELECT *  FROM Period;

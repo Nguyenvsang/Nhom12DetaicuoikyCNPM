@@ -23,8 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "TopicStudent", urlPatterns = {"/topic-to-register"})
-public class TopicStudent extends HttpServlet {
+@WebServlet(name = "TopicToRegisterStudent", urlPatterns = {"/topic-to-register"})
+public class TopicToRegisterStudent extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -39,38 +39,38 @@ public class TopicStudent extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<TypeOfTopic> topictype = dao1.getAllTypeOfTopics();
-        List<Topic> listtopic = dao3.getAllTopics();
-        List<Subject> subject = dao5.getAllSubjects();
+
         List<Period> period = dao4.getAllPeriods();
-        List<Lecturer> lecturer = dao6.getAlllecturer();
-
-        request.setAttribute("topictype", topictype);
-        request.setAttribute("listtopic", listtopic);
-        request.setAttribute("subject", subject);
-        request.setAttribute("period", period);
-        request.setAttribute("lecturer", lecturer);
-
-        request.getRequestDispatcher("/register_topic_student.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
-    
+        
         HttpSession session = request.getSession();
-        if (session != null && session.getAttribute("lecturer") != null) {
+        if (session != null && session.getAttribute("student") != null) {
             boolean check = false; // Kiểm tra đợt đăng ký
             // Kiểm tra có nằm trong thời gian đăng ký cho sinh viên không
+            // Mỗi khoản thời gian chỉ có 1 đợt đăng ký cho giảng viên và cho sinh viên
+            Period pd = new Period();
             for (Period p : period) {
                 Date currentDate = new Date();
                 if (currentDate.after(p.getBeginning()) && currentDate.before(p.getEnd()) && p.getCreateFor() == 1) {
                     check = true;
+                    pd = p;
                     session.setAttribute("periodOfStudent", p); // lưu lại thời gian đăng ký
                     break;
                 }
             }
             if (check == false) {
                 request.setAttribute("message", "Hiện tại không nằm trong thời gian đăng ký đề tài!");
-                request.getRequestDispatcher("/topic-to-register").forward(request, response);
-            }
-            else{
-                
+                request.getRequestDispatcher("/register_topic_student.jsp").forward(request, response);
+            } else {
+                List<Topic> listtopic = dao3.getTopicsToRegister(pd.getMainPeriod());
+                List<TypeOfTopic> topictype = dao1.getAllTypeOfTopics();
+                List<Subject> subject = dao5.getAllSubjects();
+                List<Lecturer> lecturer = dao6.getAlllecturer();
+
+                request.setAttribute("topictype", topictype);
+                request.setAttribute("subject", subject);
+                request.setAttribute("lecturer", lecturer);
+                request.setAttribute("listtopic", listtopic);
+                request.getRequestDispatcher("/register_topic_student.jsp").forward(request, response);
             }
         } else {
             response.sendRedirect(request.getContextPath() + "/login.jsp");

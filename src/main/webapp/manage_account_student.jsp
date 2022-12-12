@@ -33,55 +33,55 @@
                             <!--<div style="color: red;">${errorString}</div>-->
                         </div>
                         <!-- /.card-header -->
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label>ID</label> <input type="hidden"
-                                                             class="form-control" id="studentID" name="studentID"
-                                                             value="${student.studentID}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label>Họ và tên</label> <input type="text"
-                                                                    class="form-control" id="studentName" name="studentName"
-                                                                    value="${student.studentName}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label>CCCD/CMND</label> <input type="text"
-                                                                    class="form-control" id="citizenID" name="citizenID"
-                                                                    value="${student.citizenID}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label>Giới tính</label> <input type="text"
-                                                                    class="form-control" id="gender" name="gender"
-                                                                    value="${student.gender}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label>Ngày sinh</label> <input type="date"
-                                                                    class="form-control" id="dateOfBirth" name="dateOfBirth"
-                                                                    value="${student.dateOfBirth}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label> <input type="email"
-                                                                class="form-control" id="email" name="email"
-                                                                value="${student.email}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label>Số điện thoại</label> <input type="text"
-                                                                class="form-control" id="phoneNumber" name="phoneNumber"
-                                                                value="${student.phoneNumber}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label>Ngành</label> <input type="text"
-                                                                class="form-control" id="department" name="department"
-                                                                value="${student.department}" readonly>
-                                </div>
-
-                                <div class="card-footer">
-                                    <input type="button" value="Chỉnh sửa" class="btn btn-primary"
-                                           onclick="location.href = '${pageContext.request.contextPath}/student/update'">
-                                    <input type="button" value="Trở lại" class="btn btn-primary"
-                                           onclick="location.href = '${pageContext.request.contextPath}/topic-to-register'">
-                                </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="hidden"
+                                       class="form-control" id="studentID" name="studentID"
+                                       value="${student.studentID}" readonly>
                             </div>
+                            <div class="form-group">
+                                <label>Họ và tên</label> <input type="text"
+                                                                class="form-control" id="studentName" name="studentName"
+                                                                value="${student.studentName}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>CCCD/CMND</label> <input type="text"
+                                                                class="form-control" id="citizenID" name="citizenID"
+                                                                value="${student.citizenID}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Giới tính</label> <input type="text"
+                                                                class="form-control" id="gender" name="gender"
+                                                                value="${student.gender}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Ngày sinh</label> <input type="date"
+                                                                class="form-control" id="dateOfBirth" name="dateOfBirth"
+                                                                value="${student.dateOfBirth}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label> <input type="email"
+                                                            class="form-control" id="email" name="email"
+                                                            value="${student.email}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại</label> <input type="text"
+                                                                    class="form-control" id="phoneNumber" name="phoneNumber"
+                                                                    value="${student.phoneNumber}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Ngành</label> <input type="text"
+                                                            class="form-control" id="department" name="department"
+                                                            value="${student.department}" readonly>
+                            </div>
+
+                            <div class="card-footer">
+                                <input type="button" value="Chỉnh sửa" class="btn btn-primary"
+                                       onclick="location.href = '${pageContext.request.contextPath}/student/update'">
+                                <input type="button" value="Trở lại" class="btn btn-primary"
+                                       onclick="location.href = '${pageContext.request.contextPath}/topic-to-register'">
+                            </div>
+                        </div>
                     </div>
                     <!-- /.row -->
                 </div>
@@ -99,9 +99,9 @@
                 <!-- AdminLTE for demo purposes -->
                 <script src="./Resources/js/demo.js"></script>
                 <script type="text/javascript">
-                                               $(document).ready(function () {
-                                                   bsCustomFileInput.init();
-                                               });
+                                           $(document).ready(function () {
+                                               bsCustomFileInput.init();
+                                           });
                 </script>
                 <!-- /.card -->
-                </div>
+            </div>

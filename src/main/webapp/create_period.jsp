@@ -30,7 +30,6 @@
                         </div>
                         <div class="row justify-content-center"
                              style="margin-top: 15px; margin-bottom: -15px;">
-                            <!--<div style="color: red;">${errorString}</div>-->
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->

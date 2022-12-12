@@ -44,6 +44,35 @@ public class TopicDAOImpl implements TopicDAO {
     }
 
     @Override
+    public List<Topic> getTopicsToRegister(int periodID) {
+        List<Topic> topic = new ArrayList<>();
+        String query = "SELECT * FROM Topic t \n"
+                + "INNER JOIN Period p ON t.periodID = p.periodID \n"
+                + "WHERE p.periodID = ?;";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, periodID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                topic.add(new Topic(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getDouble(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getInt(10)));
+            }
+        } catch (Exception e) {
+        }
+        return topic;
+    }
+
+    @Override
     public Topic findTopicByID(int topicID) {
         String query = "SELECT * FROM Topic WHERE topicID = ?";
         try {
@@ -139,9 +168,9 @@ public class TopicDAOImpl implements TopicDAO {
             }
         }
     }
-    
+
     @Override
-    public List<Topic> AllTopicsHaveCouncil(){
+    public List<Topic> AllTopicsHaveCouncil() {
         List<Topic> topic = new ArrayList<>();
         String query = "SELECT * FROM Topic, Council Where Topic.topicID = Council.topicID";
         try {
@@ -165,9 +194,9 @@ public class TopicDAOImpl implements TopicDAO {
         }
         return topic;
     }
-    
+
     @Override
-    public List<Topic> AllTopicsNoCouncil(){
+    public List<Topic> AllTopicsNoCouncil() {
         List<Topic> topic = new ArrayList<>();
         String query = "SELECT * FROM Topic Where TopicID NOT IN (SELECT Topic.topicID FROM Topic, Council Where Topic.topicID = Council.topicID)";
         try {
@@ -194,16 +223,9 @@ public class TopicDAOImpl implements TopicDAO {
 
     public static void main(String[] args) {
         TopicDAOImpl dao = new TopicDAOImpl();
-        //dao.addTopic("Điện thông minh", "2 sinh viên", "Công tắc", 2019, 3, 2, 2, 0);
-        //Topic topic = dao.findTopicByID(2);
-        //System.out.println(topic.getTopicID() + "a");
-        //dao.editTopic(22, topic.getTopicName(), "Có kiến thức về mạng và điện tử, AI và ML", topic.getTopicGoal(), 2021, topic.getTypeID(), topic.getSubjectID(), topic.getLecturerID(), 0);
-        //List<Topic> topic1 = dao.findTopicByLecturer(1);
-        //for(Topic t: topic1){
-        //    System.out.println(t.getLecturerID());
-        List<Topic> topic1 = dao.AllTopicsNoCouncil();
-        for(Topic t: topic1){
-           System.out.println(t.getLecturerID());
+        List<Topic> listtopic = dao.getTopicsToRegister(7);
+        for (Topic t : listtopic) {
+            System.out.println(t);
         }
     }
 }
