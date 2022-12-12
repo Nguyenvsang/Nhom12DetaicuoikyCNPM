@@ -32,10 +32,11 @@ topicName VARCHAR(200) not null,
 topicRequire VARCHAR(200),
 topicGoal VARCHAR(200),
 schoolYear int,
-typeID int REFERENCES TypeOfTopic(typeID),
+quantity int,
+point double,
+periodID int REFERENCES Period(periodID),
 subjectID int REFERENCES Subject(subjectID),
-lecturerID int references Lecturer(lecturerID),
-quantity int 
+lecturerID int references Lecturer(lecturerID)
 );
 CREATE TABLE Student 
 (
@@ -91,11 +92,14 @@ USE topicmana;
 INSERT INTO subject (subjectName) VALUES("Công nghệ phần mềm");
 INSERT INTO subject (subjectName) VALUES("Mạng máy tính");
 INSERT INTO subject (subjectName) VALUES("Hệ thống thông tin");
-
-INSERT INTO TypeOfTopic (typeName) VALUES("Tiểu luận chuyên ngành | K14 (2014 - 2019) | Học kỳ 1 (2017-2018)");
-INSERT INTO TypeOfTopic (typeName) VALUES("Đề tài tốt nghiệp | K14 (2014 - 2019) | Học kỳ 2 (2017-2018)");
-INSERT INTO TypeOfTopic (typeName) VALUES("Tiểu luận chuyên ngành | K17 (2017 - 2022) | Học kỳ 1 (2020-2021)");
-INSERT INTO TypeOfTopic (typeName) VALUES("Tiểu luận chuyên ngành | K19 (2019 - 2024) | Học kỳ 1 (2022-2023)");
+-- Bỏ cách đặt tên này 
+-- INSERT INTO TypeOfTopic (typeName) VALUES("Tiểu luận chuyên ngành | K14 (2014 - 2019) | Học kỳ 1 (2017-2018)");
+-- INSERT INTO TypeOfTopic (typeName) VALUES("Đề tài tốt nghiệp | K14 (2014 - 2019) | Học kỳ 2 (2017-2018)");
+-- INSERT INTO TypeOfTopic (typeName) VALUES("Tiểu luận chuyên ngành | K17 (2017 - 2022) | Học kỳ 1 (2020-2021)");
+-- INSERT INTO TypeOfTopic (typeName) VALUES("Tiểu luận chuyên ngành | K19 (2019 - 2024) | Học kỳ 1 (2022-2023)");
+-- Lấy cách đặt này 
+INSERT INTO TypeOfTopic (typeName) VALUES("Tiểu luận chuyên ngành");
+INSERT INTO TypeOfTopic (typeName) VALUES("Đề tài tốt nghiệp");
 
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
 VALUES("Nguyễn Văn Song", "084779811199", "Nam", '1990-7-04', "nvsong@gmail.com", "0388177890", "Tiến sỹ", 1, "nguyenvansong", "song@111");
@@ -131,27 +135,27 @@ VALUES("Trần Văn Sơn", "049779897899", "Nam", '1988-1-15', "tvson@gmail.com"
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
 VALUES("Lê Thị Phương", "020779818789", "Nữ", '1988-12-05', "ltphuong@gmail.com", "0788167770", "Thạc sỹ", 1, "lethiphuong", "phuong@111");
 
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Máy phát nhạc MP3 trên nền kit nhúng", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 2, 2, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Hệ thống cảnh báo bằng phát hiện chuyển động trên kit nhúng Raspberry Pi", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 2, 2, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Tìm hiểu Công nghệ PHP Laravel Framework và xây dựng Website kinh doanh thời trang nam, nữ kiểu mới", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 1, 1, 1);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Tìm hiêu Công nghệ SpringBoot, Thymeleaf và xây dựng Website học trực tuyến", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 1, 1, 1);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Tìm hiểu cơ chế chuyển đổi lưu trữ dữ liệu từ dạng quan hệ sang dạng NoSQL.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 3, 3, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Tìm hiểu Công nghệ Spring boot, spring security, spring hibernate và xây dựng Website quản lý điều xe", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 1, 4, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Hệ thống giám sát cửa gara dùng kit nhúng Raspberry Pi", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 2, 6, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Hệ thống giám sát nhà dùng Raspberry Pi B+", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 2, 6, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Xây dựng ứng dụng Web với MEAN Stack.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 3, 7, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Xây dựng ứng dụng IoT với NodeJS.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 1, 3, 7, 0);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Máy phát nhạc MP3 trên nền kit nhúng", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 0, null, 2, 2, 2);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Hệ thống cảnh báo bằng phát hiện chuyển động trên kit nhúng Raspberry Pi", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 0, null, 2, 2, 2);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Tìm hiểu Công nghệ PHP Laravel Framework và xây dựng Website kinh doanh thời trang nam, nữ kiểu mới", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 1, 9, 2, 1, 1);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Tìm hiêu Công nghệ SpringBoot, Thymeleaf và xây dựng Website học trực tuyến", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 1, 9, 2, 1, 1);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Tìm hiểu cơ chế chuyển đổi lưu trữ dữ liệu từ dạng quan hệ sang dạng NoSQL.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2022, 0, null, 5, 3, 3);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Tìm hiểu Công nghệ Spring boot, spring security, spring hibernate và xây dựng Website quản lý điều xe", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2022, 0, null, 5, 1, 4);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Hệ thống giám sát cửa gara dùng kit nhúng Raspberry Pi", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2022, 0, null, 5, 2, 6);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Hệ thống giám sát nhà dùng Raspberry Pi B+", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2022, 0, null, 5, 2, 6);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Xây dựng ứng dụng Web với MEAN Stack.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2022, 0, null, 7, 3, 7);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Xây dựng ứng dụng IoT với NodeJS.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2022, 0, null, 7, 3, 7);
 -- 10 Topic tiếp theo typeOfTopic la 2 
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES(" Hệ thống giám sát cửa Garage dùng Raspberry Pi", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 2, 2, 2, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Hệ thống cảnh báo phát hiện chuyển động dùng Raspberry Pi", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 2, 2, 2, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Xây dựng hệ thống website đặt vé xe sử dụng Laravel và Angular 4", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 2, 1, 4, 1);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Tìm hiểu và ứng dụng Two - Factor Authentication và SignalR cho hệ thống web", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 2, 1, 5, 1);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Xây dựng hệ thống quản lý chuỗi cửa hàng tiện lợi với MEAN Stack", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 2, 3, 3, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Xây dựng Ứng dụng tìm việc làm trên di động bằng React Native", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 2, 1, 8, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Tìm hiểu Two - Factor Authentication và ứng dụng bảo mật website.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 2, 2, 6, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Kiểm soát các truy cập Web trong mạng nội bộ", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 2, 2, 6, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Xây dựng hệ thống camera giám sát với Android Things.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 2, 3, 7, 0);
-INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, subjectID, lecturerID, quantity) VALUES("Khai phá luật kết hợp song song", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2014, 2, 3, 7, 0);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES(" Hệ thống giám sát cửa Garage dùng Raspberry Pi", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 0, null, 2, 2, 2);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Hệ thống cảnh báo phát hiện chuyển động dùng Raspberry Pi", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2022, 0, null, 5, 2, 2);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Xây dựng hệ thống website đặt vé xe sử dụng Laravel và Angular 4", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 1, 9, 1, 1, 4);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Tìm hiểu và ứng dụng Two - Factor Authentication và SignalR cho hệ thống web", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 1, 9, 1, 1, 5);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Xây dựng hệ thống quản lý chuỗi cửa hàng tiện lợi với MEAN Stack", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 0, null, 3, 3, 3);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Xây dựng Ứng dụng tìm việc làm trên di động bằng React Native", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 0, null, 3, 1, 8);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Tìm hiểu Two - Factor Authentication và ứng dụng bảo mật website.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2022, 0, null, 4, 2, 6);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Kiểm soát các truy cập Web trong mạng nội bộ", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2022, 0, null, 4, 2, 6);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Xây dựng hệ thống camera giám sát với Android Things.", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 0, null, 1, 3, 7);
+INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, quantity, point, periodID, subjectID, lecturerID) VALUES("Khai phá luật kết hợp song song", "Ít nhất 1 sinh viên tham gia", "Xây dựng xong chương trình", 2021, 0, null, 1, 3, 7);
 
 INSERT INTO Student (studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department, username, password) 
 VALUES("Nguyễn Gia Cát", "001384738666", "Nam", '1997-8-17', "ngcat@student.edu.vn", "0399168678", "Công nghệ thông tin", "nguyengiacat", "cat@123");
@@ -208,19 +212,20 @@ CREATE TABLE Period(
 	periodID INT PRIMARY KEY auto_increment,
     beginning DATE,
     `end` DATE,
-    topicType CHAR(100),
-    createFor int CHECK (createFor = 0 OR createFor = 1),
-    typeID int /*references TopicType(typeID)*/
+    periodName CHAR(100),
+    createFor int CHECK (createFor = 0 OR createFor = 1), 
+    typeID int references TopicType(typeID),
+    mainPeriod int -- -- Giang vien so 0, sinh vien lay cua giang vien 
     );
     
 select * from period;
-INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2021-08-15", "2021-08-22", "Tiểu luận chuyên ngành | K18 (2018 - 2022) | Học kỳ 1 (2021-2022", 0);
-INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2021-09-01", "2021-09-07", "Tiểu luận chuyên ngành | K18 (2018 - 2022) | Học kỳ 1 (2021-2022", 1);
-INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2021-09-20", "2021-09-27", "Đề tài tốt nghiệp | K18 (2018 - 2022) | Học kỳ 1 (2022-2023)", 0);
-INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-08-15", "2022-08-22", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 1 (2021-2022)", 0);
-INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-09-05", "2022-09-12", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 1 (2021-2022)", 1);
-INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-08-15", "2022-08-22", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022", 0);
-INSERT INTO Period (beginning, `end`, topicType, createFor) VALUES("2022-09-05", "2022-09-12", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022", 1);
+INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2021-08-15", "2021-08-22", "Tiểu luận chuyên ngành | K18 (2018 - 2022) | Học kỳ 1 (2021-2022)", 0, 1, 0);
+INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2021-09-01", "2021-09-07", "Tiểu luận chuyên ngành | K18 (2018 - 2022) | Học kỳ 1 (2021-2022)", 1, 1, 1);
+INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2021-09-20", "2021-09-27", "Đề tài tốt nghiệp | K18 (2018 - 2022) | Học kỳ 1 (2022-2023)", 0, 2, 0);
+INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2022-08-15", "2022-08-22", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 1 (2021-2022)", 0, 1, 0);
+INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2022-09-05", "2022-09-12", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 1 (2021-2022)", 1, 1, 4);
+INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2022-08-15", "2022-08-22", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022)", 0, 1, 0);
+INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2022-09-05", "2022-09-12", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022)", 1, 1, 6);
 
 INSERT INTO Council(leaderID, topicID, quantity) VALUES (1, 1, 3);
 
