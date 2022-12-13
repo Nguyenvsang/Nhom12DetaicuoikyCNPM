@@ -79,12 +79,7 @@
                                 <input type="button" value="Chỉnh sửa" class="btn btn-primary"
                                        onclick="location.href = '${pageContext.request.contextPath}/student/update'">
                                 <input type="button" value="Trở lại" class="btn btn-primary"
-                                        <c:if test="${sessionScope.lecturer != null}">
-                                            onclick="location.href = '${pageContext.request.contextPath}/studentToLecturer'"
-                                        </c:if>
-                                        <c:if test="${sessionScope.lecturer == null}">
-                                            onclick="location.href = '${pageContext.request.contextPath}/topic-to-register'"
-                                        </c:if>>
+                                       onclick="location.href = '${pageContext.request.contextPath}/home'">
                             </div>
                         </div>
                     </div>

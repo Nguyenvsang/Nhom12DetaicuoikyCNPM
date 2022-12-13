@@ -66,22 +66,25 @@
                     </div>
                     <!-- /.row -->
                 </div>
-                <!-- /.container-fluid -->
-                </section>
-                <!-- /.content -->
-                <%@ include file="footer.jsp"%>
-                <!-- jQuery -->
-                <script src="./Resources/plugins/jquery/jquery.min.js"></script>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <%@ include file="footer.jsp"%>
+    <!-- jQuery -->
+    <script src="./Resources/plugins/jquery/jquery.min.js"></script>
 
-                <script
-                src="./Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-                <!-- AdminLTE App -->
-                <script src="./Resources/js/adminlte.min.js"></script>
-                <!-- AdminLTE for demo purposes -->
-                <script src="./Resources/js/demo.js"></script>
-                <script type="text/javascript">
-                                               $(document).ready(function () {
-                                                   bsCustomFileInput.init();
-                                               });
-                </script>
-                <!-- /.card -->
+    <script
+    src="./Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="./Resources/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="./Resources/js/demo.js"></script>
+    <script type="text/javascript">
+                                   $(document).ready(function () {
+                                       bsCustomFileInput.init();
+                                   });
+    </script>
+    <!-- /.card -->
+</div>

@@ -86,7 +86,7 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="<c:url value="Resources/img/avatar.jpg"/>" class="img-circle elevation-2"
+                            <img src="<c:url value="/Resources/img/avatar.jpg"/>" class="img-circle elevation-2"
                                  alt="User Image">
                         </div>
                         <div class="info">
@@ -127,7 +127,7 @@
                             </li>
                                 
                                 <!-- Thông tin cá nhân -->
-                            <li class="nav-item ">
+                                <li class="nav-item ">
                                 <c:if test="${sessionScope.student != null}">
                                     <a href="${pageContext.request.contextPath}/student/manage" class="nav-link">
                                         <i class="nav-icon fas fa-list"></i>
@@ -141,9 +141,9 @@
                                     </a>
                                 </c:if>
                             </li>
-                            
-                                <li
-                                    class="nav-item has-treeview <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">menu-open</c:if>"><a
+
+                            <li
+                                class="nav-item has-treeview <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">menu-open</c:if>"><a
                                         href="#"
                                         class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">active</c:if> ">
                                         <i class="nav-icon fas fa-list""></i>
@@ -157,13 +157,23 @@
                                             class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Tất cả đề tài</p>
-                                        </a></li>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            href="${pageContext.request.contextPath}/type"
+                                            class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Đề tài theo loại</p>
+                                        </a>
+                                    </li>
                                     <li class="nav-item"><a
                                             href="${pageContext.request.contextPath}/list-of-topic"
                                             class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Đề tài đã đăng ký</p>
-                                        </a></li>
+                                        </a>
+                                    </li>
                                     <li class="nav-item">
                                         <a
                                             href="${pageContext.request.contextPath}/topic-to-register"
@@ -173,14 +183,14 @@
                                         </a>
                                     </li>
                                 </ul>
-                                <li class="nav-item ">
-                                    <a href="<c:url value="/studentToLecturer"/>" class="nav-link">
-                                        <i class="nav-icon fas fa-list"></i>
-                                        <p>Quản lý sinh viên</p>
-                                    </a>
-                                </li>
+                            <li class="nav-item ">
+                                <a href="<c:url value="/studentToLecturer"/>" class="nav-link">
+                                    <i class="nav-icon fas fa-list"></i>
+                                    <p>Quản lý sinh viên</p>
+                                </a>
                             </li>
-                              
+                            </li>
+
                             <!-- Đăng ký đề tài -->
                             <c:if test="${sessionScope.dean != null || sessionScope.lecturer != null}" >
                                 <li class="nav-item ">
@@ -190,7 +200,7 @@
                                     </a>
                                 </li>
                             </c:if>
-                                
+
                             <!-- Đánh giá đề tài -->
                             <c:if test="${sessionScope.dean != null || sessionScope.lecturer != null}" >
                                 <li class="nav-item ">
@@ -200,7 +210,7 @@
                                     </a>
                                 </li>
                             </c:if>   
-                                
+
                             <!-- Admin -->
                             <c:if test="${sessionScope.admin != null}" >
                                 <li class="nav-item ">

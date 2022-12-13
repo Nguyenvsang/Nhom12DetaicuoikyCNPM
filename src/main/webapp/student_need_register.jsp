@@ -47,13 +47,6 @@
                         <p class="text-warning text-center">${message}</p>
                         <!-- /.card-header -->
                         <div class="card-body" >
-
-
-<!--                            <div class="card-header" style="margin-left: -20px; margin-top: -40px;">
-                                <input type="button" value="Đăng ký đề tài"
-                                       class="btn btn-primary"
-                                       onclick="location.href = '${pageContext.request.contextPath}/topicregister'">
-                            </div>-->
                             <table class="table table-bordered table-hover" id="example2">
                                 <thead>
                                     <tr>

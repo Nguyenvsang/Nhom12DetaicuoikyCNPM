@@ -24,7 +24,7 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <!-- general form elements -->
-                    
+                    <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Chi tiết đề tài</h3>
                         </div>
@@ -34,15 +34,15 @@
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form role="form" method="post"
-                                <c:if test="${sessionScope.admin != null}">
-                                action="${pageContext.request.contextPath}/topicToCouncil"
-                                </c:if>
-                                <c:if test="${sessionScope.dean != null}">
-                                action="${pageContext.request.contextPath}/topicDean"
-                                </c:if>
-                                <c:if test="${sessionScope.admin == null and sessionScope.dean == null}">
-                                action="${pageContext.request.contextPath}/${sessionScope.lecturer == null ? "all-topic" : "list-of-topic"}"
-                                </c:if>>
+                              <c:if test="${sessionScope.admin != null}">
+                                  action="${pageContext.request.contextPath}/topicToCouncil"
+                              </c:if>
+                              <c:if test="${sessionScope.dean != null}">
+                                  action="${pageContext.request.contextPath}/topicDean"
+                              </c:if>
+                              <c:if test="${sessionScope.admin == null and sessionScope.dean == null}">
+                                  action="${pageContext.request.contextPath}/${sessionScope.lecturer == null ? "all-topic" : "list-of-topic"}"
+                              </c:if>>
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>ID</label> <input type="text"
@@ -72,7 +72,7 @@
                                 <div class="form-group">
                                     <label>Số lượng sinh viên</label> <input type="text"
                                                                              class="form-control" id="quantity" name="quantity"
-                                                                             value=${topic.quantity} readonly>
+                                                                             value="${topic.quantity}/2" readonly style="color: ${topic.quantity != 2 ? "red":"green"}">
                                 </div>
                                 <div class="form-group">
                                     <label>Loại đề tài</label> 
@@ -83,7 +83,6 @@
                                                    value="${tt.typeName}" readonly>
                                         </c:if>
                                     </c:forEach>
-                                    </select>
                                 </div>
                                 <!-- Tìm tên bộ môn -->
                                 <c:set var="subjectInfo" scope="session" value="Chưa được phân"/>
@@ -115,25 +114,28 @@
                                 </div>
                             </div>
                         </form>
-                    
-                    <!-- /.row -->
+                    </div>
                 </div>
-                <!-- /.container-fluid -->
-                </section>
-                <!-- /.content -->
-                <%@ include file="footer.jsp"%>
-                <!-- jQuery -->
-                <script src="./Resources/plugins/jquery/jquery.min.js"></script>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <%@ include file="footer.jsp"%>
+    <!-- jQuery -->
+    <script src="./Resources/plugins/jquery/jquery.min.js"></script>
 
-                <script
-                src="./Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-                <!-- AdminLTE App -->
-                <script src="./Resources/js/adminlte.min.js"></script>
-                <!-- AdminLTE for demo purposes -->
-                <script src="./Resources/js/demo.js"></script>
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        bsCustomFileInput.init();
-                    });
-                </script>
-                <!-- /.card -->
+    <script
+    src="./Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="./Resources/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="./Resources/js/demo.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
+    <!-- /.card -->
+</div>

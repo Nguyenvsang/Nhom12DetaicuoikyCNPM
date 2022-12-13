@@ -55,7 +55,7 @@
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary" ${check == true ? "" : "disabled"}>Lưu đánh giá</button>
                                     <input type="button" value="Quay lại" class="btn btn-primary"
-                                           onclick="location.href = 'topicregister'">
+                                           onclick="location.href = '<c:url value="/topic-to-evaluate"/>'">
                                 </div>
                             </div>
                         </form>
