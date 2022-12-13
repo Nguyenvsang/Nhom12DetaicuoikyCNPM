@@ -44,11 +44,11 @@
 
                                 <div class="form-group">
                                     <label>Tên đăng nhập</label> <input type="text" class="form-control"
-                                                                    name="username" value="${admin.username}" readonly>
+                                                                        name="username" value="${admin.username}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Mật khẩu</label> <input type="text" class="form-control"
-                                                                    name="password" value="${admin.password}">
+                                                                   name="password" value="${admin.password}">
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -63,7 +63,8 @@
                 </div>
                 <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
     <%@ include file="footer.jsp"%>

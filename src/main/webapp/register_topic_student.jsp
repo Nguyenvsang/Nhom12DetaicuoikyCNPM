@@ -85,7 +85,7 @@
                                                 </c:if>
                                             </c:forEach>
 
-                                            <td style="color: ${i.quantity == 1 ? "red":"green"}">${i.quantity}/2</td>   
+                                            <td style="color: ${i.quantity != 2 ? "red":"green"}">${i.quantity}/2</td>   
                                             <td>
                                                 <a href="<c:url value="/topicdetail?topicID=${i.topicID}"/>" class="btn btn-sm btn-info">Chi tiết</a>
                                             </td>

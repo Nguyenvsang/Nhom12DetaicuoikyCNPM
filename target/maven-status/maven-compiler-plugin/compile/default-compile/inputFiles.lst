@@ -20,8 +20,10 @@ D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TeamDAOImpl.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicSubjectServlet.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicEvaluationDAO.java
+D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\LecturerManageStudentAccount.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\SubjectDAO.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\LoginServlet.java
+D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\LecturerTopicsForStudent.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\DeanDAO.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicToCouncil.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\TopicRegistration.java
@@ -32,6 +34,7 @@ D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Subject.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\CouncilDAOImpl.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\DeanDAOImpl.java
+D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\StudentToLecturer.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Admin.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicEvaluate.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicRegistrationDAO.java

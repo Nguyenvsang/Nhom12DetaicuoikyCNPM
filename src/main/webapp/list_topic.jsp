@@ -14,7 +14,7 @@
 
                 <div class="col-md-12">
                     <div class="card">
-                        <form role="form" method="post"
+                        <form name="formSearch" role="form" method="post"
                               action="${pageContext.request.contextPath}/SearchBook">
                             <div class="card-header">
                                 <h3 class="card-title">Danh sách đề tài</h3>
@@ -35,25 +35,31 @@
 
                             </div>
                         </form>
-                        <div class="row justify-content-center">
-                            <div style="margin-top: 20px; color: red;">${errorString}</div>
-                        </div>
-                        <label style="margin-left: 20px">Bộ môn</label>
-                        <select name="catid" style="margin-bottom: 20px;margin-left: 20px;width: 20%">
-                            <c:forEach items="${categorylist}" var="c">
-                                <option value="${c.id}">${c.name}</option>
-                            </c:forEach>
-                        </select>
+                        <c:if test="${checkPeriodID == true}">
+                            <label style="margin-left: 20px; text-align: center; margin-top: 20px">Bộ môn</label>
+                            <form name="formSubject" role="form" method="post"
+                                  action="${pageContext.request.contextPath}/topic/filter">
+                                <select name="subjectID" id="subjectID"
+                                        onchange="document.formSubject.submit();"
+                                        style="margin-bottom: 20px;margin-left: 20px;width: 20%; display: block; margin: 0 auto">
+                                    <option value="0">Chọn bộ môn</option>
+                                    <option value="0">Tất cả</option>
+                                    <c:forEach items="${subject}" var="s">
+                                        <option value="${s.subjectID}">${s.subjectName}</option>
+                                    </c:forEach>
+                                </select>
+                            </form>
+                        </c:if>
                         <p class="text-warning text-center">${message}</p>
                         <!-- /.card-header -->
                         <div class="card-body" >
-
-
-                            <div class="card-header" style="margin-left: -20px; margin-top: -40px;">
-                                <input type="button" value="Đăng ký đề tài"
-                                       class="btn btn-primary"
-                                       onclick="location.href = '${pageContext.request.contextPath}/topicregister'">
-                            </div>
+                            <c:if test="${sessionScope.admin == null && sessionScope.student == null}">
+                                <div class="card-header" style="margin-left: -20px; margin-top: -40px;">
+                                    <input type="button" value="Đăng ký đề tài"
+                                           class="btn btn-primary"
+                                           onclick="location.href = '${pageContext.request.contextPath}/topicregister'">
+                                </div>
+                            </c:if>
                             <table class="table table-bordered table-hover" id="example2">
                                 <thead>
                                     <tr>
@@ -62,7 +68,6 @@
                                         <th style="width: 20%;">Giảng viên hướng dẫn</th>                                       
                                         <th style="width: 10%;">Xem</th>
                                         <th style="width: 10%;">Chỉnh sửa</th>
-<!--                                        <th style="width: 5%;">Xóa</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -82,20 +87,11 @@
                                             <td><a
                                                     href="${pageContext.request.contextPath}/edittopic?topicID=${i.topicID}"
                                                     class="btn btn-sm btn-info">Chỉnh sửa</a></td>
-<!--                                            <td>
-                                                <button type="button" class="btn btn-primary btn-danger"
-                                                        data-toggle="modal"
-                                                        data-target="#staticBackdrop-${Integer.toString(book.getId())}"
-                                                        style="padding-bottom: 5px; padding-top: 3px; font-size: 14px">Xóa</button>
-                                            </td>-->
                                         </tr>
-
                                     </c:forEach>
                                 </tbody>
                             </table>
-
                         </div>
-
                     </div>
                     <!-- /.card -->
                 </div>
@@ -104,9 +100,12 @@
     </section>
     <%@ include file="footer.jsp"%>
     <!-- DataTables -->
-    <script src="Resources/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script 
+        src="Resources/plugins/datatables/jquery.dataTables.min.js">
+    </script>
     <script
-    src="Resources/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        src="Resources/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
+    </script>
     <script
     src="Resources/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script
@@ -117,19 +116,19 @@
     <script src="Resources/dist/js/demo.js"></script>
     <!-- page script -->
     <script>
-                                           $(function () {
-                                               $("#example1").DataTable({
-                                                   "responsive": true,
-                                                   "autoWidth": false
+                                               $(function () {
+                                                   $("#example1").DataTable({
+                                                       "responsive": true,
+                                                       "autoWidth": false
+                                                   });
+                                                   $('#example2').DataTable({
+                                                       "paging": true,
+                                                       "lengthChange": false,
+                                                       "searching": false,
+                                                       "ordering": true,
+                                                       "info": true,
+                                                       "autoWidth": false,
+                                                       "responsive": true
+                                                   });
                                                });
-                                               $('#example2').DataTable({
-                                                   "paging": true,
-                                                   "lengthChange": false,
-                                                   "searching": false,
-                                                   "ordering": true,
-                                                   "info": true,
-                                                   "autoWidth": false,
-                                                   "responsive": true
-                                               });
-                                           });
     </script>

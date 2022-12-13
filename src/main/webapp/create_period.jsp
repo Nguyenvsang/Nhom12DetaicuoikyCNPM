@@ -28,12 +28,13 @@
                         <div class="card-header">
                             <h3 class="card-title">Tạo đợt đăng ký mới</h3>
                         </div>
+                        <p class="text-success text-center">${message}</p>
                         <div class="row justify-content-center"
                              style="margin-top: 15px; margin-bottom: -15px;">
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="${pageContext.request.contextPath}/createperiod">
+                        <form role="form" method="post" action="${pageContext.request.contextPath}/createperiod" id="create">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Ngày bắt đầu</label> <input type="date"
@@ -80,9 +81,35 @@
                                     </select>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary ">Lưu</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">Lưu</button>
                                     <input type="button" value="Trở lại" class="btn btn-primary"
                                            onclick="location.href = 'topicregister'">
+                                </div>
+                                <div class="modal fade"
+                                     id="staticBackdrop"
+                                     data-backdrop="static" data-keyboard="false" tabindex="-1"
+                                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel1">Chú
+                                                    ý</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <span class="text-warning">Bạn có chắc muốn đăng ký đề tài này không?</span>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button"
+                                                        class="btn btn-warning  btn-secondary"
+                                                        data-dismiss="modal">Hủy</button>
+                                                <a href="#" type="button" class="btn btn-success" id="submit">Đăng ký</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -95,6 +122,11 @@
     </section>
     <!-- /.content -->
     <%@ include file="footer.jsp"%>
+    <script>
+        $('#submit').click(function () {
+            $('#create').submit();
+        });
+    </script>
     <!-- jQuery -->
     <script src="./Resources/plugins/jquery/jquery.min.js"></script>
 
@@ -105,9 +137,9 @@
     <!-- AdminLTE for demo purposes -->
     <script src="./Resources/js/demo.js"></script>
     <script type="text/javascript">
-                                               $(document).ready(function () {
-                                                   bsCustomFileInput.init();
-                                               });
+        $(document).ready(function () {
+            bsCustomFileInput.init();
+        });
     </script>
     <!-- /.card -->
 </div>

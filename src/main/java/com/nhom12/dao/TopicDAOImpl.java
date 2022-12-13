@@ -45,6 +45,63 @@ public class TopicDAOImpl implements TopicDAO {
     }
 
     @Override
+    public List<Topic> getTopicsByType(int periodID) {
+        List<Topic> topic = new ArrayList<>();
+        String query = "SELECT * FROM Topic WHERE periodID = ?;";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, periodID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                topic.add(new Topic(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getDouble(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getInt(10),
+                        rs.getInt(11)));
+            }
+        } catch (Exception e) {
+        }
+        return topic;
+    }
+    
+    @Override
+    public List<Topic> getTopicsByTypeAndSubject(int periodID, int subjectID) {
+        List<Topic> topic = new ArrayList<>();
+        String query = "SELECT * FROM Topic WHERE periodID = ? AND subjectID = ?;";
+        try {
+            conn = new DBContext().getConnection();// Mở kết nối
+            ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, periodID);
+            ps.setInt(2, subjectID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                topic.add(new Topic(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getDouble(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getInt(10),
+                        rs.getInt(11)));
+            }
+        } catch (Exception e) {
+        }
+        return topic;
+    }
+
+    @Override
     public List<Topic> getTopicsToRegister(int periodID) {
         List<Topic> topic = new ArrayList<>();
         String query = "SELECT * FROM Topic t \n"
@@ -228,7 +285,7 @@ public class TopicDAOImpl implements TopicDAO {
 
     public static void main(String[] args) {
         TopicDAOImpl dao = new TopicDAOImpl();
-        List<Topic> listtopic = dao.AllTopicsNoCouncil();
+        List<Topic> listtopic = dao.getTopicsByType(1);
         for (Topic t : listtopic) {
             System.out.println(t.getTopicName());
         }
