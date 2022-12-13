@@ -62,7 +62,7 @@
                                         <c:if test="${tt.typeID == sessionScope.periodOfLecturer.typeID}">
                                             <input type="text"
                                                    class="form-control" id="typeID" name="typeID"
-                                                   value="${tt.typeName}">
+                                                   value="${tt.typeName}" readonly>
                                         </c:if>
                                     </c:forEach>
                                 </div>

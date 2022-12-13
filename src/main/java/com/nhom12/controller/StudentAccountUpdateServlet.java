@@ -41,7 +41,8 @@ public class StudentAccountUpdateServlet extends HttpServlet {
             request.getRequestDispatcher("/edit_account_student.jsp").forward(request, response);
 
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 
@@ -66,7 +67,7 @@ public class StudentAccountUpdateServlet extends HttpServlet {
                 String dOB = request.getParameter("dateOfBirth");
                 java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dOB);
                 java.sql.Date dateOfBirth = new java.sql.Date(date.getTime());
-                
+
                 String email = request.getParameter("email");
                 String phoneNumber = request.getParameter("phoneNumber");
                 String department = request.getParameter("department");
@@ -88,7 +89,8 @@ public class StudentAccountUpdateServlet extends HttpServlet {
                 Logger.getLogger(StudentAccountUpdateServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 

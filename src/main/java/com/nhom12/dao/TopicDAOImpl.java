@@ -36,7 +36,8 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getDouble(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10)));
+                        rs.getInt(10),
+                        rs.getInt(11)));
             }
         } catch (Exception e) {
         }
@@ -65,7 +66,8 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getDouble(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10)));
+                        rs.getInt(10),
+                        rs.getInt(11)));
             }
         } catch (Exception e) {
         }
@@ -91,7 +93,8 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getDouble(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10));
+                        rs.getInt(10),
+                        rs.getInt(11));
             }
         } catch (Exception e) {
         }
@@ -118,7 +121,8 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getDouble(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10)));
+                        rs.getInt(10),
+                        rs.getInt(11)));
             }
             if (topic.isEmpty() || topic == null) {
                 topic = null;
@@ -129,8 +133,8 @@ public class TopicDAOImpl implements TopicDAO {
     }
 
     @Override
-    public void addTopic(String topicName, String topicRequire, String topicGoal, int schoolYear, int periodID, int lecturerID, int quantity) {
-        String query = "INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, periodID, lecturerID, quantity) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public void addTopic(String topicName, String topicRequire, String topicGoal, int schoolYear, int typeID, int periodID, int lecturerID, int quantity) {
+        String query = "INSERT INTO Topic (topicName, topicRequire, topicGoal, schoolYear, typeID, periodID, lecturerID, quantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
@@ -138,9 +142,10 @@ public class TopicDAOImpl implements TopicDAO {
             ps.setString(2, topicRequire);
             ps.setString(3, topicGoal);
             ps.setInt(4, schoolYear);
-            ps.setInt(5, periodID);
-            ps.setInt(6, lecturerID);
-            ps.setInt(7, quantity);
+            ps.setInt(5, typeID);
+            ps.setInt(6, periodID);
+            ps.setInt(7, lecturerID);
+            ps.setInt(8, quantity);
             ps.executeUpdate();
         } catch (Exception e) {
             {
@@ -149,8 +154,8 @@ public class TopicDAOImpl implements TopicDAO {
     }
 
     @Override
-    public void editTopic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, int periodID, int lecturerID, int quantity) {
-        String query = "UPDATE Topic SET topicName = ?, topicRequire = ?, topicGoal = ?, schoolYear = ?, periodID = ?, lecturerID = ?, quantity = ? WHERE topicID = ?";
+    public void editTopic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, int quantity) {
+        String query = "UPDATE Topic SET topicName = ?, topicRequire = ?, topicGoal = ?, schoolYear = ?, quantity = ? WHERE topicID = ?";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
@@ -158,10 +163,8 @@ public class TopicDAOImpl implements TopicDAO {
             ps.setString(2, topicRequire);
             ps.setString(3, topicGoal);
             ps.setInt(4, schoolYear);
-            ps.setInt(5, periodID);
-            ps.setInt(6, lecturerID);
-            ps.setInt(7, quantity);
-            ps.setInt(8, topicID);
+            ps.setInt(5, quantity);
+            ps.setInt(6, topicID);
             ps.executeUpdate();
         } catch (Exception e) {
             {
@@ -188,7 +191,8 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getDouble(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10)));
+                        rs.getInt(10),
+                        rs.getInt(11)));
             }
         } catch (Exception e) {
         }
@@ -214,7 +218,8 @@ public class TopicDAOImpl implements TopicDAO {
                         rs.getDouble(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10)));
+                        rs.getInt(10),
+                        rs.getInt(11)));
             }
         } catch (Exception e) {
         }

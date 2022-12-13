@@ -33,7 +33,8 @@ public class AdminAccountUpdateServlet extends HttpServlet {
             request.getRequestDispatcher("/edit_account_admin.jsp").forward(request, response);
 
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 
@@ -57,7 +58,8 @@ public class AdminAccountUpdateServlet extends HttpServlet {
             session.setAttribute("admin", dao.findAdminByUsername(username));
             response.sendRedirect(request.getContextPath() + "/admin/update");
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 

@@ -55,7 +55,8 @@ public class TopicOfLecturer extends HttpServlet {
 
             request.getRequestDispatcher("/list_topic.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp"); // Lưu ý không cần request.getContextPath() + 
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 

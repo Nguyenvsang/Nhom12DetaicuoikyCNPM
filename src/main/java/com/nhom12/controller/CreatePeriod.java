@@ -37,7 +37,8 @@ public class CreatePeriod extends HttpServlet {
             request.setAttribute("period", period);
             request.getRequestDispatcher("/create_period.jsp").forward(request, response);
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 
@@ -77,7 +78,8 @@ public class CreatePeriod extends HttpServlet {
                         .getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 }

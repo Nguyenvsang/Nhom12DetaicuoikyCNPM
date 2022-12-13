@@ -55,7 +55,8 @@ public class TopicRegisterStudent extends HttpServlet {
                 doPost(request, response);
             }
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 
@@ -95,13 +96,14 @@ public class TopicRegisterStudent extends HttpServlet {
                 } else {
                     dao2.addTopicRegistration(student.getStudentID(), team.getTeamID());
                     dao.updateTeam(team.getTeamID(), team.getLeaderID(), team.getTopicID(), team.getQuantity() + 1);
-                    dao3.editTopic(topicID, topic.getTopicName(), topic.getTopicRequire(), topic.getTopicGoal(), topic.getSchoolYear(), topic.getPeriodID(), topic.getLecturerID(), topic.getQuantity() + 1);
+                    dao3.editTopic(topicID, topic.getTopicName(), topic.getTopicRequire(), topic.getTopicGoal(), topic.getSchoolYear(), topic.getQuantity() + 1);
                     request.setAttribute("message", "Đăng ký thành công đề tài số " + topicID);
                     request.getRequestDispatcher("/topic-to-register").forward(request, response);
                 }
             }
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 

@@ -67,7 +67,7 @@
                     <li class="nav-item"><a class="nav-link" data-widget="pushmenu"
                                             href="#" role="button"><i class="fas fa-bars"></i></a></li>
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a href="${pageContext.request.contextPath}/UserManual"
+                        <a href="${pageContext.request.contextPath}/home"
                            class="nav-link" style="font-weight: bold">WEBSITE ĐĂNG KÝ ĐỀ TÀI KHOA CÔNG NGHỆ THÔNG TIN</a>
                 </ul>
 
@@ -76,7 +76,7 @@
 
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
-                <a href="${pageContext.request.contextPath}/UserManual" class="brand-link"> <img
+                <a href="${pageContext.request.contextPath}/home" class="brand-link"> <img
                         src="<c:url value="/Resources/img/AdminLTELogo.png"/>" alt="AdminLTE Logo"
                         class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light">DANH MỤC</span>
@@ -167,7 +167,27 @@
                                     </li>
                                 </ul>
                             </li>
-
+                              
+                            <!-- Đăng ký đề tài -->
+                            <c:if test="${sessionScope.dean != null || sessionScope.lecturer != null}" >
+                                <li class="nav-item ">
+                                    <a href="<c:url value="/topicregister"/>" class="nav-link">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>Đăng ký đề tài</p>
+                                    </a>
+                                </li>
+                            </c:if>
+                                
+                            <!-- Đánh giá đề tài -->
+                            <c:if test="${sessionScope.dean != null || sessionScope.lecturer != null}" >
+                                <li class="nav-item ">
+                                    <a href="<c:url value="/topic-to-evaluate"/>" class="nav-link">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>Đánh giá đề tài</p>
+                                    </a>
+                                </li>
+                            </c:if>   
+                                
                             <!-- Admin -->
                             <c:if test="${sessionScope.admin != null}" >
                                 <li class="nav-item ">

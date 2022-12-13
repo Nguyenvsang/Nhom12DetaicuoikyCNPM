@@ -41,9 +41,9 @@ public class TopicToRegisterStudent extends HttpServlet {
             throws ServletException, IOException {
 
         List<Period> period = dao4.getAllPeriods();
-        
+            
         HttpSession session = request.getSession();
-        if (session != null && session.getAttribute("student") != null) {
+        if (session != null && session.getAttribute("student") != null) {          
             boolean check = false; // Kiểm tra đợt đăng ký
             // Kiểm tra có nằm trong thời gian đăng ký cho sinh viên không
             // Mỗi khoản thời gian chỉ có 1 đợt đăng ký cho giảng viên và cho sinh viên
@@ -73,7 +73,8 @@ public class TopicToRegisterStudent extends HttpServlet {
                 request.getRequestDispatcher("/register_topic_student.jsp").forward(request, response);
             }
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 

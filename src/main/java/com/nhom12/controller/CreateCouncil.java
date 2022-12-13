@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.nhom12.controller;
 
 import com.nhom12.dao.AdminDAOImpl;
@@ -29,10 +25,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author nguye
- */
 @WebServlet(name = "createCouncil", urlPatterns = {"/createCouncil"})
 public class CreateCouncil extends HttpServlet {
     
@@ -78,18 +70,8 @@ public class CreateCouncil extends HttpServlet {
             request.getRequestDispatcher("/topicToCouncil").forward(request, response);
 
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

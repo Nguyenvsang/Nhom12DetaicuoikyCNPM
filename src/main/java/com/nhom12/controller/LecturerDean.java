@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.nhom12.controller;
 
 import com.nhom12.dao.LecturerDAOImpl;
@@ -18,10 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author nguye
- */
 @WebServlet(name = "lecturerDean", urlPatterns = {"/lecturerDean"})
 public class LecturerDean extends HttpServlet {
     
@@ -50,7 +42,8 @@ public class LecturerDean extends HttpServlet {
             request.getRequestDispatcher("/register_lecturer_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
         }
         else{
-            response.sendRedirect(request.getContextPath()+ "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
          
     }
