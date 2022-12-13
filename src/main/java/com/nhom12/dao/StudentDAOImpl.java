@@ -109,13 +109,12 @@ public class StudentDAOImpl implements StudentDAO {
     }
     
     @Override
-    public List<Student> getListStudentByLecturer(int lecturerID) {
+    public List<Student> StudentNoRegister() {
         List<Student> council = new ArrayList<>();
-        String query = "SELECT Student.studentID, studentName, citizenID, gender, dateOfBirth, email, phoneNumber, department FROM Lecturer, Topic, TopicRegistration, Team, Student WHERE Lecturer.lecturerID = ? AND Lecturer.lecturerID = Topic.lecturerID AND TopicRegistration.teamID = Team.teamID AND Team.topicID =  Topic.topicID AND TopicRegistration.studentID = Student.studentID";
+        String query = "SELECT * FROM Student Where studentID NOT IN (SELECT Student.studentID FROM TopicRegistration, Student  WHERE TopicRegistration.studentID = Student.studentID)";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
-            ps.setInt(1, lecturerID);
             rs = ps.executeQuery();
             while (rs.next()) {
                 council.add(new Student(
@@ -139,6 +138,11 @@ public class StudentDAOImpl implements StudentDAO {
         java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dOB);
         java.sql.Date dateOfBirth = new java.sql.Date(date.getTime());
         dao.updateStudent(1, "Nguyễn Gia Cát", "021215254125", "Nam", dateOfBirth, "a@gmail.com", "0231456845", "CNTT");
+        
+        List<Student> list = dao.StudentNoRegister();
+        for (Student t : list) {
+            System.out.println(t.getStudentName());
+        }
         //System.out.println(s);
     }
 

@@ -81,7 +81,7 @@
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary ">Lưu</button>
                                     <input type="button" value="Trở lại" class="btn btn-primary"
-                                           onclick="location.href = 'list-of-topic'">
+                                           onclick="location.href = '${pageContext.request.contextPath}/lecturer/manage'">
                                 </div>
                             </div>
                         </form>

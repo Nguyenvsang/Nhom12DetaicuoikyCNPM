@@ -13,6 +13,6 @@ public interface StudentDAO {
 
     Student findStudentByID(int studentID);
     
-    List<Student> getListStudentByLecturer(int lecturerID);
+    List<Student> StudentNoRegister();
 
 }
