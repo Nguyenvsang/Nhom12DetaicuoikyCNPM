@@ -5,7 +5,6 @@ import com.nhom12.dao.TopicDAOImpl;
 import com.nhom12.dao.PeriodDAOImpl;
 import com.nhom12.dao.TopicTypeDAOImpl;
 import com.nhom12.entity.Lecturer;
-import com.nhom12.entity.Subject;
 import com.nhom12.entity.Period;
 import com.nhom12.entity.TypeOfTopic;
 import java.io.IOException;
@@ -20,6 +19,8 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "TopicRegisterServlet", urlPatterns = {"/topicregister"})
 public class TopicRegisterServlet extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
 
     TopicDAOImpl dao = new TopicDAOImpl();
     SubjectDAOImpl dao2 = new SubjectDAOImpl();
@@ -52,7 +53,8 @@ public class TopicRegisterServlet extends HttpServlet {
                 request.getRequestDispatcher("/register_topic.jsp").forward(request, response);
             }
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 
@@ -74,18 +76,19 @@ public class TopicRegisterServlet extends HttpServlet {
             int schoolYear = Integer.parseInt(request.getParameter("schoolYear"));
             int quantity = 0;
             // Lấy periodID
-            Period pd = (Period) session.getAttribute("periodOfLecturer");
-            int periodID = pd.getPeriodID();
-            // subjectID = null;
+            Period period = (Period) session.getAttribute("periodOfLecturer");
+
+            // ID giảng viên
             int lecturerID = lecturer.getLecturerID();
 
-            dao.addTopic(topicName, topicRequire, topicGoal, schoolYear, periodID, lecturerID, quantity);
+            dao.addTopic(topicName, topicRequire, topicGoal, schoolYear, period.getTypeID(), period.getPeriodID(), lecturerID, quantity);
 
             request.setAttribute("message", "Đăng ký đề tài thành công!");
             request.getRequestDispatcher("/list-of-topic").forward(request, response);
 
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 }

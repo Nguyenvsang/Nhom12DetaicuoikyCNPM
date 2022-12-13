@@ -32,9 +32,10 @@ public class LecturerAccountUpdateServlet extends HttpServlet {
 
             request.setAttribute("lecturer", lecturer);
 
-            request.getRequestDispatcher("/edit_lecturer.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
+            request.getRequestDispatcher(request.getContextPath() + "/edit_lecturer.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 
@@ -69,7 +70,8 @@ public class LecturerAccountUpdateServlet extends HttpServlet {
 
             response.sendRedirect(request.getContextPath() + "/list-of-topic");
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 }

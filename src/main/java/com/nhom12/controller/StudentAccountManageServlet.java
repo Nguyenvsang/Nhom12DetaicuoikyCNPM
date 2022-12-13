@@ -37,7 +37,8 @@ public class StudentAccountManageServlet extends HttpServlet {
             
         }
         else{
-            response.sendRedirect(request.getContextPath()+ "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
             
     }

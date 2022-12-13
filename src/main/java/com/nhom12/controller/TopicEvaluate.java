@@ -35,7 +35,8 @@ public class TopicEvaluate extends HttpServlet {
             request.setAttribute("check", check);
             request.getRequestDispatcher("/evaluate_topic.jsp").forward(request, response);
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 
@@ -62,7 +63,8 @@ public class TopicEvaluate extends HttpServlet {
             request.getRequestDispatcher("/list-of-topic").forward(request, response);
 
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 }

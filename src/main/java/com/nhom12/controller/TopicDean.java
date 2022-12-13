@@ -58,9 +58,4 @@ public class TopicDean extends HttpServlet {
         doGet(request, response);
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

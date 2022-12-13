@@ -59,8 +59,8 @@
                                             </c:forEach>
                                                 <%--<td>${topic.councilID}</td>--%>     
                                             <td>
-                                                <a href="<c:url value="/topic/evaluate?topicID=${topic.topicID}"/>">
-                                                    <input type="submit" value="Đánh giá">
+                                                <a href="<c:url value="/topic/evaluate?topicID=${topic.topicID}"/>" class="btn btn-success">
+                                                    Đánh giá
                                                 </a>
                                             </td>
                                         </tr>

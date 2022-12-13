@@ -35,7 +35,8 @@ public class LecturerAccountManageServlet extends HttpServlet {
 
             request.getRequestDispatcher("/manage_account_lecturer.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 

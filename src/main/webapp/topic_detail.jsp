@@ -85,15 +85,18 @@
                                     </c:forEach>
                                     </select>
                                 </div>
+                                <!-- Tìm tên bộ môn -->
+                                <c:set var="subjectInfo" scope="session" value="Chưa được phân"/>
+                                <c:forEach items="${subject}" var="s">
+                                    <c:if test="${s.subjectID == topic.subjectID}">
+                                        <c:set var="subjectInfo" scope="session" value="${s.subjectName}"/>
+                                    </c:if>
+                                </c:forEach>
                                 <div class="form-group">
                                     <label>Bộ môn</label> 
-                                    <c:forEach items="${subject}" var="s">
-                                        <c:if test="${s.subjectID == topic.subjectID}">
-                                            <input type="text"
-                                                   class="form-control" id="subjectName" name="subjectName"
-                                                   value="${s.subjectName}" readonly>
-                                        </c:if>
-                                    </c:forEach>
+                                    <input type="text"
+                                           class="form-control" id="subjectName" name="subjectName"
+                                           value="${subjectInfo}" readonly>
                                     </select>
                                 </div>
                                 <div class="form-group">

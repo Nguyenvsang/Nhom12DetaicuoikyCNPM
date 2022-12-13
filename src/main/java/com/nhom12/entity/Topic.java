@@ -9,6 +9,7 @@ public class Topic {
     private int schoolYear;
     private int quantity;
     private double point;
+    private int typeID;
     private int periodID;
     private int subjectID;
     private int lecturerID;
@@ -16,7 +17,7 @@ public class Topic {
     public Topic() {
     }
 
-    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, int quantity, double point, int periodID, int subjectID, int lecturerID) {
+    public Topic(int topicID, String topicName, String topicRequire, String topicGoal, int schoolYear, int quantity, double point, int typeID, int periodID, int subjectID, int lecturerID) {
         this.topicID = topicID;
         this.topicName = topicName;
         this.topicRequire = topicRequire;
@@ -24,6 +25,7 @@ public class Topic {
         this.schoolYear = schoolYear;
         this.quantity = quantity;
         this.point = point;
+        this.typeID = typeID;
         this.periodID = periodID;
         this.subjectID = subjectID;
         this.lecturerID = lecturerID;
@@ -83,6 +85,14 @@ public class Topic {
 
     public void setPoint(double point) {
         this.point = point;
+    }
+
+    public int getTypeID() {
+        return typeID;
+    }
+
+    public void setTypeID(int typeID) {
+        this.typeID = typeID;
     }
 
     public int getPeriodID() {

@@ -118,7 +118,8 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
                         rs.getDouble(7),
                         rs.getInt(8),
                         rs.getInt(9),
-                        rs.getInt(10)));
+                        rs.getInt(10),
+                        rs.getInt(11)));
             }
         } catch (Exception e) {
         }

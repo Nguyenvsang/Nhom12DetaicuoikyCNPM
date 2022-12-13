@@ -68,6 +68,30 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Loại đề tài</label> 
+                                    <c:forEach items="${topictype}" var="tt">
+                                        <c:if test="${tt.typeID == topic.typeID}">
+                                            <input type="text"
+                                                   class="form-control" id="typeID" name="typeID"
+                                                   value="${tt.typeName}" readonly>
+                                        </c:if>
+                                    </c:forEach>
+                                </div>
+                                <!-- Tìm tên bộ môn -->
+                                <c:set var="subjectInfo" scope="session" value="Chưa được phân"/>
+                                <c:forEach items="${subject}" var="s">
+                                    <c:if test="${s.subjectID == topic.subjectID}">
+                                        <c:set var="subjectInfo" scope="session" value="${s.subjectName}"/>
+                                    </c:if>
+                                </c:forEach>
+                                <div class="form-group">
+                                    <label>Bộ môn</label> 
+                                    <input type="text"
+                                           class="form-control" id="subjectName" name="subjectName"
+                                           value="${subjectInfo}" readonly>
+                                    </select>
+                                </div>
+<!--                                <div class="form-group">
+                                    <label>Loại đề tài</label> 
                                     <select name="typeID" id="typeID"
                                             class="form-control" required>
                                         <option value="">Chọn 1 thể loại</option> 
@@ -85,7 +109,7 @@
                                             <option value="${sub.subjectID}">${sub.subjectName}</option>
                                         </c:forEach>
                                     </select>
-                                </div>
+                                </div>-->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary ">Lưu</button>
                                     <input type="button" value="Trở lại" class="btn btn-primary"

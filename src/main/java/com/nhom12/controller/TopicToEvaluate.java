@@ -43,7 +43,8 @@ public class TopicToEvaluate extends HttpServlet {
             request.setAttribute("lecturerlist", lecturerlist);
             request.getRequestDispatcher("/list_topic_to_evaluate.jsp").forward(request, response);
         } else {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
         }
     }
 }
