@@ -54,9 +54,8 @@
                                         <th style="width: 5%">STT</th>
                                         <th style="width: 25%;">Tên đề tài</th>                                                                                                                         
                                         <th style="width: 15%;">Giảng viên hướng dẫn</th>
-                                        <th style="width: 10%;">Mã loại đề tài</th>
                                         <th style="width: 10%;">Mã môn học</th>
-                                        <th style="width: 10%;">Số lượng</th>
+                                        <th style="width: 10%;">Số lượng sinh viên</th>
                                         <th style="width: 10%;">Xem</th>
                                         <th style="width: 15%;">Chọn</th>
                                     </tr>
@@ -66,15 +65,18 @@
                                         <tr>
                                             <td>${i.topicID}</td>
                                             <td>${i.topicName}</td>
-                                            <td>${i.lecturerID}</td>                                            
-                                            <td>${i.typeID}</td>
-                                            <td>${i.subjectID}</td>   
-                                            <td>${i.quantity}</td>
-                                            <c:forEach items="${listcouncil}" var="c">
-                                                <c:if test="${c.topicID == i.topicID}">
-<!--                                                    <td>${c.quantity}</td>  -->
+                                            <c:forEach items="${listlecturer}" var="l">
+                                                <c:if test="${l.lecturerID == i.lecturerID}">
+                                                    <td>${l.lecturerName}</td>  
                                                 </c:if>
                                             </c:forEach>
+                                            <c:forEach items="${subject}" var="s">
+                                                <c:if test="${s.subjectID == i.subjectID}">
+                                                    <td>${s.subjectName}</td>  
+                                                </c:if>
+                                            </c:forEach>  
+                                            <td>${i.quantity}</td>
+                                            
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/topicdetail?topicID=${i.topicID}" class="btn btn-sm btn-info">Chi tiết</a>
                                             </td>

@@ -223,9 +223,9 @@ public class TopicDAOImpl implements TopicDAO {
 
     public static void main(String[] args) {
         TopicDAOImpl dao = new TopicDAOImpl();
-        List<Topic> listtopic = dao.getTopicsToRegister(7);
+        List<Topic> listtopic = dao.AllTopicsNoCouncil();
         for (Topic t : listtopic) {
-            System.out.println(t);
+            System.out.println(t.getTopicName());
         }
     }
 }

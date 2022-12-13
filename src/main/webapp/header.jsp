@@ -112,7 +112,7 @@
                         <ul class="nav nav-pills nav-sidebar flex-column"
                             data-widget="treeview" role="menu" data-accordion="false">
                             <li class="nav-item "><a
-                                    href="${pageContext.request.contextPath}/UserManual"
+                                    href="${pageContext.request.contextPath}/home.jsp"
                                     class="nav-link <c:if test="${sessionScope.Check.toString().equals('Manual')}">active</c:if> ">
                                         <i class="nav-icon fas fa-list""></i>
                                         <p>Hướng dẫn</p>

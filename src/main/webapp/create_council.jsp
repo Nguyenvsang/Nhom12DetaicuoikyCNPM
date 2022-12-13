@@ -54,9 +54,8 @@
                                         <th style="width: 5%">STT</th>
                                         <th style="width: 25%;">Tên đề tài</th>                                                                                                                         
                                         <th style="width: 15%;">Giảng viên hướng dẫn</th>
-                                        <th style="width: 15%;">Loại đề tài</th>
                                         <th style="width: 10%;">Môn học</th>
-                                        <th style="width: 10%;">Số lượng</th>
+                                        <th style="width: 10%;">Số lượng sinh viên</th>
                                         <th style="width: 10%;">Xem</th>
                                         <th style="width: 10%;">Tạo hội đồng</th>
                                     </tr>
@@ -72,12 +71,6 @@
                                                     <td>${l.lecturerName}</td>  
                                                 </c:if>
                                             </c:forEach>                                           
-
-                                            <c:forEach items="${topictype}" var="t">
-                                                <c:if test="${t.typeID == i.typeID}">
-                                                    <td>${t.typeName}</td>  
-                                                </c:if>
-                                            </c:forEach>
 
                                             <c:forEach items="${subject}" var="s">
                                                 <c:if test="${s.subjectID == i.subjectID}">

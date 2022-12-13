@@ -9,13 +9,11 @@ import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.dao.PeriodDAOImpl;
 import com.nhom12.dao.SubjectDAOImpl;
 import com.nhom12.dao.TopicDAOImpl;
-import com.nhom12.dao.TopicTypeDAOImpl;
 import com.nhom12.entity.Admin;
 import com.nhom12.entity.Lecturer;
 import com.nhom12.entity.Period;
 import com.nhom12.entity.Subject;
 import com.nhom12.entity.Topic;
-import com.nhom12.entity.TypeOfTopic;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -38,7 +36,6 @@ public class TopicToCouncil extends HttpServlet {
 
     AdminDAOImpl admindao = new AdminDAOImpl();
     TopicDAOImpl topicdao = new TopicDAOImpl();
-    TopicTypeDAOImpl topictypedao = new TopicTypeDAOImpl();
     PeriodDAOImpl perioddao = new PeriodDAOImpl();
     SubjectDAOImpl subjectdao = new SubjectDAOImpl();
     LecturerDAOImpl lecturerdao = new LecturerDAOImpl();
@@ -57,7 +54,6 @@ public class TopicToCouncil extends HttpServlet {
             request.setAttribute("admin", admin);
             
             List<Subject> subject = subjectdao.getAllSubjects();
-            List<TypeOfTopic> topictype = topictypedao.getAllTypeOfTopics();
             List<Period> period = perioddao.getAllPeriods();
             List<Lecturer> lecturer = lecturerdao.getAlllecturer();
             List<Topic> listtopicnocouncil = new ArrayList<>();
@@ -66,7 +62,6 @@ public class TopicToCouncil extends HttpServlet {
             
             // Lưu các đối tượng cần thiết 
             request.setAttribute("listtopicnocouncil", listtopicnocouncil);
-            request.setAttribute("topictype", topictype);
             request.setAttribute("subject", subject);
             request.setAttribute("period", period);
             request.setAttribute("lecturer", lecturer);

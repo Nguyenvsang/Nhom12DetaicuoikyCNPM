@@ -24,7 +24,7 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <!-- general form elements -->
-                    <div class="card card-primary">
+                    
                         <div class="card-header">
                             <h3 class="card-title">Chi tiết đề tài</h3>
                         </div>
@@ -33,7 +33,16 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="${pageContext.request.contextPath}/${sessionScope.lecturer == null ? "all-topic" : "list-of-topic"}">
+                        <form role="form" method="post"
+                                <c:if test="${sessionScope.admin != null}">
+                                action="${pageContext.request.contextPath}/topicToCouncil"
+                                </c:if>
+                                <c:if test="${sessionScope.dean != null}">
+                                action="${pageContext.request.contextPath}/topicDean"
+                                </c:if>
+                                <c:if test="${sessionScope.admin == null and sessionScope.dean == null}">
+                                action="${pageContext.request.contextPath}/${sessionScope.lecturer == null ? "all-topic" : "list-of-topic"}"
+                                </c:if>>
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>ID</label> <input type="text"
@@ -103,7 +112,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
