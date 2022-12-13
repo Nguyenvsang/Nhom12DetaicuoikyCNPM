@@ -119,6 +119,13 @@
                                     </a>
                                 </li>
                                 
+                            <li class="nav-item ">
+                                    <a href="<c:url value="/topicRegisteredOfStudent"/>" class="nav-link">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>Đề tài đã đăng kí</p>
+                                    </a>
+                            </li>
+                                
                                 <!-- Thông tin cá nhân -->
                             <li class="nav-item ">
                                 <c:if test="${sessionScope.student != null}">

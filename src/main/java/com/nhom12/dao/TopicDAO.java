@@ -20,4 +20,6 @@ public interface TopicDAO {
     List<Topic> AllTopicsNoCouncil();
 
     List<Topic> getTopicsToRegister(int periodID);
+    
+    List<Topic> getTopicsByStudent(int studentID);
 }
