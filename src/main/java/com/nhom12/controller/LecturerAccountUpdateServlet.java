@@ -32,7 +32,7 @@ public class LecturerAccountUpdateServlet extends HttpServlet {
 
             request.setAttribute("lecturer", lecturer);
 
-            request.getRequestDispatcher(request.getContextPath() + "/edit_lecturer.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
+            request.getRequestDispatcher("/edit_account_lecturer.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
         } else {
             request.setAttribute("message", "Error");
             request.getRequestDispatcher("/home").forward(request, response);

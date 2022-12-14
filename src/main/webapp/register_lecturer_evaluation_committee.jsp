@@ -67,7 +67,7 @@
                                             <td>${i.email}</td>                                            
                                             <td>${i.phoneNumber}</td>
                                             <td>
-                                                <a href="${pageContext.request.contextPath}/lecturer/manage?id=${i.lecturerID}" class="btn btn-sm btn-info">Chi tiết</a>
+                                                <a href="${pageContext.request.contextPath}/deanViewDetailLecturer?lecturerID=${i.lecturerID}" class="btn btn-sm btn-info">Chi tiết</a>
                                             </td>
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/evaluationCommitteeTopicAdd?lecturerID=${i.lecturerID}" class="btn btn-sm btn-info">Chọn</a>

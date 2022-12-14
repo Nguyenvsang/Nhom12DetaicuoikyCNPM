@@ -91,7 +91,7 @@ public class LecturerDAOImpl implements LecturerDAO {
     
     @Override
     public Lecturer findLecturerByID(int lecturerID) {
-        String query = "SELECT * FROM Topic WHERE topicID = ?";
+        String query = "SELECT * FROM Lecturer WHERE lecturerID = ?";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());

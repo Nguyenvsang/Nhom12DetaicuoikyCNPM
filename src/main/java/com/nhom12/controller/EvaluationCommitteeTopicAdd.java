@@ -48,6 +48,12 @@ public class EvaluationCommitteeTopicAdd extends HttpServlet {
             // Tìm hội đồng tương ứng với đối tượng đã chọn
             Council council = councilDAOImpl.findCouncilByTopicID(topic.getTopicID());
             
+            // Chưa ai đăng ký
+            if (council.getQuantity() == 0) {
+                councilDAOImpl.updateCouncil(council.getCouncilID(), lecturerID, council.getTopicID(), council.getQuantity());
+                council = councilDAOImpl.findCouncilByTopicID(topic.getTopicID());
+            }
+            
             // Kiểm tra xem giảng viên này đã được phân cho đề tài này chưa 
             TopicEvaluation topicEC = evalutiondaoImpl.findTopicEvaluationByLandC(lecturerID, council.getCouncilID());
             // Nếu đã được phân cho đề tài (hội đồng này) trước đây

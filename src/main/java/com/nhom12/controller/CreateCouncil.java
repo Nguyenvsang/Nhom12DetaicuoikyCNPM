@@ -62,7 +62,7 @@ public class CreateCouncil extends HttpServlet {
             // Thực hiện tạo hội đồng cho Topic vừa chọn
             // Vì ở đây là danh sách Topic chưa có hội đồng cho nên không cần kiểm điều kiện 
             Council Council = new Council();
-            councildao.addCouncil(topicID);
+            councildao.addCouncil(topicID, 0);
             Council = councildao.findCouncilByTopicID(topic.getTopicID());
             request.setAttribute("message", "Đã tạo hội đồng cho đề tài số "+ topic.getTopicID()+"!");
             
