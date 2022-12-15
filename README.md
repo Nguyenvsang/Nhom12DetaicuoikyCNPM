@@ -12,12 +12,25 @@ Sever : Apache Tomcat® - Apache Tomcat 8.5.59
 
 Ngày bắt đầu code: 21/11/2022
 
-Công bố sprint 1: 2/12/2020 (Hoàn thành tương đối các chức năng đăng nhập, đăng kí đề tài, quản lý thông tin cá nhân theo sơ đồ use_case)
-
 ## Lược đồ use-case
 ![Picture1](https://user-images.githubusercontent.com/94773081/205356032-8daf6d26-1237-4bb0-8849-236ea36ade22.png)
 
+## Tổ chức dự án: mô hình MVC
+
+```
+├── Source code
+   	├── Model ├── Entity (database model)
+        |         └── DAO (business model)
+        |
+        └── View  ├── Webapp
+        |
+        └── Controller
+```
+
+# Công bố sprint 1: 2/12/2020 (Hoàn thành tương đối các chức năng đăng nhập, đăng kí đề tài, quản lý thông tin cá nhân)
+
 ## Các chức năng đã thực hiện:
+
 - Đăng nhập cho admin, sinh viên, giảng viên, trưởng bộ môn:
 
 ![Picture2](https://user-images.githubusercontent.com/94773081/205356057-02f828c6-2dd6-426d-a6ab-ffee89ee4f7e.png)
@@ -50,15 +63,36 @@ Công bố sprint 1: 2/12/2020 (Hoàn thành tương đối các chức năng đ
 
 ![Picture8](https://user-images.githubusercontent.com/94773081/205356167-9aaf27ff-b4f3-4113-bd1e-c60181933782.png)
 
-## Tổ chức dự án: mô hình MVC
+# Công bố sprint 2: 2/12/2020 (Hoàn thành tương đối các chức năng phân đề tài theo bộ môn, tạo đợt đăng ký, tạo hội đồng phản biện, phân giảng viên phản biện, quản lý sinh viên đăng ký đề tài, đánh giá đề tài)
 
-```
-├── Source code
-   	├── Model ├── Entity (database model)
-        |         └── DAO (business model)
-        |
-        └── View  ├── Webapp
-        |
-        └── Controller
-```
+## Các chức năng đã thực hiện:
 
+- Chức năng phân đề tài theo bộ môn
+ 
+ ![Picture9](https://user-images.githubusercontent.com/94773081/207896030-26c4bf17-8388-420e-b800-1a11d3e89594.png)
+
+- Chức năng tạo đợt đăng ký
+ 
+![Picture10](https://user-images.githubusercontent.com/94773081/207896054-cf881650-7f0e-4c1f-8926-d1ad4f42f3fe.png)
+
+- Chức năng tạo hội đồng phản biện
+
+![Picture11](https://user-images.githubusercontent.com/94773081/207896095-650202b0-98b4-45d6-ba53-5b5da53b0b65.png)
+
+- Chức năng phân giảng viên phản biện 
+ 
+![Picture12](https://user-images.githubusercontent.com/94773081/207896106-0c82ff60-43f0-4ec1-a446-82212f033e6f.png)
+
+- Chức năng giảng viên quản lý sinh viên đăng ký đề tài
+ 
+![Picture13](https://user-images.githubusercontent.com/94773081/207896116-6c8babba-d0e3-4ebd-aaa2-b5844ec57904.png)
+ 
+- Chức năng đánh giá đề tài 
+
+![Picture14](https://user-images.githubusercontent.com/94773081/207896129-7222bfdc-6153-44c9-8b89-6b42b387f479.png)
+
+![Picture15](https://user-images.githubusercontent.com/94773081/207896147-7fbd0c5b-d4fe-4e83-a639-d514c1408265.png)
+ 
+## Tài liệu tham khảo:
+
+[1]. Template : https://adminlte.io// 
