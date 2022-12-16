@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "topicDean", urlPatterns = {"/topicDean"})
 public class TopicDean extends HttpServlet {
@@ -36,20 +37,29 @@ public class TopicDean extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Lấy danh sách các topic đã có hội đồng
-        List<Topic> listtopichavecouncil = dao3.AllTopicsHaveCouncil();
-        List<Subject> subject = dao5.getAllSubjects();
-        List<Period> period = dao4.getAllPeriods();
-        List<Council> listcouncil = dao6.getAllCouncils();
-        List<Lecturer> listlecturer = dao7.getAlllecturer();
+        HttpSession session = request.getSession();
+        if (session != null && session.getAttribute("dean") != null) {
+            Lecturer dean = (Lecturer) session.getAttribute("dean");
+            // Lấy danh sách các topic đã có hội đồng
+            List<Topic> listtopichavecouncil = dao3.AllTopicsHaveCouncilByDean(dean.getDeanID());
+            List<Subject> subject = dao5.getAllSubjects();
+            List<Period> period = dao4.getAllPeriods();
+            List<Council> listcouncil = dao6.getAllCouncils();
+            List<Lecturer> listlecturer = dao7.getAlllecturer();
 
-        request.setAttribute("listtopichavecouncil", listtopichavecouncil);
-        request.setAttribute("subject", subject);
-        request.setAttribute("period", period);
-        request.setAttribute("listcouncil", listcouncil);
-        request.setAttribute("listlecturer", listlecturer);
+            request.setAttribute("listtopichavecouncil", listtopichavecouncil);
+            request.setAttribute("subject", subject);
+            request.setAttribute("period", period);
+            request.setAttribute("listcouncil", listcouncil);
+            request.setAttribute("listlecturer", listlecturer);
 
-        request.getRequestDispatcher("/register_topic_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() + 
+            request.getRequestDispatcher("/register_topic_evaluation_committee.jsp").forward(request, response); // Lưu ý không cần request.getContextPath() +
+        }
+        else{
+            request.setAttribute("message", "Error");
+            request.getRequestDispatcher("/home").forward(request, response);
+        }
+         
     }
 
     @Override

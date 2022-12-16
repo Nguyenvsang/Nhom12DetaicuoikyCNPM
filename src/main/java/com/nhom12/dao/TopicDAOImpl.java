@@ -300,12 +300,13 @@ public class TopicDAOImpl implements TopicDAO {
     }
 
     @Override
-    public List<Topic> AllTopicsHaveCouncil() {
+    public List<Topic> AllTopicsHaveCouncilByDean(int lecturerID) {
         List<Topic> topic = new ArrayList<>();
-        String query = "SELECT * FROM Topic, Council Where Topic.topicID = Council.topicID";
+        String query = "SELECT * FROM Topic Where topicID IN (SELECT Topic.topicID FROM Topic, Council, Lecturer Where Topic.topicID = Council.topicID  AND Lecturer.deanID = ? AND leaderID = Lecturer.lecturerID)";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
+            ps.setInt(1, lecturerID);
             rs = ps.executeQuery();
             while (rs.next()) {
                 topic.add(new Topic(
