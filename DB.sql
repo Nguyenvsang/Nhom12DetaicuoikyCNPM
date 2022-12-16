@@ -102,6 +102,9 @@ INSERT INTO subject (subjectName) VALUES("Hệ thống thông tin");
 INSERT INTO TypeOfTopic (typeName) VALUES("Tiểu luận chuyên ngành");
 INSERT INTO TypeOfTopic (typeName) VALUES("Đề tài tốt nghiệp");
 
+-- Nguyễn Văn Song là trưởng bộ môn Công nghệ phần mềm
+-- Nguyễn Thị Hồng là trưởng bộ môn Mạng máy tính
+-- Trần Văn Xuân là trưởng bộ môn Hệ thống thông tin 
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
 VALUES("Nguyễn Văn Song", "084779811199", "Nam", '1990-7-04', "nvsong@gmail.com", "0388177890", "Tiến sỹ", 1, "nguyenvansong", "song@111");
 INSERT INTO Lecturer (lecturerName, citizenID, gender, dateOfBirth, email, phoneNumber, professionalQualification, deanID, username, password) 
@@ -202,8 +205,6 @@ VALUES("Nguyễn Thanh Trúc", "091384738886", "Nữ", '1998-1-13', "nttruc@stud
 
 INSERT INTO Admin (username, password) VALUES("trannhatphong", "123456");
 
-INSERT INTO Team(leaderID, topicID, quantity) VALUES(1, 1, 0);
-
 SELECT * FROM Student;
 SELECT * FROM Topic;
 SELECT * FROM Lecturer WHERE username = "nguyenvansong" AND password = "song@111";
@@ -227,13 +228,68 @@ INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod)
 INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2022-09-05", "2022-09-12", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 1 (2021-2022)", 1, 1, 4);
 INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2022-08-15", "2022-08-22", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022)", 0, 1, 0);
 INSERT INTO Period (beginning, `end`, periodName, createFor, typeID, mainPeriod) VALUES("2022-09-05", "2022-09-12", "Tiểu luận chuyên ngành | K19 (2019 - 2023) | Học kỳ 2 (2021-2022)", 1, 1, 6);
+-- Nhập liệu cho Team và TopicRegistration 
+INSERT INTO Team(leaderID, topicID, quantity) VALUES(1, 1, 2);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(1,1);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(2,1);
+INSERT INTO Team(leaderID, topicID, quantity) VALUES(3, 2, 2);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(3,2);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(4,2);
+INSERT INTO Team(leaderID, topicID, quantity) VALUES(5, 11, 2);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(5,3);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(6,3);
+INSERT INTO Team(leaderID, topicID, quantity) VALUES(7, 3, 2);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(7,4);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(8,4);
+INSERT INTO Team(leaderID, topicID, quantity) VALUES(9, 4, 2);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(9,5);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(10,5);
+INSERT INTO Team(leaderID, topicID, quantity) VALUES(11, 13, 2);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(11,6);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(12,6);
+INSERT INTO Team(leaderID, topicID, quantity) VALUES(13, 19, 2);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(13,7);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(14,7);
+INSERT INTO Team(leaderID, topicID, quantity) VALUES(15, 20, 2);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(15,8);
+INSERT INTO TopicRegistration(studentID, teamID) VALUES(16,8);
 
-INSERT INTO Council(leaderID, topicID, quantity) VALUES (1, 1, 3);
-SELECT * FROM Council;
-INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (1, 1, "Rất tốt, có triển vọng khai thác", 9.2, "2022-10-08");
-INSERT INTO TopicEvaluation(councilID, lecturerID) VALUES (1, 2);
-INSERT INTO TopicEvaluation(councilID, lecturerID) VALUES (2, 2);
-INSERT INTO TopicEvaluation(councilID, lecturerID) VALUES (3, 2);
+
+INSERT INTO Council(leaderID, topicID, quantity) VALUES (2, 1, 3);
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (1, 2, "Rất tốt, có triển vọng khai thác", 9.2, "2022-10-08");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (1, 6, "Ngiên cứu rất đầy đủ, rất đáng khen", 9, "2022-10-08");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (1, 10, "Khá tốt, có triển vọng khai thác", 8.8, "2022-10-08");
+INSERT INTO Council(leaderID, topicID, quantity) VALUES (6, 2, 3);
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (2, 6, "Khá tốt, cần phân tích sâu hơn", 8, "2022-09-08");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (2, 10, "Khá ổn, một vài chỗ cần giải quyết hợp lý hơn", 8, "2022-09-08");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (2, 14, "Khá tốt, có triển vọng khai thác", 8.8, "2022-09-08");
+INSERT INTO Council(leaderID, topicID, quantity) VALUES (2, 11, 3);
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (3, 2, "Khá tốt, có triển vọng khai thác", 9, "2022-09-07");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (3, 6, "Khá ổn, một vài chỗ cần giải quyết hợp lý hơn", 8.8, "2022-09-07");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (3, 14, "Khá tốt, có triển vọng khai thác", 9, "2022-09-07");
+INSERT INTO Council(leaderID, topicID, quantity) VALUES (1, 3, 3);
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (4, 1, "Rất tốt, có triển vọng khai thác", 9.2, "2022-10-07");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (4, 4, "Khá ổn, một vài chỗ cần giải quyết hợp lý hơn", 8.8, "2022-10-07");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (4, 5, "Khá tốt, có triển vọng khai thác", 9.1, "2022-10-07");
+INSERT INTO Council(leaderID, topicID, quantity) VALUES (8, 4, 3);
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (5, 8, "Khá tốt, có triển vọng khai thác", 9, "2022-09-09");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (5, 9, "Khá ổn, một vài chỗ cần giải quyết hợp lý hơn", 8, "2022-09-09");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (5, 12, "Khá tốt, có triển vọng khai thác", 8, "2022-09-09");
+INSERT INTO Council(leaderID, topicID, quantity) VALUES (12, 13, 4);
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (6, 12, "Rất tốt, có triển vọng khai thác", 9.3, "2022-08-22");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (6, 13, "Ngiên cứu rất đầy đủ, rất đáng khen", 9.2, "2022-08-22");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (6, 16, "Khá tốt, có triển vọng khai thác", 8.8, "2022-08-22");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (6, 1, "Rất tốt, có triển vọng khai thác", 9.2, "2022-08-22");
+INSERT INTO Council(leaderID, topicID, quantity) VALUES (3, 19, 3);
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (7, 3, "Rất tốt, có triển vọng khai thác", 9, "2022-08-25");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (7, 7, "Ngiên cứu rất đầy đủ, rất đáng khen", 9, "2022-08-25");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (7, 11, "Khá tốt, có triển vọng khai thác", 8, "2022-08-25");
+INSERT INTO Council(leaderID, topicID, quantity) VALUES (15, 20, 3);
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (8, 15, "Khá tốt, có triển vọng khai thác", 9, "2022-08-22");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (8, 11, "Khá ổn, một vài chỗ cần giải quyết hợp lý hơn", 8, "2022-08-22");
+INSERT INTO TopicEvaluation(councilID, lecturerID, evaluation, point, dateEvaluate) VALUES (8, 7, "Khá tốt, có triển vọng khai thác", 9, "2022-08-22");
+
+
 
 SELECT * 
 FROM Topic t 
