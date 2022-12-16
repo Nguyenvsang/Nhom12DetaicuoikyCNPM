@@ -60,8 +60,7 @@
         <div class="wrapper">
 
             <!-- Navbar -->
-            <nav
-                class="main-header navbar navbar-expand navbar-white navbar-light">
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="height: 100px">
                 <!-- Left navbar links -->
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" data-widget="pushmenu"
@@ -76,21 +75,45 @@
 
             <!-- Main Sidebar Container -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
-                <a href="${pageContext.request.contextPath}/home" class="brand-link"> <img
-                        src="<c:url value="/Resources/img/AdminLTELogo.png"/>" alt="AdminLTE Logo"
-                        class="brand-image img-circle elevation-3" style="opacity: .8">
+                <a href="${pageContext.request.contextPath}/home" class="brand-link"> 
+                    <img src="<c:url value="/Resources/img/fit.jpg"/>" alt="AdminLTE Logo"
+                        class="brand-image img-circle elevation-3" style="opacity: 1">
                     <span class="brand-text font-weight-light">DANH MỤC</span>
+                </a>
+                <a href="#" class="brand-link" style="text-align: center">
+                    <c:if test="${sessionScope.account != null}">
+                        <c:if test="${sessionScope.admin != null}">
+                            <div class="image">
+                                <p style="color: white">ADMIN</p>
+                            </div>  
+                        </c:if>
+                        <c:if test="${sessionScope.dean != null && sessionScope.lecturer == null}">
+                            <div>
+                                <p style="color: white">${sessionScope.dean.lecturerName}</p>
+                                <p style="color: white; font-size: 15px">Trưởng bộ môn</p>
+                            </div>  
+                        </c:if>
+                        <c:if test="${sessionScope.lecturer != null && sessionScope.dean == null}">
+                            <div class="image">
+                                <p style="color: white">${sessionScope.lecturer.lecturerName}</p>
+                                <p style="color: white; font-size: 15px">Giảng viên</p>
+                            </div>  
+                        </c:if>
+                        <c:if test="${sessionScope.lecturer != null && sessionScope.dean != null}">
+                            <div class="image">
+                                <p style="color: white">${sessionScope.lecturer.lecturerName}</p>
+                                <p style="color: white; font-size: 15px">Trưởng bộ môn</p>
+                            </div>  
+                        </c:if>
+                    </c:if>
                 </a>
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="<c:url value="/Resources/img/avatar.jpg"/>" class="img-circle elevation-2"
+                            <img src="<c:url value="/Resources/img/user.png"/>" class="img-circle elevation-2"
                                  alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block"><%//=user.getUsername()%></a>
                         </div>
                         <c:choose>
                             <c:when test="${sessionScope.account == null}">
@@ -118,16 +141,16 @@
                                         <p>Hướng dẫn</p>
                                     </a>
                                 </li>
-                                
-                            <li class="nav-item ">
-                                    <a href="<c:url value="/topicRegisteredOfStudent"/>" class="nav-link">
-                                        <i class="nav-icon fas fa-list"></i>
-                                        <p>Đề tài đã đăng kí</p>
-                                    </a>
-                            </li>
-                                
-                                <!-- Thông tin cá nhân -->
+
                                 <li class="nav-item ">
+                                    <a href="<c:url value="/topicRegisteredOfStudent"/>" class="nav-link">
+                                    <i class="nav-icon fas fa-list"></i>
+                                    <p>Đề tài đã đăng kí</p>
+                                </a>
+                            </li>
+
+                            <!-- Thông tin cá nhân -->
+                            <li class="nav-item ">
                                 <c:if test="${sessionScope.student != null}">
                                     <a href="${pageContext.request.contextPath}/student/manage" class="nav-link">
                                         <i class="nav-icon fas fa-list"></i>
@@ -207,6 +230,16 @@
                                     <a href="<c:url value="/topic-to-evaluate"/>" class="nav-link">
                                         <i class="nav-icon fas fa-list"></i>
                                         <p>Đánh giá đề tài</p>
+                                    </a>
+                                </li>
+                            </c:if>   
+
+                            <!-- Đánh giá đề tài -->
+                            <c:if test="${sessionScope.dean != null || sessionScope.lecturer != null}" >
+                                <li class="nav-item ">
+                                    <a href="<c:url value="/topic/summary"/>" class="nav-link">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>Tổng hợp đánh giá</p>
                                     </a>
                                 </li>
                             </c:if>   

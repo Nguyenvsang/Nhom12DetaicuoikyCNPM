@@ -269,3 +269,5 @@ INNER JOIN Period p ON t.periodID = p.periodID
 WHERE p.periodID = 7;
 
 SELECT *  FROM Period;
+
+SELECT * FROM Topic Where periodID

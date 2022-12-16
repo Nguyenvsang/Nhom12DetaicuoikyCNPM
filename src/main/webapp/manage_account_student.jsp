@@ -88,7 +88,7 @@
                 <!-- /.container-fluid -->
                 </section>
                 <!-- /.content -->
-                <%@ include file="footer.jsp"%>
+            
                 <!-- jQuery -->
                 <script src="./Resources/plugins/jquery/jquery.min.js"></script>
 

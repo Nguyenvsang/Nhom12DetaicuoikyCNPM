@@ -71,7 +71,7 @@ public class CreatePeriod extends HttpServlet {
                 dao.addPeriod(beginning, end, periodName, createFor, typeID, mainPeriod);
 
                 request.setAttribute("message", "Tạo thành công đợt đăng ký cho " + (createFor == 0 ? "giảng viên!" : "sinh viên!"));
-                request.getRequestDispatcher( request.getContextPath() + "/create_period.jsp").forward(request, response);
+                request.getRequestDispatcher("/create_period.jsp").forward(request, response);
 
             } catch (ParseException ex) {
                 Logger.getLogger(CreatePeriod.class

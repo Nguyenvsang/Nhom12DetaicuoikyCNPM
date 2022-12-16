@@ -1,7 +1,9 @@
 package com.nhom12.controller;
 
+import com.nhom12.dao.CouncilDAOImpl;
 import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.dao.TopicEvaluationDAOImpl;
+import com.nhom12.entity.Council;
 import com.nhom12.entity.Lecturer;
 import com.nhom12.entity.Topic;
 import java.io.IOException;
@@ -19,6 +21,7 @@ public class TopicToEvaluate extends HttpServlet {
 
     TopicEvaluationDAOImpl dao = new TopicEvaluationDAOImpl();
     LecturerDAOImpl dao2 = new LecturerDAOImpl();
+    CouncilDAOImpl dao3 = new CouncilDAOImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,9 +41,11 @@ public class TopicToEvaluate extends HttpServlet {
         if (session != null && lecturer != null) {
             List<Topic> topicToEvaluate = dao.getListToEvaluate(lecturer.getLecturerID());
             List<Lecturer> lecturerlist = dao2.getAlllecturer();
+            List<Council> councillist = dao3.getAllCouncils();
             
             request.setAttribute("topicToEvaluate", topicToEvaluate);
             request.setAttribute("lecturerlist", lecturerlist);
+            request.setAttribute("councillist", councillist);
             request.getRequestDispatcher("/list_topic_to_evaluate.jsp").forward(request, response);
         } else {
             request.setAttribute("message", "Error");

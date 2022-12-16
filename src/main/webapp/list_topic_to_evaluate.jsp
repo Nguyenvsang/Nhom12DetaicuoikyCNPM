@@ -31,10 +31,7 @@
                                                                 </div>-->
                             </div>
                         </form>
-                        <div class="row justify-content-center">
-                            <div style="margin-top: 20px; color: red;">${errorString}</div>
-                        </div>
-                        <p class="text-warning text-center">${message}</p>
+                        <p class="text-success text-center">${message}</p>
                         <!-- /.card-header -->
                         <div class="card-body" >
                             <table class="table table-bordered table-hover" id="example2">
@@ -42,9 +39,9 @@
                                     <tr>
                                         <th style="width: 10%">STT</th>
                                         <th style="width: 40%;">Tên đề tài</th>                                       
-                                        <th style="width: 30%;">Giảng viên hướng dẫn</th>
-                                        <%--<th style="width: 10%;">Hội đồng</th>--%>
-                                        <th style="width: 20%;">Đánh giá</th>
+                                        <th style="width: 25%;">Giảng viên hướng dẫn</th>
+                                        <th style="width: 10%;">Hội đồng số</th>
+                                        <th style="width: 15%;">Đánh giá</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,7 +53,12 @@
                                                 <c:if test="${lecturer.lecturerID == topic.lecturerID}">
                                                     <td>${lecturer.lecturerName}</td>  
                                                 </c:if>
-                                            </c:forEach>
+                                            </c:forEach>   
+                                            <c:forEach items="${councillist}" var="council">
+                                                <c:if test="${topic.topicID == council.topicID}">
+                                                    <td>${council.councilID}</td>  
+                                                </c:if>
+                                            </c:forEach>  
                                             <td>
                                                 <a href="<c:url value="/topic/evaluate?topicID=${topic.topicID}"/>" class="btn btn-success">
                                                     Đánh giá
@@ -75,7 +77,7 @@
             </div>
             <!-- /.container-fluid -->
     </section>
-    <%@ include file="footer.jsp"%>
+
     <!-- DataTables -->
     <script src="Resources/plugins/datatables/jquery.dataTables.min.js"></script>
     <script

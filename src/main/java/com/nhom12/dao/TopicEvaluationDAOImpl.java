@@ -160,7 +160,7 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
     
     @Override
     public boolean checkEvaluation(TopicEvaluation te){ // Chưa đánh giá thì true
-        return te.getEvaluation() == null || te.getTimestampEvaluate() == null;
+        return te.getEvaluation() == null || te.getDateEvaluate() == null;
     }
     
     @Override
@@ -186,7 +186,7 @@ public class TopicEvaluationDAOImpl implements TopicEvaluationDAO {
     public static void main(String[] args) {
         TopicEvaluationDAOImpl dao = new TopicEvaluationDAOImpl();
         TopicEvaluation te = dao.findTopicEvaluation(1, 2);
-        System.out.println(te.getTimestampEvaluate());
+        System.out.println(te.getDateEvaluate());
         List<TopicEvaluation> topic = dao.getEvaluationOfTopic(1);
         System.out.println(topic.size());
         for(TopicEvaluation t: topic){

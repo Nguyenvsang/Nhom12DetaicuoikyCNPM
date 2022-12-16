@@ -17,6 +17,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "TopicEvaluate", urlPatterns = {"/topic/evaluate"})
 public class TopicEvaluate extends HttpServlet {
 
+    private static final long serialVersionUID = 1L;
+
     TopicEvaluationDAOImpl dao = new TopicEvaluationDAOImpl();
 
     @Override
@@ -36,7 +38,7 @@ public class TopicEvaluate extends HttpServlet {
             request.getRequestDispatcher("/evaluate_topic.jsp").forward(request, response);
         } else {
             request.setAttribute("message", "Error");
-            request.getRequestDispatcher("/home").forward(request, response);
+            request.getRequestDispatcher("/topic-to-evaluate").forward(request, response);
         }
     }
 
@@ -60,7 +62,7 @@ public class TopicEvaluate extends HttpServlet {
             dao.evaluateTopic(evaluationID, evaluation, point, dateEvaluate);
 
             request.setAttribute("message", "Đã đánh giá đề tài! Đang đợi hội đồng thống nhất!");
-            request.getRequestDispatcher("/list-of-topic").forward(request, response);
+            request.getRequestDispatcher("/topic-to-evaluate").forward(request, response);
 
         } else {
             request.setAttribute("message", "Error");

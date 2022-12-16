@@ -54,7 +54,7 @@
                                         <th style="width: 5%">STT</th>
                                         <th style="width: 25%;">Tên đề tài</th>                                                                                                                         
                                         <th style="width: 15%;">Giảng viên hướng dẫn</th>
-                                        <th style="width: 10%;">Mã môn học</th>
+                                        <th style="width: 10%;">Bộ môn</th>
                                         <th style="width: 10%;">Số lượng sinh viên</th>
                                         <th style="width: 10%;">Xem</th>
                                         <th style="width: 15%;">Chọn</th>
@@ -96,7 +96,7 @@
             </div>
             <!-- /.container-fluid -->
     </section>
-    <%@ include file="footer.jsp"%>
+
     <!-- DataTables -->
     <script src="Resources/plugins/datatables/jquery.dataTables.min.js"></script>
     <script

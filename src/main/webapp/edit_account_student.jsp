@@ -90,7 +90,7 @@
                 <!-- /.container-fluid -->
         </section>
         <!-- /.content -->
-        <%@ include file="footer.jsp"%>
+    
         <script src="<c:url value="/Resources/plugins/jquery/jquery.min.js"/>"></script>
 
         <script src="<c:url value="/Resources/plugins/bs-custom-file-input/bs-custom-file-input.min.js"/>"></script>

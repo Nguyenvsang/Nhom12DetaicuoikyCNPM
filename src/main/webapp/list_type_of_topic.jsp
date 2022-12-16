@@ -60,7 +60,7 @@
             <!-- /.container-fluid -->
         </div>
     </section>
-    <%@ include file="footer.jsp"%>
+
     <!-- DataTables -->
     <script src="Resources/plugins/datatables/jquery.dataTables.min.js"></script>
     <script

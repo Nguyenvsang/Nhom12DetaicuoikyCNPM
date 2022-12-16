@@ -108,7 +108,7 @@
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    <%@ include file="footer.jsp"%>
+
     <script>
         $('#submit').click(function () {
             $('#register').submit();

@@ -12,12 +12,12 @@ public class TopicEvaluation {
     So a teacher is assigned to a council to evaluate a topic.
     Then the council will check all evaluation to give the final point for the topic
     */
-    int id;
-    int councilID;
-    int lecturerID;
-    String evaluation;
-    double point;
-    Timestamp dateEvaluate;
+    private int id;
+    private int councilID;
+    private int lecturerID;
+    private String evaluation;
+    private double point;
+    private Timestamp dateEvaluate;
 
     public TopicEvaluation() {
     }
@@ -37,14 +37,6 @@ public class TopicEvaluation {
         this.point = point; // When first created, it is null.
         this.dateEvaluate = dateEvaluate; // When first created, it is null.
     }
-    
-    public int getLecturerID() {
-        return lecturerID;
-    }
-
-    public void setLecturerID(int lecturerID) {
-        this.lecturerID = lecturerID;
-    }
 
     public int getId() {
         return id;
@@ -60,6 +52,14 @@ public class TopicEvaluation {
 
     public void setCouncilID(int councilID) {
         this.councilID = councilID;
+    }
+
+    public int getLecturerID() {
+        return lecturerID;
+    }
+
+    public void setLecturerID(int lecturerID) {
+        this.lecturerID = lecturerID;
     }
 
     public String getEvaluation() {
@@ -78,13 +78,13 @@ public class TopicEvaluation {
         this.point = point;
     }
 
-    public Timestamp getTimestampEvaluate() {
+    public Timestamp getDateEvaluate() {
         return dateEvaluate;
     }
 
-    public void setTimestampEvaluate(Timestamp dateEvaluate) {
+    public void setDateEvaluate(Timestamp dateEvaluate) {
         this.dateEvaluate = dateEvaluate;
     }
     
-    
+
 }

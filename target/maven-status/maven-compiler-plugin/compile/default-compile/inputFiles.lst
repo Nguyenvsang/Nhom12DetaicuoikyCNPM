@@ -1,8 +1,10 @@
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\SubjectDAOImpl.java
+D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicByType.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicListServlet.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\AdminDAO.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\LecturerDAO.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\LecturerDAOImpl.java
+D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\DeanViewDetailLecturer.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Team.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\PeriodDAOImpl.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\CouncilDAO.java
@@ -26,6 +28,7 @@ D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\LecturerTopicsForStudent.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\DeanDAO.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicToCouncil.java
+D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicFilter.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\TopicRegistration.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicDAO.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\CreateCouncil.java
@@ -36,10 +39,13 @@ D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\DeanDAOImpl.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\StudentToLecturer.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Admin.java
+D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicSummary.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicEvaluate.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicRegistrationDAO.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\AdminAccountUpdateServlet.java
+D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TypeOfTopicWithPeriod.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\LecturerAccountManageServlet.java
+D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicRegisteredOfStudent.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\TypeOfTopic.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicRegisterStudent.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicToEvaluate.java
@@ -47,6 +53,7 @@ D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\Topic.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\AddTopicSubjectServlet.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\HomeServlet.java
+D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\controller\TopicEvaluateSummary.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\TopicEvaluation.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\entity\User.java
 D:\Nam3\Ky1\CongNghePhanMem\DeTai\Nhom12DetaicuoikyCNPM\src\main\java\com\nhom12\dao\TopicRegistrationDAOImpl.java

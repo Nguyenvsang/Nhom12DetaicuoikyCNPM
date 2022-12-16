@@ -67,7 +67,7 @@
         </div>
     </section>
     <!-- /.content -->
-    <%@ include file="footer.jsp"%>
+
     <!-- jQuery -->
     <script src="<c:url value="/Resources/plugins/jquery/jquery.min.js"/>"></script>
 

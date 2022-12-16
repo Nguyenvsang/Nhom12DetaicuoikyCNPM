@@ -66,4 +66,3 @@
             <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    <%@ include file="footer.jsp"%>

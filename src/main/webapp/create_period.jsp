@@ -100,7 +100,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <span class="text-warning">Bạn có chắc muốn đăng ký đề tài này không?</span>
+                                                <span class="text-warning">Bạn có chắc muốn tạo đợt đăng ký này không?</span>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button"
@@ -121,7 +121,7 @@
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    <%@ include file="footer.jsp"%>
+
     <script>
         $('#submit').click(function () {
             $('#create').submit();
