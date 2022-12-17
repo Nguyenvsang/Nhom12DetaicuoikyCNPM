@@ -57,7 +57,7 @@
                                 <div class="card-footer" style="width: 20%">
                                     <button type="submit" class="btn btn-success" ${check == true ? "" : "disabled"}>Lưu điểm</button>
                                     <input type="button" value="Trở lại" class="btn btn-primary"
-                                           onclick="location.href = '/topic/summary'">
+                                           onclick="location.href = '${pageContext.request.contextPath}/topic/summary'">
                                 </div>
                             </form>
                         </div>

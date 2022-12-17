@@ -41,7 +41,7 @@ public class TopicDean extends HttpServlet {
         if (session != null && session.getAttribute("dean") != null) {
             Lecturer dean = (Lecturer) session.getAttribute("dean");
             // Lấy danh sách các topic đã có hội đồng
-            List<Topic> listtopichavecouncil = dao3.AllTopicsHaveCouncilByDean(dean.getDeanID());
+            List<Topic> listtopichavecouncil = dao3.AllTopicsHaveCouncil();
             List<Subject> subject = dao5.getAllSubjects();
             List<Period> period = dao4.getAllPeriods();
             List<Council> listcouncil = dao6.getAllCouncils();

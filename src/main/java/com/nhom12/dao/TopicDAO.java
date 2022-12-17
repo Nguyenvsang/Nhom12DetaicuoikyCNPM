@@ -18,7 +18,8 @@ public interface TopicDAO {
 
     List<Topic> findTopicByLecturer(int lecturerID); 
     
-    List<Topic> AllTopicsHaveCouncilByDean(int lecturerID);
+    List<Topic> AllTopicsHaveCouncil();
+    //List<Topic> AllTopicsHaveCouncilByDean(int lecturerID);
     
     List<Topic> AllTopicsNoCouncil();
 

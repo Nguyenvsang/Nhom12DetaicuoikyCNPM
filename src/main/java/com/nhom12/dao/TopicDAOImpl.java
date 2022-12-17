@@ -299,14 +299,40 @@ public class TopicDAOImpl implements TopicDAO {
         }
     }
 
+//    @Override
+//    public List<Topic> AllTopicsHaveCouncilByDean(int lecturerID) {
+//        List<Topic> topic = new ArrayList<>();
+//        String query = "SELECT * FROM Topic Where topicID IN (SELECT Topic.topicID FROM Topic, Council, Lecturer Where Topic.topicID = Council.topicID  AND Lecturer.deanID = ? AND leaderID = Lecturer.lecturerID)";
+//        try {
+//            conn = new DBContext().getConnection();// Mở kết nối
+//            ps = conn.prepareStatement(query.trim());
+//            ps.setInt(1, lecturerID);
+//            rs = ps.executeQuery();
+//            while (rs.next()) {
+//                topic.add(new Topic(
+//                        rs.getInt(1),
+//                        rs.getString(2),
+//                        rs.getString(3),
+//                        rs.getString(4),
+//                        rs.getInt(5),
+//                        rs.getInt(6),
+//                        rs.getDouble(7),
+//                        rs.getInt(8),
+//                        rs.getInt(9),
+//                        rs.getInt(10),
+//                        rs.getInt(11)));
+//            }
+//        } catch (Exception e) {
+//        }
+//        return topic;
+//    }
     @Override
-    public List<Topic> AllTopicsHaveCouncilByDean(int lecturerID) {
+    public List<Topic> AllTopicsHaveCouncil() {
         List<Topic> topic = new ArrayList<>();
-        String query = "SELECT * FROM Topic Where topicID IN (SELECT Topic.topicID FROM Topic, Council, Lecturer Where Topic.topicID = Council.topicID  AND Lecturer.deanID = ? AND leaderID = Lecturer.lecturerID)";
+        String query = "SELECT * FROM Topic, Council Where Topic.topicID = Council.topicID";
         try {
             conn = new DBContext().getConnection();// Mở kết nối
             ps = conn.prepareStatement(query.trim());
-            ps.setInt(1, lecturerID);
             rs = ps.executeQuery();
             while (rs.next()) {
                 topic.add(new Topic(
