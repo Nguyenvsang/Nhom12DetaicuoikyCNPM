@@ -77,7 +77,7 @@
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <a href="${pageContext.request.contextPath}/home" class="brand-link"> 
                     <img src="<c:url value="/Resources/img/fit.jpg"/>" alt="AdminLTE Logo"
-                        class="brand-image img-circle elevation-3" style="opacity: 1">
+                         class="brand-image img-circle elevation-3" style="opacity: 1">
                     <span class="brand-text font-weight-light">DANH MỤC</span>
                 </a>
                 <a href="#" class="brand-link" style="text-align: center">
@@ -115,6 +115,9 @@
                             <img src="<c:url value="/Resources/img/user.png"/>" class="img-circle elevation-2"
                                  alt="User Image">
                         </div>
+                        <div class="info">
+                            <a href="#" class="d-block"><%//=user.getUsername()%></a>
+                        </div>
                         <c:choose>
                             <c:when test="${sessionScope.account == null}">
                                 <div class="info" style="margin-left: 60px;">
@@ -136,16 +139,9 @@
                             data-widget="treeview" role="menu" data-accordion="false">
                             <li class="nav-item "><a
                                     href="${pageContext.request.contextPath}/home.jsp"
-                                    class="nav-link <c:if test="${sessionScope.Check.toString().equals('Manual')}">active</c:if> ">
-                                        <i class="nav-icon fas fa-list""></i>
-                                        <p>Hướng dẫn</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item ">
-                                    <a href="<c:url value="/topicRegisteredOfStudent"/>" class="nav-link">
-                                    <i class="nav-icon fas fa-list"></i>
-                                    <p>Đề tài đã đăng kí</p>
+                                    class="nav-link">
+                                    <i class="nav-icon fas fa-list""></i>
+                                    <p>Hướng dẫn</p>
                                 </a>
                             </li>
 
@@ -166,7 +162,8 @@
                             </li>
 
                             <li
-                                class="nav-item has-treeview <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">menu-open</c:if>"><a
+                                class="nav-item has-treeview <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">menu-open</c:if>">
+                                    <a
                                         href="#"
                                         class="nav-link <c:if test="${sessionScope.Check.toString().equals('ManageBook') || sessionScope.Check.toString().equals('AddBook')||sessionScope.Check.toString().equals('ManageCategory')}">active</c:if> ">
                                         <i class="nav-icon fas fa-list""></i>
@@ -175,7 +172,8 @@
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
-                                        <li class="nav-item"><a
+                                        <li class="nav-item">
+                                            <a
                                                 href="${pageContext.request.contextPath}/all-topic"
                                             class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
@@ -190,13 +188,28 @@
                                             <p>Đề tài theo loại</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item"><a
-                                            href="${pageContext.request.contextPath}/list-of-topic"
-                                            class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Đề tài đã đăng ký</p>
-                                        </a>
-                                    </li>
+
+                                    <c:if test="${sessionScope.dean != null || sessionScope.lecturer != null}" >
+                                        <li class="nav-item">
+                                            <a
+                                                href="${pageContext.request.contextPath}/list-of-topic"
+                                                class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Đề tài đã đăng ký</p>
+                                            </a>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${sessionScope.student != null}" >
+                                        <li class="nav-item">
+                                            <a
+                                                href="${pageContext.request.contextPath}/topicRegisteredOfStudent"
+                                                class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Đề tài đã đăng ký</p>
+                                            </a>
+                                        </li>
+                                    </c:if>
+                                        
                                     <li class="nav-item">
                                         <a
                                             href="${pageContext.request.contextPath}/topic-to-register"
@@ -206,12 +219,12 @@
                                         </a>
                                     </li>
                                 </ul>
+                            </li>
                             <li class="nav-item ">
                                 <a href="<c:url value="/studentToLecturer"/>" class="nav-link">
                                     <i class="nav-icon fas fa-list"></i>
                                     <p>Quản lý sinh viên</p>
                                 </a>
-                            </li>
                             </li>
 
                             <!-- Đăng ký đề tài -->
@@ -275,7 +288,6 @@
                                     </a>
                                 </li>
                             </c:if>
-
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
@@ -284,4 +296,40 @@
             </aside>
         </div>
     </body>
+    <!-- jQuery -->
+    <script src="<c:url value="/Resources/plugins/jquery/jquery.min.js"/>"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="<c:url value="/Resources/plugins/jquery-ui/jquery-ui.min.js"/>"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="<c:url value="/Resources/plugins/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+    <!-- ChartJS -->
+    <script src="<c:url value="/Resources/plugins/chart.js/Chart.min.js"/>"></script>
+    <!-- Sparkline -->
+    <script src="<c:url value="/Resources/plugins/sparklines/sparkline.js"/>"></script>
+    <!-- JQVMap -->
+    <script src="<c:url value="/Resources/plugins/jqvmap/jquery.vmap.min.js"/>"></script>
+    <script src="<c:url value="/Resources/plugins/jqvmap/maps/jquery.vmap.usa.js"/>"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="<c:url value="./Resources/plugins/jquery-knob/jquery.knob.min.js"/>"></script>
+    <!-- daterangepicker -->
+    <script src="<c:url value="/Resources/plugins/moment/moment.min.js"/>"></script>
+    <script src="<c:url value="/Resources/plugins/daterangepicker/daterangepicker.js"/>"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script
+    src="<c:url value="/Resources/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"/>"></script>
+    <!-- Summernote -->
+    <script src="<c:url value="/Resources/plugins/summernote/summernote-bs4.min.js"/>"></script>
+    <!-- overlayScrollbars -->
+    <script
+    src="<c:url value="/Resources/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"/>"></script>
+    <!-- AdminLTE App -->
+    <script src="<c:url value="/Resources/js/adminlte.js"/>"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="<c:url value="/Resources/js/pages/dashboard.js"/>"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="<c:url value="/Resources/js/demo.js"/>"></script>
 </html>

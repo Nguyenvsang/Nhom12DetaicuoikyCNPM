@@ -1,4 +1,4 @@
-package com.nhom12.controller;
+package com.nhom12.controller.admin;
 
 import com.nhom12.dao.PeriodDAOImpl;
 import com.nhom12.entity.Admin;

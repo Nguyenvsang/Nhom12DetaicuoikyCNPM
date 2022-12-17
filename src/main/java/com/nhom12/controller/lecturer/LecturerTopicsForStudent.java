@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-package com.nhom12.controller;
+package com.nhom12.controller.lecturer;
 
 import com.nhom12.dao.StudentDAOImpl;
 import com.nhom12.entity.Student;
@@ -15,12 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author nguye
- */
-@WebServlet(name = "lecturerManageStudentAccount", urlPatterns = {"/lecturerManageStudentAccount"})
-public class LecturerManageStudentAccount extends HttpServlet {
+@WebServlet(name = "lecturerTopicsForStudent", urlPatterns = {"/lecturerTopicsForStudent"})
+public class LecturerTopicsForStudent extends HttpServlet {
     
     StudentDAOImpl studentDAOImpl = new StudentDAOImpl();
     
@@ -34,7 +26,7 @@ public class LecturerManageStudentAccount extends HttpServlet {
             Student student = studentDAOImpl.findStudentByID(studentID);
             session.setAttribute("student", student);
             
-            request.getRequestDispatcher("/manage_account_student.jsp").forward(request, response);
+            request.getRequestDispatcher("/topic-to-register").forward(request, response);
             
         }
         else{
@@ -47,15 +39,5 @@ public class LecturerManageStudentAccount extends HttpServlet {
             throws ServletException, IOException {
         doGet(request, response);
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

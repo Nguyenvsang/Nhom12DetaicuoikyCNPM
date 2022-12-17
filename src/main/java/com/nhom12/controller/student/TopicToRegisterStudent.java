@@ -1,4 +1,4 @@
-package com.nhom12.controller;
+package com.nhom12.controller.student;
 
 import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.dao.SubjectDAOImpl;

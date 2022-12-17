@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.nhom12.controller;
+package com.nhom12.controller.dean;
 
 import com.nhom12.dao.LecturerDAOImpl;
 import com.nhom12.entity.Lecturer;

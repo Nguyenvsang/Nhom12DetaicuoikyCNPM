@@ -1,4 +1,4 @@
-package com.nhom12.controller;
+package com.nhom12.controller.lecturer;
 
 import com.nhom12.dao.SubjectDAOImpl;
 import com.nhom12.dao.TopicDAOImpl;
